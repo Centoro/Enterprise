@@ -16,8 +16,21 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            
+            console.log('Hamburger menu clicked!'); // DEBUG: Check this in F12 console
+            
             mobileNav.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            
+            // --- FIX: Ensure visibility override ---
+            if (mobileNav.classList.contains('active')) {
+                mobileNav.style.display = 'block'; // Force it to appear if hidden by CSS
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileNav.style.display = ''; // Reset to CSS default
+                document.body.style.overflow = '';
+            }
+            // ---------------------------------------
+            
             console.log('Menu toggled:', mobileNav.classList.contains('active') ? 'open' : 'closed');
         });
         
@@ -26,12 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
             menuClose.addEventListener('click', function(e) {
                 e.preventDefault();
                 mobileNav.classList.remove('active');
+                mobileNav.style.display = ''; // Reset display
                 document.body.style.overflow = '';
                 console.log('Menu closed by close button');
             });
         }
     } else {
-        console.log('Mobile menu elements not found');
+        console.error('❌ Mobile menu elements not found! Check your HTML class names (.mobile-menu-toggle, .mobile-nav)');
     }
     
     // ─── FEATURED WORK LIGHTBOX ──────────────────────────────────
@@ -709,6 +723,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // If click is NOT inside the menu AND NOT on the toggle button
             if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
                 mobileNav.classList.remove('active');
+                mobileNav.style.display = ''; // Reset display
                 document.body.style.overflow = '';
                 console.log('Menu closed by clicking outside');
             }
@@ -741,6 +756,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Close Menu
             if (mobileNav && mobileNav.classList.contains('active')) {
                 mobileNav.classList.remove('active');
+                mobileNav.style.display = '';
                 document.body.style.overflow = '';
             }
             // Close All Popups
