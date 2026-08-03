@@ -118,20 +118,5 @@
   </footer>
 
   <script src="script.js"></script>
-
-  <!-- NAVIGATION FIX: Forces all internal links to open in same tab -->
-  <script>
-    document.addEventListener('click', function(e) {
-      var link = e.target.closest('a[href]');
-      if (link && !link.getAttribute('target') && !link.getAttribute('onclick')) {
-        var href = link.getAttribute('href');
-        // Only intercept internal links (not external http links)
-        if (href && !href.match(/^https?:\/\//i) && !href.match(/^mailto:/i) && !href.match(/^tel:/i)) {
-          e.preventDefault();
-          window.location.href = href;
-        }
-      }
-    });
-  </script>
 </body>
 </html>
