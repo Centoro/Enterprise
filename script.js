@@ -30,26 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Menu closed by close button');
             });
         }
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (mobileNav.classList.contains('active')) {
-                if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
-                    mobileNav.classList.remove('active');
-                    document.body.style.overflow = '';
-                    console.log('Menu closed by clicking outside');
-                }
-            }
-        });
-        
-        // Close on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-                console.log('Menu closed by Escape key');
-            }
-        });
     } else {
         console.log('Mobile menu elements not found');
     }
@@ -88,13 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
     };
-    
-    // Close lightbox on Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeLightbox();
-        }
-    });
     
     // ─── AUTH TABS ──────────────────────────────────────────────────
     window.switchAuthTab = function(tab) {
@@ -285,13 +258,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     };
     
-    // Close series popup on overlay click
-    document.addEventListener('click', function(e) {
-        if (e.target.id === 'seriesPopupOverlay') {
-            closeSeriesPopup();
-        }
-    });
-    
     // ─── CONTRACT POPUP ────────────────────────────────────────────
     window.openContractPopup = function(btn) {
         const card = btn.closest('.contract-card');
@@ -327,13 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     };
     
-    // Close contract popup on overlay click
-    document.addEventListener('click', function(e) {
-        if (e.target.id === 'contractPopupOverlay') {
-            closeContractPopup();
-        }
-    });
-    
     // ─── LEASE POPUP ──────────────────────────────────────────────
     window.openLeasePopup = function(beat, type, price) {
         const overlay = document.getElementById('leasePopupOverlay');
@@ -356,13 +315,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (overlay) overlay.classList.remove('active');
         document.body.style.overflow = '';
     };
-    
-    // Close lease popup on overlay click
-    document.addEventListener('click', function(e) {
-        if (e.target.id === 'leasePopupOverlay') {
-            closeLeasePopup();
-        }
-    });
     
     window.switchLeaseType = function(type) {
         const btns = document.querySelectorAll('.lease-type-btn');
@@ -441,15 +393,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'hidden';
     };
     
-    // Close purchase detail on overlay click
-    document.addEventListener('click', function(e) {
-        if (e.target.id === 'purchaseDetailOverlay') {
-            const overlay = document.getElementById('purchaseDetailOverlay');
-            if (overlay) overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-    
     // ─── PROJECT POPUP ────────────────────────────────────────────
     window.openProjectPopup = function(btn) {
         const card = btn.closest('.project-card');
@@ -504,13 +447,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     };
     
-    // Close project popup on overlay click
-    document.addEventListener('click', function(e) {
-        if (e.target.id === 'projectPopupOverlay') {
-            closeProjectPopup();
-        }
-    });
-    
     // ─── PORTAL POPUP ────────────────────────────────────────────
     window.openPortalPopup = function(btn) {
         const card = btn.closest('.portal-box');
@@ -562,13 +498,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (overlay) overlay.classList.remove('active');
         document.body.style.overflow = '';
     };
-    
-    // Close portal popup on overlay click
-    document.addEventListener('click', function(e) {
-        if (e.target.id === 'portalPopupOverlay') {
-            closePortalPopup();
-        }
-    });
     
     // ─── PACK POPUP ────────────────────────────────────────────────
     window.openPackPopup = function(btn) {
@@ -644,13 +573,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (overlay) overlay.classList.remove('active');
         document.body.style.overflow = '';
     };
-    
-    // Close pack popup on overlay click
-    document.addEventListener('click', function(e) {
-        if (e.target.id === 'packPopupOverlay') {
-            closePackPopup();
-        }
-    });
     
     // ─── UTILITY FUNCTIONS ──────────────────────────────────────
     window.downloadTrack = function(title) {
@@ -780,10 +702,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // ─── GLOBAL CLOSE ON CLICK OUTSIDE (Menu + All Popups) ────
+    document.addEventListener('click', function(e) {
+        // Close Mobile Menu
+        if (mobileNav && mobileNav.classList.contains('active')) {
+            // If click is NOT inside the menu AND NOT on the toggle button
+            if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+                console.log('Menu closed by clicking outside');
+            }
+        }
+
+        // Close Popups (Lightbox, Series, Contract, Lease, etc.)
+        const overlays = [
+            document.getElementById('seriesPopupOverlay'),
+            document.getElementById('contractPopupOverlay'),
+            document.getElementById('leasePopupOverlay'),
+            document.getElementById('purchaseDetailOverlay'),
+            document.getElementById('projectPopupOverlay'),
+            document.getElementById('portalPopupOverlay'),
+            document.getElementById('packPopupOverlay'),
+            document.getElementById('lightbox')
+        ];
+
+        overlays.forEach(overlay => {
+            // If the popup is active and user clicked directly on the dark overlay background
+            if (overlay && overlay.classList.contains('active') && e.target === overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+    
+    // Close on Escape key (Global)
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            // Close Menu
+            if (mobileNav && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            // Close All Popups
+            window.closeLightbox();
+            window.closeSeriesPopup();
+            window.closeContractPopup();
+            window.closeLeasePopup();
+            window.closeProjectPopup();
+            window.closePackPopup();
+            window.closePortalPopup();
+        }
+    });
+
     console.log('✅ Centoro Enterprise - All Scripts Loaded!');
 });
 
 // ─── CLOSE FUNCTIONS (Global scope for inline onclick) ──────────
+// These are kept separate so HTML onclick="closeLightbox()" can still find them.
 
 window.closeLightbox = function() {
     const lightbox = document.getElementById('lightbox');
