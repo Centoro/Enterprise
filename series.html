@@ -1,0 +1,537 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Centoro Enterprise - Series</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="news-ribbon">
+    <div class="news-track">
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Centoro-Logo-2025.png" alt="Centoro Logo" class="logo">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a class="active" href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="portal.html">PORTAL</a>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+    <div class="mobile-nav">
+      <div class="mobile-nav-header">
+        <span>MENU</span>
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+      </div>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="portal.html">PORTAL</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="series-page">
+      <!-- PAGE TITLE "SERIES" REMOVED -->
+
+      <!-- GLOBAL SEARCH BAR -->
+      <div class="series-global-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="seriesSearch" placeholder="Search all series..." onkeyup="searchAllSeries()">
+      </div>
+
+      <section class="series-section" id="friday">
+        <div class="series-header">
+          <h2>FRIDAY MADNESS</h2>
+          <span class="friday-badge">EVERY FRIDAY • 9AM</span>
+        </div>
+
+        <div class="music-player" id="friday-player">
+          <div class="player-track-info">
+            <div class="player-cover">
+              <img id="player-cover-img" src="images/friday-madness-cover.jpg" alt="Friday Madness Cover">
+            </div>
+            <div class="player-track-details">
+              <h3 id="now-playing-title">Select a track</h3>
+              <p id="now-playing-artist">--</p>
+            </div>
+          </div>
+          <div class="player-controls">
+            <button class="player-btn" id="play-pause-btn"><i class="fas fa-play"></i></button>
+            <div class="player-progress">
+              <span class="progress-time" id="current-time">0:00</span>
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-time" id="duration-time">0:00</span>
+            </div>
+            <div class="player-volume">
+              <button class="volume-mute-btn" id="volume-mute-btn"><i class="fas fa-volume-up"></i></button>
+              <div class="volume-slider" id="volume-slider">
+                <div class="volume-fill" id="volume-fill" style="width: 70%;"></div>
+              </div>
+            </div>
+          </div>
+          <audio id="audio-player"></audio>
+        </div>
+
+        <h3 style="color: #FFC107; margin: 16px 0 12px;">TODAY'S FREE DROPS</h3>
+        <div class="drops-grid" id="today-drops">
+          <div class="drop-card" data-type="audio" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/friday-madness-cover.jpg" alt="Summer Vibes">
+              <div class="drop-overlay">
+                <button class="drop-play" data-action="play" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+              </div>
+            </div>
+            <div class="drop-info">
+              <h4>Summer Vibes</h4>
+              <p>Centoro • 140 BPM • Am</p>
+              <button class="drop-btn" data-action="download" onclick="event.stopPropagation();"><i class="fas fa-download"></i> FREE DOWNLOAD</button>
+            </div>
+          </div>
+
+          <div class="drop-card" data-type="audio" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/friday-madness-cover.jpg" alt="Night Vibes">
+              <div class="drop-overlay">
+                <button class="drop-play" data-action="play" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+              </div>
+            </div>
+            <div class="drop-info">
+              <h4>Night Vibes</h4>
+              <p>Centoro • 128 BPM • Fm</p>
+              <button class="drop-btn" data-action="download" onclick="event.stopPropagation();"><i class="fas fa-download"></i> FREE DOWNLOAD</button>
+            </div>
+          </div>
+
+          <div class="drop-card" data-type="audio" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/friday-madness-cover.jpg" alt="Morning Light">
+              <div class="drop-overlay">
+                <button class="drop-play" data-action="play" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+              </div>
+            </div>
+            <div class="drop-info">
+              <h4>Morning Light</h4>
+              <p>Centoro • 95 BPM • Dm</p>
+              <button class="drop-btn" data-action="download" onclick="event.stopPropagation();"><i class="fas fa-download"></i> FREE DOWNLOAD</button>
+            </div>
+          </div>
+
+          <div class="drop-card" data-type="audio" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/friday-madness-cover.jpg" alt="Urban Flow">
+              <div class="drop-overlay">
+                <button class="drop-play" data-action="play" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+              </div>
+            </div>
+            <div class="drop-info">
+              <h4>Urban Flow</h4>
+              <p>Centoro • 142 BPM • Gm</p>
+              <button class="drop-btn" data-action="download" onclick="event.stopPropagation();"><i class="fas fa-download"></i> FREE DOWNLOAD</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="past-drops-header">
+          <h3>PAST DROPS</h3>
+          <a class="account-prompt" href="portal.html">LOGIN TO DOWNLOAD →</a>
+        </div>
+        <div class="drops-grid" id="past-drops">
+          <div class="drop-card" data-type="audio" data-title="Ocean Waves" data-artist="Centoro" data-bpm="85" data-key="Cm" data-duration="3:30" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/friday-madness-cover.jpg" alt="Ocean Waves">
+              <div class="drop-overlay">
+                <button class="drop-play" data-action="play" data-title="Ocean Waves" data-artist="Centoro" data-bpm="85" data-key="Cm" data-duration="3:30" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+              </div>
+            </div>
+            <div class="drop-info">
+              <h4>Ocean Waves</h4>
+              <p>Mar 13, 2026</p>
+              <button class="drop-btn disabled" disabled onclick="event.stopPropagation();"><i class="fas fa-lock"></i> LOGIN TO DOWNLOAD</button>
+            </div>
+          </div>
+
+          <div class="drop-card" data-type="audio" data-title="Night Ride" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:08" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/friday-madness-cover.jpg" alt="Night Ride">
+              <div class="drop-overlay">
+                <button class="drop-play" data-action="play" data-title="Night Ride" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:08" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+              </div>
+            </div>
+            <div class="drop-info">
+              <h4>Night Ride</h4>
+              <p>Mar 6, 2026</p>
+              <button class="drop-btn disabled" disabled onclick="event.stopPropagation();"><i class="fas fa-lock"></i> LOGIN TO DOWNLOAD</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="series-section" id="monthly">
+        <div class="series-header">
+          <h2>MONTHLY MADNESS</h2>
+          <span class="monthly-badge">MARCH FEATURE</span>
+        </div>
+
+        <div class="monthly-card" data-type="service" data-title="Wedding Photography" data-desc="March Premium Feature" data-discount="50% OFF" data-slots="5 remaining" data-cover="images/monthly-madness-cover.jpg" onclick="openSeriesPopup(this)">
+          <h3>PHOTOGRAPHY</h3>
+          <p class="monthly-feature">Wedding Photography Packages</p>
+          <p class="monthly-discount">50% OFF</p>
+          <p class="monthly-slot">Limited Slots: 5 remaining</p>
+          <button class="claim-btn" onclick="event.stopPropagation(); location.href='contact.html'">CLAIM OFFER →</button>
+        </div>
+
+        <div class="past-drops-header">
+          <h3>PAST MONTHLY FEATURES</h3>
+        </div>
+        <div class="drops-grid" id="monthly-past-drops">
+          <div class="drop-card" data-type="image" data-title="February" data-desc="Web Development" data-cover="images/monthly-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/monthly-madness-cover.jpg" alt="February">
+            </div>
+            <div class="drop-info">
+              <h4>February</h4>
+              <p>Web Development</p>
+              <span class="past-badge">EXPIRED</span>
+            </div>
+          </div>
+
+          <div class="drop-card" data-type="image" data-title="January" data-desc="Beat Making" data-cover="images/monthly-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/monthly-madness-cover.jpg" alt="January">
+            </div>
+            <div class="drop-info">
+              <h4>January</h4>
+              <p>Beat Making</p>
+              <span class="past-badge">EXPIRED</span>
+            </div>
+          </div>
+
+          <div class="drop-card" data-type="image" data-title="December" data-desc="Video Editing" data-cover="images/monthly-madness-cover.jpg" onclick="openSeriesPopup(this)">
+            <div class="drop-cover">
+              <img src="images/monthly-madness-cover.jpg" alt="December">
+            </div>
+            <div class="drop-info">
+              <h4>December</h4>
+              <p>Video Editing</p>
+              <span class="past-badge">EXPIRED</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Series Popup Modal -->
+  <div class="series-popup-overlay" id="seriesPopupOverlay">
+    <div class="series-popup-window">
+      <button class="series-popup-close" id="closePopup" onclick="closeSeriesPopup()">&times;</button>
+      <div class="series-popup-grid">
+        <div class="series-popup-media">
+          <img id="popupImage" src="" alt="">
+        </div>
+        <div class="series-popup-details">
+          <span class="popup-badge" id="popupBadge">AUDIO</span>
+          <h2 id="popupTitle">Title</h2>
+          <p id="popupSubDescription" class="popup-subtitle">Description</p>
+
+          <div class="popup-meta-grid" id="popupMeta"></div>
+
+          <div class="popup-audio-deck" id="popupAudioDeck" style="display: none;">
+            <div class="popup-deck-controls">
+              <button class="popup-deck-play-btn" id="popupDeckPlay" onclick="togglePopupPlay()"><i class="fas fa-play"></i></button>
+              <div class="popup-deck-progress-wrap">
+                <div class="popup-deck-progress-bar" onclick="seekPopupAudio(event)">
+                  <div class="popup-deck-progress-fill" id="popupDeckProgressFill" style="width: 0%;"></div>
+                </div>
+                <div class="popup-deck-time">
+                  <span id="popupDeckCurrent">0:00</span>
+                  <span id="popupDeckDuration">0:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="popup-actions" id="popupActions"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-contact">
+        <div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:0815679592">081 567 9592</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:centroenterprise@gmail.com">centroenterprise@gmail.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Elsies River, Cape Town</span></div>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="index.html">Home</a><span>|</span>
+          <a href="about.html">About</a><span>|</span>
+          <a href="work.html">Work</a><span>|</span>
+          <a href="series.html">Series</a><span>|</span>
+          <a href="news.html">News</a><span>|</span>
+          <a href="contact.html">Contact</a><span>|</span>
+          <a href="portal.html">Portal</a><span>|</span>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">&copy; 2026 Centoro Enterprise. All rights reserved.</div>
+        <div class="tagline">Empowering Excellence. Defining Success.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Series Search - Single search bar for all series content
+    function searchAllSeries() {
+      const input = document.getElementById('seriesSearch');
+      const filter = input.value.toLowerCase();
+      const allCards = document.querySelectorAll('.drop-card, .monthly-card');
+
+      for (let i = 0; i < allCards.length; i++) {
+        const title = allCards[i].getAttribute('data-title') || '';
+        const artist = allCards[i].getAttribute('data-artist') || '';
+        const desc = allCards[i].getAttribute('data-desc') || '';
+        const text = (title + ' ' + artist + ' ' + desc).toLowerCase();
+
+        if (text.indexOf(filter) > -1) {
+          allCards[i].style.display = '';
+        } else {
+          allCards[i].style.display = 'none';
+        }
+      }
+    }
+
+    // Series Popup Functions
+    let popupAudio = null;
+    let popupAudioInterval = null;
+    let currentPopupTrack = null;
+
+    function openSeriesPopup(card) {
+      const type = card.getAttribute('data-type');
+      const title = card.getAttribute('data-title');
+      const cover = card.getAttribute('data-cover');
+
+      document.getElementById('popupTitle').textContent = title;
+      document.getElementById('popupImage').src = cover;
+
+      const metaGrid = document.getElementById('popupMeta');
+      metaGrid.innerHTML = '';
+
+      const badge = document.getElementById('popupBadge');
+      const audioDeck = document.getElementById('popupAudioDeck');
+      const actions = document.getElementById('popupActions');
+
+      if (type === 'audio') {
+        badge.textContent = 'AUDIO';
+        badge.style.background = '#FFC107';
+        badge.style.color = '#1a1a1a';
+
+        const artist = card.getAttribute('data-artist');
+        const bpm = card.getAttribute('data-bpm');
+        const key = card.getAttribute('data-key');
+        const duration = card.getAttribute('data-duration');
+
+        document.getElementById('popupSubDescription').textContent = artist + ' • ' + bpm + ' BPM • ' + key;
+
+        metaGrid.innerHTML = `
+          <div class="popup-meta-item"><i class="fas fa-user"></i><div><span class="meta-label">Artist</span><span class="meta-value">${artist}</span></div></div>
+          <div class="popup-meta-item"><i class="fas fa-drum"></i><div><span class="meta-label">BPM</span><span class="meta-value">${bpm}</span></div></div>
+          <div class="popup-meta-item"><i class="fas fa-music"></i><div><span class="meta-label">Key</span><span class="meta-value">${key}</span></div></div>
+          <div class="popup-meta-item"><i class="fas fa-clock"></i><div><span class="meta-label">Duration</span><span class="meta-value">${duration}</span></div></div>
+        `;
+
+        audioDeck.style.display = 'block';
+
+        currentPopupTrack = { title, artist, bpm, key, duration, cover };
+        document.getElementById('popupDeckDuration').textContent = duration;
+        document.getElementById('popupDeckCurrent').textContent = '0:00';
+        document.getElementById('popupDeckProgressFill').style.width = '0%';
+        document.getElementById('popupDeckPlay').innerHTML = '<i class="fas fa-play"></i>';
+
+        actions.innerHTML = `
+          <button class="popup-btn popup-btn-primary" onclick="downloadTrack('${title}')"><i class="fas fa-download"></i> DOWNLOAD</button>
+          <button class="popup-btn popup-btn-secondary" onclick="closeSeriesPopup()">CLOSE</button>
+        `;
+      } else if (type === 'service') {
+        badge.textContent = 'SERVICE';
+        badge.style.background = '#2563EB';
+        badge.style.color = '#fff';
+
+        const desc = card.getAttribute('data-desc');
+        const discount = card.getAttribute('data-discount');
+        const slots = card.getAttribute('data-slots');
+
+        document.getElementById('popupSubDescription').textContent = desc;
+
+        metaGrid.innerHTML = `
+          <div class="popup-meta-item"><i class="fas fa-tag"></i><div><span class="meta-label">Discount</span><span class="meta-value">${discount}</span></div></div>
+          <div class="popup-meta-item"><i class="fas fa-ticket-alt"></i><div><span class="meta-label">Slots</span><span class="meta-value">${slots}</span></div></div>
+        `;
+
+        audioDeck.style.display = 'none';
+
+        actions.innerHTML = `
+          <button class="popup-btn popup-btn-blue" onclick="location.href='contact.html'"><i class="fas fa-gift"></i> CLAIM OFFER</button>
+          <button class="popup-btn popup-btn-secondary" onclick="closeSeriesPopup()">CLOSE</button>
+        `;
+      } else if (type === 'image') {
+        badge.textContent = 'PAST FEATURE';
+        badge.style.background = '#999';
+        badge.style.color = '#fff';
+
+        const desc = card.getAttribute('data-desc');
+        document.getElementById('popupSubDescription').textContent = desc;
+
+        metaGrid.innerHTML = `
+          <div class="popup-meta-item"><i class="fas fa-calendar"></i><div><span class="meta-label">Month</span><span class="meta-value">${title}</span></div></div>
+          <div class="popup-meta-item"><i class="fas fa-briefcase"></i><div><span class="meta-label">Service</span><span class="meta-value">${desc}</span></div></div>
+        `;
+
+        audioDeck.style.display = 'none';
+
+        actions.innerHTML = `
+          <button class="popup-btn popup-btn-secondary" onclick="closeSeriesPopup()">CLOSE</button>
+        `;
+      }
+
+      document.getElementById('seriesPopupOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSeriesPopup() {
+      document.getElementById('seriesPopupOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+
+      if (popupAudio) {
+        popupAudio.pause();
+        popupAudio = null;
+      }
+      if (popupAudioInterval) {
+        clearInterval(popupAudioInterval);
+        popupAudioInterval = null;
+      }
+    }
+
+    function togglePopupPlay() {
+      const btn = document.getElementById('popupDeckPlay');
+      const isPlaying = btn.classList.contains('playing');
+
+      if (isPlaying) {
+        btn.classList.remove('playing');
+        btn.innerHTML = '<i class="fas fa-play"></i>';
+        if (popupAudio) popupAudio.pause();
+        if (popupAudioInterval) clearInterval(popupAudioInterval);
+      } else {
+        btn.classList.add('playing');
+        btn.innerHTML = '<i class="fas fa-pause"></i>';
+
+        let progress = 0;
+        popupAudioInterval = setInterval(function() {
+          progress += 1;
+          if (progress > 100) progress = 0;
+          document.getElementById('popupDeckProgressFill').style.width = progress + '%';
+
+          const totalSec = parseTimeToSeconds(currentPopupTrack ? currentPopupTrack.duration : '3:00');
+          const currentSec = Math.floor((progress / 100) * totalSec);
+          document.getElementById('popupDeckCurrent').textContent = formatTime(currentSec);
+        }, 1000);
+      }
+    }
+
+    function seekPopupAudio(event) {
+      const bar = event.currentTarget;
+      const rect = bar.getBoundingClientRect();
+      const percent = (event.clientX - rect.left) / rect.width;
+      document.getElementById('popupDeckProgressFill').style.width = (percent * 100) + '%';
+    }
+
+    function parseTimeToSeconds(timeStr) {
+      const parts = timeStr.split(':');
+      return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+    }
+
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function downloadTrack(title) {
+      alert('Downloading: ' + title);
+    }
+
+    document.getElementById('seriesPopupOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeSeriesPopup();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSeriesPopup();
+    });
+  </script>
+
+  <script>
+    async function loadSeriesFromAPI() {
+      try {
+        const series = await ApiService.getSeries();
+        if (series.success && series.data) {
+          const fridayDrops = series.data.fridayDrops || [];
+          const monthlyOffers = series.data.monthlyOffers || [];
+          console.log('Series loaded from API:', fridayDrops.length, 'Friday,', monthlyOffers.length, 'Monthly');
+          return true;
+        }
+      } catch (e) {
+        console.warn('Series API failed, using localStorage:', e);
+      }
+      return false;
+    }
+
+    setTimeout(loadSeriesFromAPI, 500);
+  </script>
+</html>

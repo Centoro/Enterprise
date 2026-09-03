@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Centoro Enterprise - Beat Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NEWS RIBBON -->
+  <div class="news-ribbon">
+    <div class="news-track">
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Centoro-Logo-2025.png" alt="Centoro Logo" class="logo">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="contact.html">CONTACT</a>
+        <a class="active" href="portal.html">PORTAL</a>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+    <div class="mobile-nav">
+      <div class="mobile-nav-header">
+        <span>MENU</span>
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+      </div>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="portal.html">PORTAL</a>
+        <hr>
+        <a href="client-portal.html">MY PROJECTS</a>
+        <a href="dashboard.html">DASHBOARD</a>
+        <a href="library.html">FREE LIBRARY</a>
+        <a href="monthly-library.html">MONTHLY LIBRARY</a>
+        <a href="beatstore.html">BEAT STORE</a>
+        <a href="samplestore.html">SAMPLE STORE</a>
+        <a href="purchases.html">PURCHASES</a>
+        <a href="contracts.html">CONTRACTS</a>
+        <a href="settings.html">SETTINGS</a>
+        <a href="portal.html">SIGN OUT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="portal-page">
+      <div class="portal-header"><h1>BEAT STORE</h1><div class="user-welcome"><span>Welcome, <strong>John Doe</strong></span><a class="sign-out-btn" href="portal.html">SIGN OUT</a></div></div>
+      
+      <!-- SEARCH BAR -->
+      <div class="portal-global-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="portalSearch" placeholder="Search instrumentals, beats, samples, packs..." onkeyup="searchPortalContent(this.value)">
+        <button class="portal-search-btn"><i class="fas fa-microphone"></i></button>
+      </div>
+
+      <div class="portal-tabs">
+        <a class="portal-tab" href="dashboard.html">DASHBOARD</a>
+        <a class="portal-tab" href="library.html">FRIDAY LIBRARY</a>
+        <a class="portal-tab" href="monthly-library.html">MONTHLY LIBRARY</a>
+        <a class="portal-tab active" href="beatstore.html">BEAT STORE</a>
+        <a class="portal-tab" href="samplestore.html">SAMPLE STORE</a>
+        <a class="portal-tab" href="purchases.html">PURCHASES</a>
+        <a class="portal-tab" href="contracts.html">CONTRACTS</a>
+      </div>
+
+      <!-- STORE PLAYER -->
+      <div class="store-player" id="store-player">
+        <div class="store-player-track">
+          <div class="store-player-cover">
+            <img id="store-cover-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23f0f0f0'/%3E%3Ctext x='40' y='45' font-family='Inter' fill='%23999' text-anchor='middle' font-size='10'%3ECover%3C/text%3E%3C/svg%3E" alt="Now Playing">
+          </div>
+          <div class="store-player-details">
+            <h3 id="store-player-title">Select a beat to preview</h3>
+            <p id="store-player-meta">--</p>
+          </div>
+        </div>
+        <div class="store-player-controls">
+          <button class="store-player-btn" id="store-play-btn"><i class="fas fa-play"></i></button>
+          <div class="store-player-progress">
+            <span class="store-progress-time" id="store-current">0:00</span>
+            <div class="store-progress-bar" id="store-progress-bar">
+              <div class="store-progress-fill" id="store-progress-fill" style="width:0%"></div>
+            </div>
+            <span class="store-progress-time" id="store-duration">0:00</span>
+          </div>
+          <div class="store-player-volume">
+            <button class="store-volume-btn" id="store-volume-btn"><i class="fas fa-volume-up"></i></button>
+            <div class="store-volume-slider" id="store-volume-slider">
+              <div class="store-volume-fill" id="store-volume-fill" style="width:70%"></div>
+            </div>
+          </div>
+        </div>
+        <audio id="store-audio"></audio>
+      </div>
+
+      <div class="beat-store-header">
+        <h2 style="color:#1a1a1a;">INSTRUMENTALS</h2>
+        <div class="beat-filters">
+          <a class="filter-btn active" onclick="filterBeats('All', this)">All</a>
+          <a class="filter-btn" onclick="filterBeats('Hip Hop', this)">Hip Hop</a>
+          <a class="filter-btn" onclick="filterBeats('Trap', this)">Trap</a>
+          <a class="filter-btn" onclick="filterBeats('R&B', this)">R&B</a>
+          <a class="filter-btn" onclick="filterBeats('Afrobeat', this)">Afrobeat</a>
+          <a class="filter-btn" onclick="filterBeats('Amapiano', this)">Amapiano</a>
+          <a class="filter-btn" onclick="filterBeats('Drill', this)">Drill</a>
+          <a class="filter-btn" onclick="filterBeats('Lo-Fi', this)">Lo-Fi</a>
+        </div>
+      </div>
+
+      <div class="beats-grid" id="beats-grid">
+        <!-- PACK 1: Hip Hop -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Summer Vibes Pack" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-genre="Hip Hop" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3ESummer Vibes%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Summer Vibes,City Lights,Golden Hour,Street Dreams">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3ESummer Vibes%3C/text%3E%3C/svg%3E" alt="Summer Vibes Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Hip Hop</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Summer Vibes Pack</h4>
+            <div class="beat-meta">140 BPM • Am • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Summer Vibes Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Summer Vibes Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 2: Trap -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Night Ride Pack" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-genre="Trap" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3ENight Ride%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Night Ride,Dark Alley,Trap King,Midnight Run">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3ENight Ride%3C/text%3E%3C/svg%3E" alt="Night Ride Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Night Ride" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Trap</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Night Ride Pack</h4>
+            <div class="beat-meta">128 BPM • Fm • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Night Ride Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Night Ride Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 3: R&B -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Ocean Waves Pack" data-artist="Centoro" data-bpm="85" data-key="Cm" data-duration="3:30" data-genre="R&B" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EOcean Waves%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Ocean Waves,Smooth Talk,Love Letter,Rainy Day">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EOcean Waves%3C/text%3E%3C/svg%3E" alt="Ocean Waves Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Ocean Waves" data-artist="Centoro" data-bpm="85" data-key="Cm" data-duration="3:30"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">R&B</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Ocean Waves Pack</h4>
+            <div class="beat-meta">85 BPM • Cm • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Ocean Waves Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Ocean Waves Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 4: Hip Hop -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Urban Drift Pack" data-artist="Centoro" data-bpm="145" data-key="Gm" data-duration="3:15" data-genre="Hip Hop" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EUrban Drift%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Urban Drift,Block Party,Freestyle,Underground">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EUrban Drift%3C/text%3E%3C/svg%3E" alt="Urban Drift Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Urban Drift" data-artist="Centoro" data-bpm="145" data-key="Gm" data-duration="3:15"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Hip Hop</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Urban Drift Pack</h4>
+            <div class="beat-meta">145 BPM • Gm • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Urban Drift Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Urban Drift Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 5: Trap -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Midnight Trap Pack" data-artist="Centoro" data-bpm="150" data-key="Dm" data-duration="3:08" data-genre="Trap" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EMidnight Trap%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Midnight Trap,808 Dreams,Siren,Trap House">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EMidnight Trap%3C/text%3E%3C/svg%3E" alt="Midnight Trap Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Midnight Trap" data-artist="Centoro" data-bpm="150" data-key="Dm" data-duration="3:08"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Trap</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Midnight Trap Pack</h4>
+            <div class="beat-meta">150 BPM • Dm • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Midnight Trap Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Midnight Trap Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 6: R&B -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Smooth Soul Pack" data-artist="Centoro" data-bpm="90" data-key="Em" data-duration="3:42" data-genre="R&B" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3ESmooth Soul%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Smooth Soul,Sunday Morning,Velvet,After Hours">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3ESmooth Soul%3C/text%3E%3C/svg%3E" alt="Smooth Soul Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Smooth Soul" data-artist="Centoro" data-bpm="90" data-key="Em" data-duration="3:42"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">R&B</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Smooth Soul Pack</h4>
+            <div class="beat-meta">90 BPM • Em • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Smooth Soul Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Smooth Soul Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 7: Afrobeat -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Lagos Nights Pack" data-artist="Centoro" data-bpm="110" data-key="Am" data-duration="3:20" data-genre="Afrobeat" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3ELagos Nights%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Lagos Nights,Afro King,Dance Floor,Palm Wine">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3ELagos Nights%3C/text%3E%3C/svg%3E" alt="Lagos Nights Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Lagos Nights" data-artist="Centoro" data-bpm="110" data-key="Am" data-duration="3:20"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Afrobeat</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Lagos Nights Pack</h4>
+            <div class="beat-meta">110 BPM • Am • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Lagos Nights Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Lagos Nights Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 8: Amapiano -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Piano Wave Pack" data-artist="Centoro" data-bpm="115" data-key="Fm" data-duration="3:35" data-genre="Amapiano" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EPiano Wave%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Piano Wave,Yanos Life,Log Drum,Vibes Only">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EPiano Wave%3C/text%3E%3C/svg%3E" alt="Piano Wave Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Piano Wave" data-artist="Centoro" data-bpm="115" data-key="Fm" data-duration="3:35"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Amapiano</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Piano Wave Pack</h4>
+            <div class="beat-meta">115 BPM • Fm • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Piano Wave Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Piano Wave Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 9: Drill -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="UK Drill Pack" data-artist="Centoro" data-bpm="140" data-key="Cm" data-duration="3:10" data-genre="Drill" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EUK Drill%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="UK Drill,Slide,Opps,Body Bag">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EUK Drill%3C/text%3E%3C/svg%3E" alt="UK Drill Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="UK Drill" data-artist="Centoro" data-bpm="140" data-key="Cm" data-duration="3:10"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Drill</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>UK Drill Pack</h4>
+            <div class="beat-meta">140 BPM • Cm • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('UK Drill Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('UK Drill Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PACK 10: Lo-Fi -->
+        <div class="beat-card clickable-series-box" data-type="pack" data-title="Chill Vibes Pack" data-artist="Centoro" data-bpm="75" data-key="Dm" data-duration="3:45" data-genre="Lo-Fi" data-cover="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EChill Vibes%3C/text%3E%3C/svg%3E" data-pack="true" data-pack-samples="Chill Vibes,Study Session,Rainy Cafe,Sunset Drive">
+          <div class="beat-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23f0f0f0'/%3E%3Ctext x='100' y='110' font-family='Inter' fill='%23999' text-anchor='middle' font-size='16' font-weight='400'%3EChill Vibes%3C/text%3E%3C/svg%3E" alt="Chill Vibes Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview" data-action="play" data-title="Chill Vibes" data-artist="Centoro" data-bpm="75" data-key="Dm" data-duration="3:45"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Lo-Fi</span>
+            <span class="beat-pack-badge"><i class="fas fa-layer-group"></i> PACK</span>
+          </div>
+          <div class="beat-info">
+            <h4>Chill Vibes Pack</h4>
+            <div class="beat-meta">75 BPM • Dm • 4 Samples</div>
+            <div class="beat-price"><span class="price-lease">R450 LEASE</span><span class="price-exclusive">R2,500 EXCL</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="event.stopPropagation(); openLeasePopup('Chill Vibes Pack', 'lease', 450)">LEASE</button>
+              <button class="beat-btn exclusive" onclick="event.stopPropagation(); openLeasePopup('Chill Vibes Pack', 'exclusive', 2500)">EXCLUSIVE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODERN PAYMENT METHODS - INSIDE PORTAL -->
+      <div class="payment-methods-section" style="margin-top:30px;">
+        <h4><i class="fas fa-credit-card"></i> Payment Methods Accepted</h4>
+        <div class="payment-methods-grid">
+          <div class="payment-method featured">
+            <div class="payment-method-icon"><i class="fas fa-bolt"></i></div>
+            <span class="payment-method-name">Yoco</span>
+            <span class="payment-method-badge">Preferred</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-visa"></i></div>
+            <span class="payment-method-name">Visa</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-mastercard"></i></div>
+            <span class="payment-method-name">Mastercard</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-amex"></i></div>
+            <span class="payment-method-name">Amex</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-paypal"></i></div>
+            <span class="payment-method-name">PayPal</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fas fa-credit-card"></i></div>
+            <span class="payment-method-name">PayFast</span>
+          </div>
+        </div>
+        <div class="payment-secure-badge">
+          <i class="fas fa-lock"></i> Secure payments powered by Yoco
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BEAT PACK POPUP -->
+  <div class="pack-popup-overlay" id="packPopupOverlay">
+    <div class="pack-popup-window">
+      <button class="pack-popup-close" id="closePackPopup">&times;</button>
+      <div class="pack-popup-grid">
+        <div class="pack-popup-media">
+          <img id="packPopupImage" src="" alt="">
+        </div>
+        <div class="pack-popup-details">
+          <span class="pack-popup-badge" id="packPopupBadge">BEAT PACK</span>
+          <h2 id="packPopupTitle">Pack Title</h2>
+          <p id="packPopupSub" class="pack-popup-subtitle">Description</p>
+          <div class="pack-popup-meta" id="packPopupMeta"></div>
+          
+          <div class="pack-samples-section">
+            <h3><i class="fas fa-layer-group"></i> SAMPLES IN THIS PACK</h3>
+            <div class="pack-samples-list" id="packSamplesList"></div>
+          </div>
+
+          <div class="pack-popup-actions" id="packPopupActions"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEASE CONTRACT POPUP -->
+  <div class="lease-popup-overlay" id="leasePopupOverlay">
+    <div class="lease-popup-window">
+      <button class="lease-popup-close" id="closeLeasePopup">&times;</button>
+      <div class="lease-popup-header">
+        <div class="lease-popup-icon"><i class="fas fa-file-contract"></i></div>
+        <div>
+          <h2 id="leasePopupTitle">Lease Agreement</h2>
+          <p id="leasePopupBeat">Beat: Summer Vibes Pack</p>
+        </div>
+      </div>
+      <div class="lease-popup-body">
+        <div class="lease-type-selector">
+          <button class="lease-type-btn active" data-type="lease" onclick="switchLeaseType('lease')">LEASE (R450)</button>
+          <button class="lease-type-btn" data-type="exclusive" onclick="switchLeaseType('exclusive')">EXCLUSIVE (R2,500)</button>
+        </div>
+        <div class="lease-details" id="leaseDetails">
+          <h3>Rights & Terms</h3>
+          <ul id="leaseRightsList">
+            <li><i class="fas fa-check"></i> Up to 10,000 streams</li>
+            <li><i class="fas fa-check"></i> 1 music video</li>
+            <li><i class="fas fa-check"></i> Radio play permitted</li>
+            <li><i class="fas fa-check"></i> Non-exclusive use</li>
+            <li><i class="fas fa-check"></i> Centoro retains ownership</li>
+            <li><i class="fas fa-times"></i> Beat stays in store</li>
+          </ul>
+        </div>
+        <div class="lease-payment-section">
+          <h3>Select Payment Method</h3>
+          <div class="lease-payment-options">
+            <button class="lease-payment-btn" onclick="selectPayment('yoco')"><i class="fas fa-credit-card"></i> Yoco</button>
+            <button class="lease-payment-btn" onclick="selectPayment('payfast')"><i class="fas fa-credit-card"></i> PayFast</button>
+            <button class="lease-payment-btn" onclick="selectPayment('paypal')"><i class="fab fa-paypal"></i> PayPal</button>
+            <button class="lease-payment-btn" onclick="selectPayment('card')"><i class="fas fa-credit-card"></i> Card</button>
+          </div>
+        </div>
+      </div>
+      <div class="lease-popup-footer">
+        <button class="lease-popup-btn primary" id="leasePayBtn" onclick="processPayment()"><i class="fas fa-shopping-cart"></i> PAY R450</button>
+        <button class="lease-popup-btn secondary" onclick="closeLeasePopup()">CANCEL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-contact">
+        <div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:0815679592">081 567 9592</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:centroenterprise@gmail.com">centroenterprise@gmail.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Elsies River, Cape Town</span></div>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="index.html">Home</a><span>|</span>
+          <a href="about.html">About</a><span>|</span>
+          <a href="work.html">Work</a><span>|</span>
+          <a href="series.html">Series</a><span>|</span>
+          <a href="contact.html">Contact</a><span>|</span>
+          <a href="portal.html">Portal</a><span>|</span>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">&copy; 2026 Centoro Enterprise. All rights reserved.</div>
+        <div class="tagline">Empowering Excellence. Defining Success.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js">
+<script>
+// Load beats from API with localStorage fallback
+async function loadBeatsFromAPI() {
+    try {
+        const tracks = await ApiService.getTracks();
+        if (tracks.success && tracks.data && tracks.data.length) {
+            // Beats loaded from API
+            console.log("Beats loaded from API:", tracks.data.length);
+            return true;
+        }
+    } catch (e) {
+        console.warn("Beat API failed, using localStorage:", e);
+    }
+    return false;
+}
+
+// Load packs from API
+async function loadPacksFromAPI() {
+    try {
+        const packs = await ApiService.getPacks();
+        if (packs.success && packs.data && packs.data.length) {
+            console.log("Packs loaded from API:", packs.data.length);
+            return true;
+        }
+    } catch (e) {
+        console.warn("Pack API failed, using localStorage:", e);
+    }
+    return false;
+}
+
+// Call on load
+setTimeout(() => { loadBeatsFromAPI(); loadPacksFromAPI(); }, 500);
+</script>
+</script>
+</html>

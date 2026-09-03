@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Centoro Enterprise - Monthly Madness Library</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NEWS RIBBON -->
+  <div class="news-ribbon">
+    <div class="news-track">
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Centoro-Logo-2025.png" alt="Centoro Logo" class="logo">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="contact.html">CONTACT</a>
+        <a class="active" href="portal.html">PORTAL</a>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+    <div class="mobile-nav">
+      <div class="mobile-nav-header">
+        <span>MENU</span>
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+      </div>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="portal.html">PORTAL</a>
+        <hr>
+        <a href="client-portal.html">MY PROJECTS</a>
+        <a href="dashboard.html">DASHBOARD</a>
+        <a href="library.html">FREE LIBRARY</a>
+        <a href="monthly-library.html">MONTHLY LIBRARY</a>
+        <a href="beatstore.html">BEAT STORE</a>
+        <a href="samplestore.html">SAMPLE STORE</a>
+        <a href="purchases.html">PURCHASES</a>
+        <a href="contracts.html">CONTRACTS</a>
+        <a href="settings.html">SETTINGS</a>
+        <a href="portal.html">SIGN OUT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="portal-page">
+      <div class="portal-header"><h1>MONTHLY MADNESS LIBRARY</h1><div class="user-welcome"><span>Welcome, <strong>John Doe</strong></span><a class="sign-out-btn" href="portal.html">SIGN OUT</a></div></div>
+      
+      <!-- SEARCH BAR -->
+      <div class="portal-global-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="portalSearch" placeholder="Search instrumentals, beats, samples, packs..." onkeyup="searchPortalContent(this.value)">
+        <button class="portal-search-btn"><i class="fas fa-microphone"></i></button>
+      </div>
+
+      <div class="portal-tabs">
+        <a class="portal-tab" href="dashboard.html">DASHBOARD</a>
+        <a class="portal-tab" href="library.html">FRIDAY LIBRARY</a>
+        <a class="portal-tab active" href="monthly-library.html">MONTHLY LIBRARY</a>
+        <a class="portal-tab" href="beatstore.html">BEAT STORE</a>
+        <a class="portal-tab" href="samplestore.html">SAMPLE STORE</a>
+        <a class="portal-tab" href="purchases.html">PURCHASES</a>
+        <a class="portal-tab" href="contracts.html">CONTRACTS</a>
+      </div>
+
+      <div class="monthly-library-intro">
+        <h2>YOUR CLAIMED OFFERS</h2>
+        <p>Access all Monthly Madness discounts and services you've claimed.</p>
+      </div>
+
+      <!-- Active Offers -->
+      <div class="monthly-section">
+        <h3 class="monthly-section-title"><i class="fas fa-fire"></i> ACTIVE OFFERS</h3>
+        <div class="monthly-offers-grid">
+          <div class="monthly-offer-card active clickable-series-box" data-type="service" data-title="Wedding Photography" data-desc="March Premium Feature" data-discount="50% OFF" data-slots="5 remaining" data-cover="images/monthly-madness-cover.jpg">
+            <div class="monthly-offer-badge">MARCH 2026</div>
+            <div class="monthly-offer-cover">
+              <img src="images/monthly-madness-cover.jpg" alt="Wedding Photography">
+            </div>
+            <div class="monthly-offer-info">
+              <h4>Wedding Photography</h4>
+              <p class="monthly-offer-discount">50% OFF</p>
+              <p class="monthly-offer-status"><i class="fas fa-check-circle"></i> Claimed on Mar 1, 2026</p>
+              <p class="monthly-offer-expiry">Expires: Mar 31, 2026</p>
+              <div class="monthly-offer-actions">
+                <button class="monthly-offer-btn primary" onclick="event.stopPropagation(); alert('Booking request sent!')">BOOK NOW</button>
+                <button class="monthly-offer-btn secondary" onclick="event.stopPropagation(); alert('Voucher code: MM-MAR-2026-7X9K')">VIEW VOUCHER</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Past Offers -->
+      <div class="monthly-section">
+        <h3 class="monthly-section-title"><i class="fas fa-history"></i> PAST OFFERS</h3>
+        <div class="monthly-offers-grid">
+          <div class="monthly-offer-card expired clickable-series-box" data-type="service" data-title="Web Development" data-desc="February Feature" data-discount="30% OFF" data-cover="images/monthly-madness-cover.jpg">
+            <div class="monthly-offer-badge">FEB 2026</div>
+            <div class="monthly-offer-cover">
+              <img src="images/monthly-madness-cover.jpg" alt="Web Development">
+            </div>
+            <div class="monthly-offer-info">
+              <h4>Web Development</h4>
+              <p class="monthly-offer-discount expired">30% OFF</p>
+              <p class="monthly-offer-status expired"><i class="fas fa-times-circle"></i> Expired Feb 28, 2026</p>
+              <span class="past-badge">EXPIRED</span>
+            </div>
+          </div>
+
+          <div class="monthly-offer-card expired clickable-series-box" data-type="service" data-title="Beat Making" data-desc="January Feature" data-discount="25% OFF" data-cover="images/monthly-madness-cover.jpg">
+            <div class="monthly-offer-badge">JAN 2026</div>
+            <div class="monthly-offer-cover">
+              <img src="images/monthly-madness-cover.jpg" alt="Beat Making">
+            </div>
+            <div class="monthly-offer-info">
+              <h4>Beat Making</h4>
+              <p class="monthly-offer-discount expired">25% OFF</p>
+              <p class="monthly-offer-status expired"><i class="fas fa-times-circle"></i> Expired Jan 31, 2026</p>
+              <span class="past-badge">EXPIRED</span>
+            </div>
+          </div>
+
+          <div class="monthly-offer-card expired clickable-series-box" data-type="service" data-title="Video Editing" data-desc="December Feature" data-discount="40% OFF" data-cover="images/monthly-madness-cover.jpg">
+            <div class="monthly-offer-badge">DEC 2025</div>
+            <div class="monthly-offer-cover">
+              <img src="images/monthly-madness-cover.jpg" alt="Video Editing">
+            </div>
+            <div class="monthly-offer-info">
+              <h4>Video Editing</h4>
+              <p class="monthly-offer-discount expired">40% OFF</p>
+              <p class="monthly-offer-status expired"><i class="fas fa-times-circle"></i> Expired Dec 31, 2025</p>
+              <span class="past-badge">EXPIRED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-contact">
+        <div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:0815679592">081 567 9592</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:centroenterprise@gmail.com">centroenterprise@gmail.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Elsies River, Cape Town</span></div>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="index.html">Home</a><span>|</span>
+          <a href="about.html">About</a><span>|</span>
+          <a href="work.html">Work</a><span>|</span>
+          <a href="series.html">Series</a><span>|</span>
+          <a href="contact.html">Contact</a><span>|</span>
+          <a href="portal.html">Portal</a><span>|</span>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">&copy; 2026 Centoro Enterprise. All rights reserved.</div>
+        <div class="tagline">Empowering Excellence. Defining Success.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js">
+<script>
+async function loadMonthlyFromAPI() {
+    try {
+        const series = await ApiService.getSeries();
+        if (series.success && series.data) {
+            const monthlyOffers = series.data.monthlyOffers || [];
+            console.log("Monthly offers loaded from API:", monthlyOffers.length);
+            return true;
+        }
+    } catch (e) {
+        console.warn("Monthly API failed, using localStorage:", e);
+    }
+    return false;
+}
+setTimeout(loadMonthlyFromAPI, 500);
+</script>
+</script>
+</html>

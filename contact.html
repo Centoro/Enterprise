@@ -1,0 +1,461 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Centoro Enterprise - Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NEWS RIBBON -->
+  <div class="news-ribbon">
+    <div class="news-track">
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Centoro-Logo-2025.png" alt="Centoro Logo" class="logo">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
+        <a class="active" href="contact.html">CONTACT</a>
+        <a href="portal.html">PORTAL</a>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+    <div class="mobile-nav">
+      <div class="mobile-nav-header">
+        <span>MENU</span>
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+      </div>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="portal.html">PORTAL</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="contact-page">
+      <!-- PAGE TITLE "CONTACT US" REMOVED -->
+      <section class="contact-intro">
+        <h2>GET IN TOUCH</h2>
+        <p>We'd love to hear from you. Reach out to us via any of the methods below.</p>
+      </section>
+      <div class="contact-layout">
+        <div class="contact-details">
+          <h3>CONTACT DETAILS</h3>
+          <div class="contact-info-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <span class="info-label">Phone</span>
+              <a href="tel:0815679592">081 567 9592</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <span class="info-label">Email</span>
+              <a href="mailto:centroenterprise@gmail.com">centroenterprise@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <span class="info-label">Location</span>
+              <span>Elsies River, Cape Town</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <span class="info-label">Hours</span>
+              <span>Mon-Thu: 9am-5pm | Fri: 9am-2pm | Sat: 9am-1pm</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-container">
+          <h3>SEND A MESSAGE</h3>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! We will get back to you soon.');">
+            <div class="form-group"><label for="contact-name">Your Name</label><input type="text" id="contact-name" required placeholder="John Doe"></div>
+            <div class="form-group"><label for="contact-email">Email</label><input type="email" id="contact-email" required placeholder="you@example.com"></div>
+            <div class="form-group"><label for="contact-message">Message</label><textarea id="contact-message" rows="5" required placeholder="How can we help you?"></textarea></div>
+            <button type="submit" class="auth-submit">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-contact">
+        <div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:0815679592">081 567 9592</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:centroenterprise@gmail.com">centroenterprise@gmail.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Elsies River, Cape Town</span></div>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="index.html">Home</a><span>|</span>
+          <a href="about.html">About</a><span>|</span>
+          <a href="work.html">Work</a><span>|</span>
+          <a href="series.html">Series</a><span>|</span>
+          <a href="news.html">News</a><span>|</span>
+          <a href="contact.html">Contact</a><span>|</span>
+          <a href="portal.html">Portal</a><span>|</span>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">&copy; 2026 Centoro Enterprise. All rights reserved.</div>
+        <div class="tagline">Empowering Excellence. Defining Success.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- CENTORO LIVE CHAT WIDGET -->
+<button class="centoro-chat-fab" id="centoroChatFab" onclick="toggleCentoroChat()" aria-label="Chat with us">
+    <i class="fas fa-comments"></i>
+    <span class="chat-badge" id="chatUnreadBadge" style="display:none;">0</span>
+</button>
+
+<div class="centoro-chat-window" id="centoroChatWindow">
+    <div class="centoro-chat-header">
+        <div class="chat-logo">C</div>
+        <div class="centoro-chat-header-info">
+            <h4>Centoro Support</h4>
+            <p>Online — We typically reply in minutes</p>
+        </div>
+        <button class="centoro-chat-close" onclick="toggleCentoroChat()" aria-label="Close chat">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="centoro-chat-body" id="centoroChatBody">
+        <!-- Messages load here -->
+    </div>
+
+    <div class="centoro-chat-form" id="centoroChatForm">
+        <div class="centoro-chat-row">
+            <div class="centoro-chat-field">
+                <label>Your Name</label>
+                <input type="text" id="chatName" placeholder="John Doe" required>
+            </div>
+            <div class="centoro-chat-field">
+                <label>Email / Phone</label>
+                <input type="text" id="chatContact" placeholder="you@email.com" required>
+            </div>
+        </div>
+        <div class="centoro-chat-row">
+            <div class="centoro-chat-field">
+                <label>Department</label>
+                <select id="chatDept" onchange="updateChatServices()">
+                    <option value="">Select...</option>
+                    <option value="Creative">Creative</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Series">Series</option>
+                    <option value="General">General Inquiry</option>
+                </select>
+            </div>
+            <div class="centoro-chat-field">
+                <label>Service</label>
+                <select id="chatService">
+                    <option value="">Select department first</option>
+                </select>
+            </div>
+        </div>
+        <div class="centoro-chat-field">
+            <label>Your Message</label>
+            <textarea id="chatMessage" placeholder="How can we help you?" required></textarea>
+        </div>
+        <button class="centoro-chat-send" onclick="sendCentoroChat()">
+            <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+    </div>
+
+    <div class="centoro-chat-powered">
+        Powered by <strong>Centoro</strong>
+    </div>
+</div>
+
+<script>
+(function() {
+    const DB_KEY = 'centoro_admin_db_v7';
+    const CHAT_SESSION_KEY = 'centoro_chat_session_id';
+    
+    const CHAT_SERVICES = {
+        'Creative': [
+            'Graphic Design',
+            'Photography',
+            'Videography',
+            'Music Production',
+            'Beat Making',
+            'Mixing & Mastering',
+            'Other Creative'
+        ],
+        'Technology': [
+            'Web Development',
+            'App Development',
+            'Technical Support',
+            'Google Business Setup',
+            'VoIP Services',
+            'Other Tech'
+        ],
+        'Series': [
+            'Friday Madness (Free Beats)',
+            'Monthly Madness (Discounts)',
+            'Beat Store Inquiry',
+            'Sample Store Inquiry'
+        ],
+        'General': [
+            'Quote Request',
+            'Pricing Question',
+            'Booking Inquiry',
+            'Partnership',
+            'Other'
+        ]
+    };
+    
+    function loadDB() {
+        try {
+            const raw = localStorage.getItem(DB_KEY);
+            return raw ? JSON.parse(raw) : null;
+        } catch (e) { return null; }
+    }
+    
+    function saveDB(db) {
+        try {
+            localStorage.setItem(DB_KEY, JSON.stringify(db));
+        } catch (e) { console.error('Chat save failed', e); }
+    }
+    
+    function getSessionId() {
+        let sid = localStorage.getItem(CHAT_SESSION_KEY);
+        if (!sid) {
+            sid = 'WEB-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+            localStorage.setItem(CHAT_SESSION_KEY, sid);
+        }
+        return sid;
+    }
+    
+    function fmtTime(d) {
+        return new Date(d).toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' });
+    }
+    
+    function fmtDateTime(d) {
+        return new Date(d).toLocaleString('en-ZA');
+    }
+    
+    window.updateChatServices = function() {
+        const dept = document.getElementById('chatDept').value;
+        const serviceSel = document.getElementById('chatService');
+        serviceSel.innerHTML = '<option value="">Select a service...</option>';
+        if (dept && CHAT_SERVICES[dept]) {
+            CHAT_SERVICES[dept].forEach(s => {
+                serviceSel.innerHTML += '<option value="' + s + '">' + s + '</option>';
+            });
+        }
+    };
+    
+    window.toggleCentoroChat = function() {
+        const win = document.getElementById('centoroChatWindow');
+        win.classList.toggle('active');
+        if (win.classList.contains('active')) {
+            renderChatMessages();
+            const badge = document.getElementById('chatUnreadBadge');
+            badge.style.display = 'none';
+        }
+    };
+    
+    function renderChatMessages() {
+        const body = document.getElementById('centoroChatBody');
+        const db = loadDB();
+        const sessionId = getSessionId();
+        
+        let html = '<div class="centoro-chat-msg bot"><div class="centoro-chat-bubble">👋 <strong>Welcome to Centoro!</strong><br>Tell us what you need and our team will get back to you ASAP. Select your department and service below, then send your message.</div><span class="centoro-chat-time">Centoro Support</span></div>';
+        
+        if (db && db.websiteChats) {
+            const myChats = db.websiteChats.filter(c => c.sessionId === sessionId);
+            myChats.forEach(msg => {
+                if (msg.from === 'visitor') {
+                    html += '<div class="centoro-chat-msg user"><div class="centoro-chat-bubble">' + escapeHtml(msg.text) + '</div><span class="centoro-chat-time">' + fmtTime(msg.time) + '</span></div>';
+                } else {
+                    html += '<div class="centoro-chat-msg bot"><div class="centoro-chat-bubble">' + escapeHtml(msg.text) + '</div><span class="centoro-chat-time">' + msg.from + ' · ' + fmtTime(msg.time) + '</span></div>';
+                }
+            });
+        }
+        
+        body.innerHTML = html;
+        body.scrollTop = body.scrollHeight;
+    }
+    
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+    
+    window.sendCentoroChat = function() {
+        const name = document.getElementById('chatName').value.trim();
+        const contact = document.getElementById('chatContact').value.trim();
+        const dept = document.getElementById('chatDept').value;
+        const service = document.getElementById('chatService').value;
+        const message = document.getElementById('chatMessage').value.trim();
+        
+        if (!name || !contact || !dept || !service || !message) {
+            alert('Please fill in all fields before sending.');
+            return;
+        }
+        
+        let db = loadDB();
+        if (!db) {
+            db = { settings: {} };
+        }
+        if (!db.websiteChats) db.websiteChats = [];
+        if (!db.websiteChatSessions) db.websiteChatSessions = [];
+        
+        const sessionId = getSessionId();
+        const now = new Date().toISOString();
+        
+        let session = db.websiteChatSessions.find(s => s.id === sessionId);
+        if (!session) {
+            session = {
+                id: sessionId,
+                name: name,
+                contact: contact,
+                department: dept,
+                service: service,
+                source: 'contact.html',
+                createdAt: now,
+                lastMessageAt: now,
+                status: 'open',
+                unread: 1
+            };
+            db.websiteChatSessions.push(session);
+        } else {
+            session.lastMessageAt = now;
+            session.unread = (session.unread || 0) + 1;
+            session.name = name;
+            session.contact = contact;
+        }
+        
+        db.websiteChats.push({
+            id: 'WCM-' + Date.now(),
+            sessionId: sessionId,
+            from: 'visitor',
+            text: message,
+            department: dept,
+            service: service,
+            time: now
+        });
+        
+        if (!db.activity) db.activity = [];
+        db.activity.unshift({
+            id: 'ACT-' + Date.now(),
+            user: name + ' (Website)',
+            action: 'sent message via website chat: "' + message.substring(0, 60) + (message.length > 60 ? '...' : '') + '"',
+            icon: 'message-circle',
+            color: 'info',
+            time: fmtDateTime(now)
+        });
+        if (db.activity.length > 100) db.activity = db.activity.slice(0, 100);
+        
+        saveDB(db);
+        
+        document.getElementById('chatMessage').value = '';
+        
+        const body = document.getElementById('centoroChatBody');
+        body.innerHTML += '<div class="centoro-chat-status"><i class="fas fa-check-circle"></i><strong>Message sent!</strong> Our ' + dept + ' team will respond soon.</div>';
+        body.scrollTop = body.scrollHeight;
+        
+        renderChatMessages();
+    };
+    
+    setInterval(function() {
+        const win = document.getElementById('centoroChatWindow');
+        if (win && win.classList.contains('active')) {
+            renderChatMessages();
+        }
+    }, 5000);
+    
+    function checkUnread() {
+        const db = loadDB();
+        if (!db || !db.websiteChats) return;
+        const sessionId = getSessionId();
+        const adminReplies = db.websiteChats.filter(m => 
+            m.sessionId === sessionId && m.from !== 'visitor'
+        );
+        const badge = document.getElementById('chatUnreadBadge');
+        if (adminReplies.length > 0 && badge) {
+            badge.textContent = adminReplies.length;
+            badge.style.display = 'flex';
+        }
+    }
+    
+    checkUnread();
+    setInterval(checkUnread, 5000);
+    
+    document.addEventListener('click', function(e) {
+        const win = document.getElementById('centoroChatWindow');
+        const fab = document.getElementById('centoroChatFab');
+        if (win && win.classList.contains('active')) {
+            if (!win.contains(e.target) && !fab.contains(e.target)) {
+                win.classList.remove('active');
+            }
+        }
+    });
+    
+    try {
+        const portalUser = localStorage.getItem('portalUser');
+        if (portalUser) {
+            const user = JSON.parse(portalUser);
+            const nameInput = document.getElementById('chatName');
+            const contactInput = document.getElementById('chatContact');
+            if (nameInput && !nameInput.value && user.name) nameInput.value = user.name;
+            if (contactInput && !contactInput.value && user.email) contactInput.value = user.email;
+        }
+    } catch (e) {}
+    
+    console.log('✅ Centoro Live Chat loaded — connected to admin panel');
+})();
+</script>
+</body>
+</html>
