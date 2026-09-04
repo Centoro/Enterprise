@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -60,12 +60,15 @@
         <a href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
         <hr>
+        <a href="client-portal.html">MY PROJECTS</a>
         <a href="dashboard.html">DASHBOARD</a>
         <a href="library.html">FREE LIBRARY</a>
         <a href="monthly-library.html">MONTHLY LIBRARY</a>
         <a href="beatstore.html">BEAT STORE</a>
+        <a href="samplestore.html">SAMPLE STORE</a>
         <a href="purchases.html">PURCHASES</a>
         <a href="contracts.html">CONTRACTS</a>
+        <a href="settings.html">SETTINGS</a>
         <a href="portal.html">SIGN OUT</a>
       </nav>
     </div>
@@ -74,19 +77,29 @@
   <main>
     <div class="portal-page">
       <div class="portal-header"><h1>FRIDAY MADNESS LIBRARY</h1><div class="user-welcome"><span>Welcome, <strong>John Doe</strong></span><a class="sign-out-btn" href="portal.html">SIGN OUT</a></div></div>
+      
+      <!-- SEARCH BAR -->
+      <div class="portal-global-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="portalSearch" placeholder="Search instrumentals, beats, samples, packs..." onkeyup="searchPortalContent(this.value)">
+        <button class="portal-search-btn"><i class="fas fa-microphone"></i></button>
+      </div>
+
       <div class="portal-tabs">
         <a class="portal-tab" href="dashboard.html">DASHBOARD</a>
         <a class="portal-tab active" href="library.html">FRIDAY LIBRARY</a>
         <a class="portal-tab" href="monthly-library.html">MONTHLY LIBRARY</a>
         <a class="portal-tab" href="beatstore.html">BEAT STORE</a>
+        <a class="portal-tab" href="samplestore.html">SAMPLE STORE</a>
         <a class="portal-tab" href="purchases.html">PURCHASES</a>
         <a class="portal-tab" href="contracts.html">CONTRACTS</a>
       </div>
+
       <p style="color:#777;margin-bottom:16px;">Your downloaded Friday Madness tracks. Download them again anytime.</p>
       <div class="library-grid">
-        <div class="library-item"><div class="library-cover"><img src="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" alt="Summer Vibes"></div><div class="library-info"><h4>Summer Vibes</h4><p>Mar 13, 2026</p><button class="library-download"><i class="fas fa-download"></i> DOWNLOAD</button></div></div>
-        <div class="library-item"><div class="library-cover"><img src="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" alt="Night Ride"></div><div class="library-info"><h4>Night Ride</h4><p>Mar 6, 2026</p><button class="library-download"><i class="fas fa-download"></i> DOWNLOAD</button></div></div>
-        <div class="library-item"><div class="library-cover"><img src="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" alt="Ocean Waves"></div><div class="library-info"><h4>Ocean Waves</h4><p>Feb 28, 2026</p><button class="library-download"><i class="fas fa-download"></i> DOWNLOAD</button></div></div>
+        <div class="library-item"><div class="library-cover"><img src="images/friday-madness-cover.jpg" alt="Summer Vibes"></div><div class="library-info"><h4>Summer Vibes</h4><p>Mar 13, 2026</p><button class="library-download"><i class="fas fa-download"></i> DOWNLOAD</button></div></div>
+        <div class="library-item"><div class="library-cover"><img src="images/friday-madness-cover.jpg" alt="Night Ride"></div><div class="library-info"><h4>Night Ride</h4><p>Mar 6, 2026</p><button class="library-download"><i class="fas fa-download"></i> DOWNLOAD</button></div></div>
+        <div class="library-item"><div class="library-cover"><img src="images/friday-madness-cover.jpg" alt="Ocean Waves"></div><div class="library-info"><h4>Ocean Waves</h4><p>Feb 28, 2026</p><button class="library-download"><i class="fas fa-download"></i> DOWNLOAD</button></div></div>
       </div>
     </div>
   </main>
@@ -123,7 +136,21 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-</body>
+  <script src="script.js">
+<script>
+async function loadLibraryFromAPI() {
+    try {
+        const tracks = await ApiService.getTracks();
+        if (tracks.success && tracks.data) {
+            console.log("Library loaded from API:", tracks.data.length, "tracks");
+            return true;
+        }
+    } catch (e) {
+        console.warn("Library API failed, using localStorage:", e);
+    }
+    return false;
+}
+setTimeout(loadLibraryFromAPI, 500);
+</script>
+</script>
 </html>
-

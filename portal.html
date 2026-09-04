@@ -42,6 +42,7 @@
         <a href="about.html">ABOUT</a>
         <a href="work.html">WORK</a>
         <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
         <a href="contact.html">CONTACT</a>
         <a class="active" href="portal.html">PORTAL</a>
       </nav>
@@ -57,6 +58,7 @@
         <a href="about.html">ABOUT</a>
         <a href="work.html">WORK</a>
         <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
         <a href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
         <hr>
@@ -65,8 +67,10 @@
         <a href="library.html">FREE LIBRARY</a>
         <a href="monthly-library.html">MONTHLY LIBRARY</a>
         <a href="beatstore.html">BEAT STORE</a>
+        <a href="samplestore.html">SAMPLE STORE</a>
         <a href="purchases.html">PURCHASES</a>
         <a href="contracts.html">CONTRACTS</a>
+        <a href="settings.html">SETTINGS</a>
         <a href="portal.html">SIGN OUT</a>
       </nav>
     </div>
@@ -74,94 +78,157 @@
 
   <main>
     <div class="portal-page">
-      <h1 class="page-title">PORTAL</h1>
       
-      <!-- PORTAL DASHBOARD GRID -->
-      <div class="portal-dashboard-grid">
-        <div class="portal-box clickable-series-box" data-type="portal" data-title="My Projects" data-desc="View your private project files and deliverables" data-icon="fa-briefcase" data-link="client-portal.html" data-color="#2563EB">
-          <div class="portal-box-icon" style="background:#2563EB"><i class="fas fa-briefcase"></i></div>
-          <h3>My Projects</h3>
-          <p>Private project files & deliverables</p>
-          <span class="portal-box-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        
-        <div class="portal-box clickable-series-box" data-type="portal" data-title="Dashboard" data-desc="Overview of your account activity and stats" data-icon="fa-chart-line" data-link="dashboard.html" data-color="#10B981">
-          <div class="portal-box-icon" style="background:#10B981"><i class="fas fa-chart-line"></i></div>
-          <h3>Dashboard</h3>
-          <p>Account overview & activity</p>
-          <span class="portal-box-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        
-        <div class="portal-box clickable-series-box" data-type="portal" data-title="Friday Madness Library" data-desc="Download your free Friday Madness instrumentals" data-icon="fa-music" data-link="library.html" data-color="#DC2626">
-          <div class="portal-box-icon" style="background:#DC2626"><i class="fas fa-music"></i></div>
-          <h3>Friday Library</h3>
-          <p>Free instrumentals downloads</p>
-          <span class="portal-box-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        
-        <div class="portal-box clickable-series-box" data-type="portal" data-title="Monthly Madness Library" data-desc="Access your claimed monthly offers and discounts" data-icon="fa-calendar-star" data-link="monthly-library.html" data-color="#F59E0B">
-          <div class="portal-box-icon" style="background:#F59E0B"><i class="fas fa-calendar-star"></i></div>
-          <h3>Monthly Library</h3>
-          <p>Your claimed offers & discounts</p>
-          <span class="portal-box-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        
-        <div class="portal-box clickable-series-box" data-type="portal" data-title="Beat Store" data-desc="Browse, preview and purchase beats and sample packs" data-icon="fa-shopping-cart" data-link="beatstore.html" data-color="#8B5CF6">
-          <div class="portal-box-icon" style="background:#8B5CF6"><i class="fas fa-shopping-cart"></i></div>
-          <h3>Beat Store</h3>
-          <p>Purchase beats & sample packs</p>
-          <span class="portal-box-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        
-        <div class="portal-box clickable-series-box" data-type="portal" data-title="Purchases" data-desc="View your purchase history, total spent and beats owned" data-icon="fa-receipt" data-link="purchases.html" data-color="#EC4899">
-          <div class="portal-box-icon" style="background:#EC4899"><i class="fas fa-receipt"></i></div>
-          <h3>Purchases</h3>
-          <p>Order history & spending</p>
-          <span class="portal-box-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        
-        <div class="portal-box clickable-series-box" data-type="portal" data-title="Contracts" data-desc="View and download your beat license agreements" data-icon="fa-file-contract" data-link="contracts.html" data-color="#06B6D4">
-          <div class="portal-box-icon" style="background:#06B6D4"><i class="fas fa-file-contract"></i></div>
-          <h3>Contracts</h3>
-          <p>License agreements & rights</p>
-          <span class="portal-box-arrow"><i class="fas fa-arrow-right"></i></span>
-        </div>
-        
-        <div class="portal-box clickable-series-box" data-type="portal" data-title="Payments" data-desc="View payment history and manage payment methods" data-icon="fa-credit-card" data-link="payments.html" data-color="#14B8A6">
-          <div class="portal-box-icon" style="background:#14B8A6"><i class="fas fa-credit-card"></i></div>
-          <h3>Payments</h3>
-          <p>Payment history & methods</p>
-          <span class="portal-box-arrow"><i class="fas fa-arrow-right"></i></span>
+      <!-- LOGIN / REGISTER FORM -->
+      <div id="authContainer">
+        <div class="auth-container" style="max-width:420px;margin:0 auto;">
+          <h1 class="page-title">PORTAL</h1>
+          <div class="auth-tabs">
+            <button class="auth-tab active" onclick="switchAuthTab('login')">SIGN IN</button>
+            <button class="auth-tab" onclick="switchAuthTab('register')">CREATE ACCOUNT</button>
+          </div>
+          <div id="login-form" class="auth-form active">
+            <form onsubmit="event.preventDefault(); loginUser();">
+              <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required placeholder="you@example.com">
+              </div>
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required placeholder="Password">
+              </div>
+              <button type="submit" class="auth-submit">SIGN IN</button>
+              <div class="auth-divider">or</div>
+              <div style="text-align:center;">
+                <a style="color:#2563EB;cursor:pointer;" onclick="alert('Password reset link sent to your email.')">Forgot password?</a>
+              </div>
+            </form>
+          </div>
+          <div id="register-form" class="auth-form">
+            <form onsubmit="event.preventDefault(); registerUser();">
+              <div class="form-group">
+                <label for="reg-name">Full Name</label>
+                <input type="text" id="reg-name" required placeholder="John Doe">
+              </div>
+              <div class="form-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" required placeholder="you@example.com">
+              </div>
+              <div class="form-group">
+                <label for="reg-password">Password (min 6 characters)</label>
+                <input type="password" id="reg-password" required placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="reg-confirm">Confirm Password</label>
+                <input type="password" id="reg-confirm" required placeholder="Confirm Password">
+              </div>
+              <button type="submit" class="auth-submit">CREATE FREE ACCOUNT</button>
+            </form>
+          </div>
+          <div class="auth-benefits">
+            <h3>WHY CREATE AN ACCOUNT?</h3>
+            <ul>
+              <li><i class="fas fa-check-circle"></i> Download past Friday Madness instrumentals</li>
+              <li><i class="fas fa-check-circle"></i> Access your project files and deliverables</li>
+              <li><i class="fas fa-check-circle"></i> Preview and purchase beats from the store</li>
+              <li><i class="fas fa-check-circle"></i> Track your purchase history</li>
+              <li><i class="fas fa-check-circle"></i> Exclusive content for registered members</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="auth-container" style="margin-top:40px;">
-        <div class="auth-tabs"><button class="auth-tab active" onclick="switchAuthTab('login')">SIGN IN</button><button class="auth-tab" onclick="switchAuthTab('register')">CREATE ACCOUNT</button></div>
-        <div id="login-form" class="auth-form active"><form onsubmit="event.preventDefault(); alert('Login successful! Redirecting to dashboard...'); location.href='dashboard.html';"><div class="form-group"><label for="login-email">Email</label><input type="email" id="login-email" required placeholder="you@example.com"></div><div class="form-group"><label for="login-password">Password</label><input type="password" id="login-password" required placeholder="••••••••"></div><button type="submit" class="auth-submit">SIGN IN</button><div class="auth-divider">or</div><div style="text-align:center;"><a style="color:#2563EB;cursor:pointer;">Forgot password?</a></div></form></div>
-        <div id="register-form" class="auth-form"><form onsubmit="event.preventDefault(); alert('Account created! You can now log in.'); switchAuthTab('login');"><div class="form-group"><label for="reg-name">Full Name</label><input type="text" id="reg-name" required placeholder="John Doe"></div><div class="form-group"><label for="reg-email">Email</label><input type="email" id="reg-email" required placeholder="you@example.com"></div><div class="form-group"><label for="reg-password">Password (min 6 characters)</label><input type="password" id="reg-password" required placeholder="••••••••"></div><div class="form-group"><label for="reg-confirm">Confirm Password</label><input type="password" id="reg-confirm" required placeholder="••••••••"></div><button type="submit" class="auth-submit">CREATE FREE ACCOUNT</button></form></div>
-        <div class="auth-benefits"><h3>WHY CREATE AN ACCOUNT?</h3><ul><li><i class="fas fa-check-circle"></i> Download past Friday Madness instrumentals</li><li><i class="fas fa-check-circle"></i> Access your project files and deliverables</li><li><i class="fas fa-check-circle"></i> Preview and purchase beats from the store</li><li><i class="fas fa-check-circle"></i> Track your purchase history</li><li><i class="fas fa-check-circle"></i> Exclusive content for registered members</li></ul></div>
+      <!-- LOGGED IN VIEW -->
+      <div id="portalDashboard" style="display:none;">
+        
+        <div class="portal-layout">
+          
+          <!-- SIDEBAR -->
+          <div class="portal-sidebar" id="portalSidebar">
+            
+            <!-- BLUE LINE TOGGLE BUTTON - ON THE LEFT EDGE -->
+            <div class="sidebar-toggle-btn" onclick="toggleSidebar()">
+              <i class="fas fa-chevron-left" id="sidebarToggleIcon"></i>
+            </div>
+            
+            <!-- Profile -->
+            <div class="sidebar-profile">
+              <div class="profile-avatar">
+                <span id="profileInitials">JD</span>
+              </div>
+              <div class="profile-info">
+                <h3 id="profileName">John Doe</h3>
+                <p><i class="fas fa-envelope"></i> <span id="profileEmail">john.doe@email.com</span></p>
+                <p><i class="fas fa-calendar-alt"></i> Member since March 2026</p>
+                <span class="profile-badge">PREMIUM</span>
+              </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav">
+              <a href="#" class="sidebar-link active" data-page="dashboard" onclick="loadPage('dashboard', this)">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+              </a>
+              <a href="#" class="sidebar-link" data-page="projects" onclick="loadPage('projects', this)">
+                <i class="fas fa-briefcase"></i>
+                <span>My Projects</span>
+              </a>
+              <a href="#" class="sidebar-link" data-page="friday" onclick="loadPage('friday', this)">
+                <i class="fas fa-music"></i>
+                <span>Friday Library</span>
+              </a>
+              <a href="#" class="sidebar-link" data-page="monthly" onclick="loadPage('monthly', this)">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Monthly Library</span>
+              </a>
+              <a href="#" class="sidebar-link" data-page="beatstore" onclick="loadPage('beatstore', this)">
+                <i class="fas fa-headphones"></i>
+                <span>Beat Store</span>
+              </a>
+              <a href="#" class="sidebar-link" data-page="samplestore" onclick="loadPage('samplestore', this)">
+                <i class="fas fa-wave-square"></i>
+                <span>Sample Store</span>
+              </a>
+              <a href="#" class="sidebar-link" data-page="purchases" onclick="loadPage('purchases', this)">
+                <i class="fas fa-receipt"></i>
+                <span>Purchases</span>
+              </a>
+              <a href="#" class="sidebar-link" data-page="contracts" onclick="loadPage('contracts', this)">
+                <i class="fas fa-file-contract"></i>
+                <span>Contracts</span>
+              </a>
+              <a href="#" class="sidebar-link" data-page="settings" onclick="loadPage('settings', this)">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+            </nav>
+
+            <!-- Sign Out -->
+            <div class="sidebar-footer">
+              <a href="#" class="sidebar-link signout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sign Out</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- MAIN CONTENT -->
+          <div class="portal-main-content" id="portalMainContent">
+            <div id="pageContent">
+              <div class="welcome-section">
+                <h2>Welcome back, <span id="welcomeName">John Doe</span></h2>
+                <p>Select a menu option from the sidebar to get started.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+
     </div>
   </main>
-
-  <!-- PORTAL POPUP -->
-  <div class="portal-popup-overlay" id="portalPopupOverlay">
-    <div class="portal-popup-window">
-      <button class="portal-popup-close" id="closePortalPopup">&times;</button>
-      <div class="portal-popup-grid">
-        <div class="portal-popup-media">
-          <div class="portal-popup-icon-large" id="portalPopupIcon"><i class="fas fa-briefcase"></i></div>
-        </div>
-        <div class="portal-popup-details">
-          <span class="portal-popup-badge" id="portalPopupBadge">PORTAL</span>
-          <h2 id="portalPopupTitle">Title</h2>
-          <p id="portalPopupDesc">Description</p>
-          <div class="portal-popup-features" id="portalPopupFeatures"></div>
-          <div class="portal-popup-actions" id="portalPopupActions"></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -185,6 +252,7 @@
           <a href="about.html">About</a><span>|</span>
           <a href="work.html">Work</a><span>|</span>
           <a href="series.html">Series</a><span>|</span>
+          <a href="news.html">News</a><span>|</span>
           <a href="contact.html">Contact</a><span>|</span>
           <a href="portal.html">Portal</a><span>|</span>
           <a href="privacy.html">Privacy Policy</a>
@@ -196,5 +264,1082 @@
   </footer>
 
   <script src="script.js"></script>
-</body>
+
+  <script>
+    // =====================================================
+    // SIDEBAR TOGGLE FUNCTIONS
+    // =====================================================
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('portalSidebar');
+      const icon = document.getElementById('sidebarToggleIcon');
+      
+      sidebar.classList.toggle('collapsed');
+      
+      // Toggle the chevron icon direction
+      if (sidebar.classList.contains('collapsed')) {
+        icon.classList.remove('fa-chevron-left');
+        icon.classList.add('fa-chevron-right');
+      } else {
+        icon.classList.remove('fa-chevron-right');
+        icon.classList.add('fa-chevron-left');
+      }
+    }
+
+    function closeSidebar() {
+      const sidebar = document.getElementById('portalSidebar');
+      const icon = document.getElementById('sidebarToggleIcon');
+      
+      if (!sidebar.classList.contains('collapsed')) {
+        sidebar.classList.add('collapsed');
+        icon.classList.remove('fa-chevron-left');
+        icon.classList.add('fa-chevron-right');
+      }
+    }
+
+    function openSidebar() {
+      const sidebar = document.getElementById('portalSidebar');
+      const icon = document.getElementById('sidebarToggleIcon');
+      
+      if (sidebar.classList.contains('collapsed')) {
+        sidebar.classList.remove('collapsed');
+        icon.classList.remove('fa-chevron-right');
+        icon.classList.add('fa-chevron-left');
+      }
+    }
+
+    // =====================================================
+    // LOGIN / LOGOUT
+    // =====================================================
+
+    function checkLoginStatus() {
+      const isLoggedIn = localStorage.getItem('portalLoggedIn');
+      if (isLoggedIn === 'true') {
+        showDashboard();
+        setTimeout(function() {
+          const activeLink = document.querySelector('.sidebar-link.active');
+          if (activeLink) {
+            loadPage('dashboard', activeLink);
+          }
+        }, 100);
+      } else {
+        showLogin();
+      }
+    }
+
+    function showDashboard() {
+      document.getElementById('authContainer').style.display = 'none';
+      document.getElementById('portalDashboard').style.display = 'block';
+      updateProfileInfo();
+    }
+
+    function showLogin() {
+      document.getElementById('authContainer').style.display = 'block';
+      document.getElementById('portalDashboard').style.display = 'none';
+    }
+
+    function loginUser() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      if (!email || !password) { alert('Please enter email and password.'); return; }
+      ApiService.login(email, password).then(response => {
+          if (response.success && response.data) {
+              ApiService.setToken(response.data.token);
+              ApiService.setUser(response.data.user);
+              localStorage.setItem('portalLoggedIn', 'true');
+              localStorage.setItem('portalUser', JSON.stringify(response.data.user));
+              alert('Login successful!');
+              showDashboard();
+          } else { alert('Login failed'); }
+      }).catch(err => { alert('Login failed: ' + err.message); });
+    }
+
+    function registerUser() {
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const confirm = document.getElementById('reg-confirm').value;
+      
+      if (!name || !email || !password || !confirm) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      
+      if (password !== confirm) {
+        alert('Passwords do not match!');
+        return;
+      }
+      
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters.');
+        return;
+      }
+      
+      const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
+      
+      localStorage.setItem('portalLoggedIn', 'true');
+      localStorage.setItem('portalUser', JSON.stringify({ 
+        name: name, 
+        email: email,
+        initials: initials
+      }));
+      alert('Account created successfully! Welcome ' + name + '!');
+      showDashboard();
+      const activeLink = document.querySelector('.sidebar-link.active');
+      if (activeLink) {
+        loadPage('dashboard', activeLink);
+      }
+    }
+
+    function logout() {
+      if (confirm('Are you sure you want to sign out?')) {
+        localStorage.removeItem('portalLoggedIn');
+        localStorage.removeItem('portalUser');
+        showLogin();
+        alert('You have been signed out.');
+      }
+    }
+
+    function updateProfileInfo() {
+      const userData = localStorage.getItem('portalUser');
+      if (userData) {
+        const user = JSON.parse(userData);
+        
+        const initialsEl = document.getElementById('profileInitials');
+        const nameEl = document.getElementById('profileName');
+        const emailEl = document.getElementById('profileEmail');
+        const welcomeName = document.getElementById('welcomeName');
+        
+        if (initialsEl) {
+          initialsEl.textContent = user.initials || 'JD';
+        }
+        if (nameEl) {
+          nameEl.textContent = user.name || 'John Doe';
+        }
+        if (emailEl) {
+          emailEl.textContent = user.email || 'john.doe@email.com';
+        }
+        if (welcomeName) {
+          welcomeName.textContent = user.name || 'John Doe';
+        }
+      }
+    }
+
+    window.switchAuthTab = function(tab) {
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      const tabs = document.querySelectorAll('.auth-tab');
+      
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      if (tab === 'login') {
+        loginForm.classList.add('active');
+        registerForm.classList.remove('active');
+        if (tabs[0]) tabs[0].classList.add('active');
+      } else {
+        registerForm.classList.add('active');
+        loginForm.classList.remove('active');
+        if (tabs[1]) tabs[1].classList.add('active');
+      }
+    };
+
+    // =====================================================
+    // BEAT STORE FILTERS
+    // =====================================================
+
+    function filterBeats(genre, element) {
+      const cards = document.querySelectorAll('.beat-card');
+      const filters = document.querySelectorAll('.beat-filter-btn');
+      
+      filters.forEach(btn => btn.classList.remove('active'));
+      if (element) element.classList.add('active');
+      
+      cards.forEach(card => {
+        const cardGenre = card.getAttribute('data-genre') || '';
+        if (genre === 'All' || cardGenre === genre) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterSamples(category, element) {
+      const cards = document.querySelectorAll('.sample-card');
+      const filters = document.querySelectorAll('.sample-filter-btn');
+      
+      filters.forEach(btn => btn.classList.remove('active'));
+      if (element) element.classList.add('active');
+      
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category') || '';
+        if (category === 'All' || cardCategory === category) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // =====================================================
+    // LOAD PAGES - WITH AUTO CLOSE SIDEBAR
+    // =====================================================
+
+    function loadPage(page, element) {
+      document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      if (element) {
+        element.classList.add('active');
+      }
+      
+      // AUTO CLOSE SIDEBAR ON NAVIGATION
+      closeSidebar();
+      
+      const contentArea = document.getElementById('pageContent');
+      
+      const pages = {
+        'dashboard': `
+          <h2>Dashboard</h2>
+          <p>Welcome to your dashboard! Here you can see an overview of your account activity.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:20px;">
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:1px solid #eee;text-align:center;">
+              <div style="font-size:2rem;color:#2563EB;font-weight:700;">2</div>
+              <div style="color:#777;">Purchases</div>
+            </div>
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:1px solid #eee;text-align:center;">
+              <div style="font-size:2rem;color:#10B981;font-weight:700;">R2,950</div>
+              <div style="color:#777;">Total Spent</div>
+            </div>
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:1px solid #eee;text-align:center;">
+              <div style="font-size:2rem;color:#F59E0B;font-weight:700;">3</div>
+              <div style="color:#777;">Downloads</div>
+            </div>
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:1px solid #eee;text-align:center;">
+              <div style="font-size:2rem;color:#8B5CF6;font-weight:700;">2</div>
+              <div style="color:#777;">Contracts</div>
+            </div>
+          </div>
+        `,
+        'projects': `
+          <h2>MY PROJECTS</h2>
+          <p style="margin-bottom:20px;">View your private project files and deliverables.</p>
+          
+          <h3 style="color:#2563EB;font-size:1.1rem;margin-bottom:12px;">ACTIVE PROJECTS</h3>
+          <div style="margin-top:20px;">
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:2px solid #2563EB;margin-bottom:16px;position:relative;">
+              <div style="position:absolute;top:-1px;right:-1px;background:#2563EB;color:#fff;padding:3px 12px;border-radius:0 0 0 10px;font-size:0.6rem;font-weight:700;">PRIVATE</div>
+              <h3 style="color:#2563EB;">Auto Detail Centre</h3>
+              <p style="color:#777;font-size:0.85rem;font-weight:600;">Website Development</p>
+              <p style="color:#555;font-size:0.9rem;">Complete brand transformation including logo design, website development, and social media strategy.</p>
+              <div style="margin:10px 0;">
+                <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:0.85rem;">
+                  <span><i class="fas fa-file-image"></i> logo-final.png</span>
+                  <span style="color:#999;">245 KB</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:0.85rem;">
+                  <span><i class="fas fa-file-archive"></i> website-files.zip</span>
+                  <span style="color:#999;">12.4 MB</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:0.85rem;">
+                  <span><i class="fas fa-file-pdf"></i> brand-guidelines.pdf</span>
+                  <span style="color:#999;">1.8 MB</span>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <span style="background:#10B981;color:#fff;padding:2px 10px;border-radius:20px;font-size:0.7rem;">COMPLETED</span>
+                <button style="background:#2563EB;color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;" onclick="viewProject('Auto Detail Centre')">VIEW DETAILS</button>
+                <button style="background:#1a1a1a;color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;" onclick="alert('Downloading all files...')">DOWNLOAD ALL</button>
+              </div>
+            </div>
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:2px solid #F59E0B;position:relative;">
+              <div style="position:absolute;top:-1px;right:-1px;background:#2563EB;color:#fff;padding:3px 12px;border-radius:0 0 0 10px;font-size:0.6rem;font-weight:700;">PRIVATE</div>
+              <h3 style="color:#F59E0B;">Uncle Cal</h3>
+              <p style="color:#777;font-size:0.85rem;font-weight:600;">Music Video</p>
+              <p style="color:#555;font-size:0.9rem;">Professional music video production for upcoming single. Rough cut available for review.</p>
+              <div style="margin:10px 0;">
+                <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:0.85rem;">
+                  <span><i class="fas fa-file-video"></i> rough-cut.mp4</span>
+                  <span style="color:#999;">45.2 MB</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:0.85rem;">
+                  <span><i class="fas fa-file-pdf"></i> storyboard.pdf</span>
+                  <span style="color:#999;">3.1 MB</span>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <span style="background:#F59E0B;color:#fff;padding:2px 10px;border-radius:20px;font-size:0.7rem;">IN PROGRESS</span>
+                <button style="background:#2563EB;color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;" onclick="viewProject('Uncle Cal')">VIEW DETAILS</button>
+              </div>
+            </div>
+          </div>
+          
+          <h3 style="color:#2563EB;font-size:1.1rem;margin:30px 0 12px;">COMPLETED PROJECTS</h3>
+          <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:2px solid #10B981;position:relative;">
+            <div style="position:absolute;top:-1px;right:-1px;background:#2563EB;color:#fff;padding:3px 12px;border-radius:0 0 0 10px;font-size:0.6rem;font-weight:700;">PRIVATE</div>
+            <h3 style="color:#10B981;">Scylash Entertainment</h3>
+            <p style="color:#777;font-size:0.85rem;font-weight:600;">Brand Identity</p>
+            <p style="color:#555;font-size:0.9rem;">Full brand identity package including logo, business cards, and social media templates.</p>
+            <div style="margin:10px 0;">
+              <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:0.85rem;">
+                <span><i class="fas fa-file-archive"></i> brand-package.zip</span>
+                <span style="color:#999;">28.5 MB</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span style="background:#10B981;color:#fff;padding:2px 10px;border-radius:20px;font-size:0.7rem;">COMPLETED</span>
+              <button style="background:#2563EB;color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;" onclick="viewProject('Scylash Entertainment')">VIEW DETAILS</button>
+              <button style="background:#1a1a1a;color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;" onclick="alert('Downloading all files...')">DOWNLOAD ALL</button>
+            </div>
+          </div>
+          
+          <div style="background:#dbeafe;border:2px solid #2563EB;border-radius:12px;padding:16px 20px;margin-top:20px;display:flex;align-items:center;gap:14px;">
+            <i class="fas fa-shield-alt" style="color:#2563EB;font-size:1.5rem;"></i>
+            <p style="color:#1e40af;font-size:0.9rem;margin:0;"><strong>Private Area:</strong> Your project files and deliverables are only visible to you. Centoro Enterprise ensures client confidentiality.</p>
+          </div>
+        `,
+        'friday': `
+          <h2>FRIDAY MADNESS LIBRARY</h2>
+          <p>Your downloaded Friday Madness tracks. Download them again anytime.</p>
+          
+          <div style="display:flex;align-items:center;background:#f8f8f8;border:2px solid #e8edf2;border-radius:12px;padding:0 16px;margin:16px 0 20px;transition:all 0.3s;">
+            <i class="fas fa-search" style="color:#9ca3af;font-size:0.9rem;margin-right:12px;"></i>
+            <input type="text" id="portalSearch" placeholder="Search instruments, beats, samples, packs..." onkeyup="searchPortalContent(this.value)" style="flex:1;border:none;background:transparent;padding:14px 0;font-size:0.95rem;font-family:'Inter',sans-serif;outline:none;color:#1a1a1a;">
+          </div>
+          
+          <p style="color:#777;margin-bottom:16px;">Your downloaded Friday Madness tracks. Download them again anytime.</p>
+          
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;">
+            <div style="background:#fff;border:1px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:120px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;"><i class="fas fa-music"></i></div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.95rem;">Summer Vibes</h4>
+                <p style="color:#999;font-size:0.7rem;">Mar 13, 2026</p>
+                <button style="width:100%;background:#2563EB;color:#fff;border:none;padding:6px;border-radius:5px;cursor:pointer;" onclick="downloadTrack('Summer Vibes')"><i class="fas fa-download"></i> DOWNLOAD</button>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:120px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;"><i class="fas fa-music"></i></div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.95rem;">Night Ride</h4>
+                <p style="color:#999;font-size:0.7rem;">Mar 6, 2026</p>
+                <button style="width:100%;background:#2563EB;color:#fff;border:none;padding:6px;border-radius:5px;cursor:pointer;" onclick="downloadTrack('Night Ride')"><i class="fas fa-download"></i> DOWNLOAD</button>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:120px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;"><i class="fas fa-music"></i></div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.95rem;">Ocean Waves</h4>
+                <p style="color:#999;font-size:0.7rem;">Feb 28, 2026</p>
+                <button style="width:100%;background:#2563EB;color:#fff;border:none;padding:6px;border-radius:5px;cursor:pointer;" onclick="downloadTrack('Ocean Waves')"><i class="fas fa-download"></i> DOWNLOAD</button>
+              </div>
+            </div>
+          </div>
+        `,
+        'monthly': `
+          <h2>MONTHLY MADNESS</h2>
+          <p style="color:#F59E0B;font-weight:600;margin-bottom:8px;">March Feature: Wedding Photography 50% OFF</p>
+          
+          <div style="background:#f8f8f8;border:2px solid #F59E0B;border-radius:12px;padding:24px;margin-top:16px;">
+            <h3 style="color:#1a1a1a;">Wedding Photography Packages</h3>
+            <p style="color:#F59E0B;font-size:1.8rem;font-weight:700;">50% OFF</p>
+            <p style="color:#2563EB;">Limited Slots: 5 remaining</p>
+            <button style="background:#F59E0B;color:#1a1a1a;border:none;padding:10px 28px;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;margin-top:12px;" onclick="bookNow()">CLAIM OFFER →</button>
+          </div>
+          
+          <h3 style="color:#2563EB;font-size:1.1rem;margin:30px 0 12px;">RECENT DOWNLOADS</h3>
+          <div style="background:#f8f8f8;border-radius:10px;padding:16px;border:1px solid #eee;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
+              <div>
+                <h4 style="color:#1a1a1a;font-size:0.95rem;">Summer Vibes</h4>
+                <p style="color:#999;font-size:0.75rem;">Mar 13, 2026</p>
+              </div>
+              <button style="background:#2563EB;color:#fff;border:none;padding:6px 12px;border-radius:5px;cursor:pointer;" onclick="downloadTrack('Summer Vibes')">DOWNLOAD</button>
+            </div>
+          </div>
+          
+          <h3 style="color:#2563EB;font-size:1.1rem;margin:24px 0 12px;">RECENT PURCHASES</h3>
+          <div style="background:#f8f8f8;border-radius:10px;padding:16px;border:1px solid #eee;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
+              <div>
+                <h4 style="color:#1a1a1a;font-size:0.95rem;">Night Ride</h4>
+                <p style="color:#999;font-size:0.75rem;">Lease • R450</p>
+              </div>
+              <button style="background:#2563EB;color:#fff;border:none;padding:6px 12px;border-radius:5px;cursor:pointer;" onclick="downloadPurchase('Night Ride')">DOWNLOAD</button>
+            </div>
+          </div>
+        `,
+        'beatstore': `
+          <h2>Beat Store</h2>
+          <p>Browse, preview and purchase beats and sample packs.</p>
+          
+          <div style="display:flex;align-items:center;background:#f8f8f8;border:2px solid #e8edf2;border-radius:12px;padding:0 16px;margin:16px 0;transition:all 0.3s;">
+            <i class="fas fa-search" style="color:#9ca3af;font-size:0.9rem;margin-right:12px;"></i>
+            <input type="text" id="portalSearch" placeholder="Search instruments, beats, samples, packs..." onkeyup="searchPortalContent(this.value)" style="flex:1;border:none;background:transparent;padding:14px 0;font-size:0.95rem;font-family:'Inter',sans-serif;outline:none;color:#1a1a1a;">
+          </div>
+          
+          <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;border-bottom:2px solid #eee;padding-bottom:12px;">
+            <a class="beat-filter-btn" onclick="filterBeats('All', this)" style="background:#2563EB;color:#fff;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">All</a>
+            <a class="beat-filter-btn" onclick="filterBeats('Hip Hop', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Hip Hop</a>
+            <a class="beat-filter-btn" onclick="filterBeats('Trap', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Trap</a>
+            <a class="beat-filter-btn" onclick="filterBeats('R&B', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">R&B</a>
+            <a class="beat-filter-btn" onclick="filterBeats('Afrobeat', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Afrobeat</a>
+            <a class="beat-filter-btn" onclick="filterBeats('Amapiano', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Amapiano</a>
+            <a class="beat-filter-btn" onclick="filterBeats('Drill', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Drill</a>
+            <a class="beat-filter-btn" onclick="filterBeats('Lo-Fi', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Lo-Fi</a>
+          </div>
+          
+          <h3 style="color:#1a1a1a;font-size:1.1rem;margin-bottom:16px;">INSTRUMENTALS</h3>
+          
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;">
+            <div class="beat-card" data-genre="Hip Hop" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-music"></i>
+                <span style="position:absolute;top:8px;left:8px;background:#8B5CF6;color:#fff;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:700;"><i class="fas fa-layer-group"></i> PACK</span>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Hip Hop</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Summer Vibes Pack</h4>
+                <div style="color:#999;font-size:0.7rem;">140 BPM • Am</div>
+                <div style="display:flex;justify-content:space-between;margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R450 LEASE</span>
+                  <span style="color:#2563EB;font-weight:600;font-size:0.8rem;">R2,500 EXCL</span>
+                </div>
+                <div style="display:flex;gap:4px;margin-top:6px;">
+                  <button style="flex:1;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="leaseBeat('Summer Vibes Pack')">LEASE</button>
+                  <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="exclusiveBeat('Summer Vibes Pack')">EXCLUSIVE</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="beat-card" data-genre="Trap" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-music"></i>
+                <span style="position:absolute;top:8px;left:8px;background:#8B5CF6;color:#fff;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:700;"><i class="fas fa-layer-group"></i> PACK</span>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Trap</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Night Ride Pack</h4>
+                <div style="color:#999;font-size:0.7rem;">128 BPM • Fm</div>
+                <div style="display:flex;justify-content:space-between;margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R450 LEASE</span>
+                  <span style="color:#2563EB;font-weight:600;font-size:0.8rem;">R2,500 EXCL</span>
+                </div>
+                <div style="display:flex;gap:4px;margin-top:6px;">
+                  <button style="flex:1;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="leaseBeat('Night Ride Pack')">LEASE</button>
+                  <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="exclusiveBeat('Night Ride Pack')">EXCLUSIVE</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="beat-card" data-genre="R&B" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-music"></i>
+                <span style="position:absolute;top:8px;left:8px;background:#8B5CF6;color:#fff;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:700;"><i class="fas fa-layer-group"></i> PACK</span>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">R&B</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Ocean Waves Pack</h4>
+                <div style="color:#999;font-size:0.7rem;">85 BPM • Cm</div>
+                <div style="display:flex;justify-content:space-between;margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R450 LEASE</span>
+                  <span style="color:#2563EB;font-weight:600;font-size:0.8rem;">R2,500 EXCL</span>
+                </div>
+                <div style="display:flex;gap:4px;margin-top:6px;">
+                  <button style="flex:1;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="leaseBeat('Ocean Waves Pack')">LEASE</button>
+                  <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="exclusiveBeat('Ocean Waves Pack')">EXCLUSIVE</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="beat-card" data-genre="Afrobeat" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-music"></i>
+                <span style="position:absolute;top:8px;left:8px;background:#8B5CF6;color:#fff;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:700;"><i class="fas fa-layer-group"></i> PACK</span>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Afrobeat</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Lagos Nights Pack</h4>
+                <div style="color:#999;font-size:0.7rem;">110 BPM • Am</div>
+                <div style="display:flex;justify-content:space-between;margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R450 LEASE</span>
+                  <span style="color:#2563EB;font-weight:600;font-size:0.8rem;">R2,500 EXCL</span>
+                </div>
+                <div style="display:flex;gap:4px;margin-top:6px;">
+                  <button style="flex:1;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="leaseBeat('Lagos Nights Pack')">LEASE</button>
+                  <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="exclusiveBeat('Lagos Nights Pack')">EXCLUSIVE</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="beat-card" data-genre="Amapiano" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-music"></i>
+                <span style="position:absolute;top:8px;left:8px;background:#8B5CF6;color:#fff;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:700;"><i class="fas fa-layer-group"></i> PACK</span>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Amapiano</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Piano Wave Pack</h4>
+                <div style="color:#999;font-size:0.7rem;">115 BPM • Fm</div>
+                <div style="display:flex;justify-content:space-between;margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R450 LEASE</span>
+                  <span style="color:#2563EB;font-weight:600;font-size:0.8rem;">R2,500 EXCL</span>
+                </div>
+                <div style="display:flex;gap:4px;margin-top:6px;">
+                  <button style="flex:1;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="leaseBeat('Piano Wave Pack')">LEASE</button>
+                  <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="exclusiveBeat('Piano Wave Pack')">EXCLUSIVE</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="beat-card" data-genre="Drill" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-music"></i>
+                <span style="position:absolute;top:8px;left:8px;background:#8B5CF6;color:#fff;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:700;"><i class="fas fa-layer-group"></i> PACK</span>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Drill</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">UK Drill Pack</h4>
+                <div style="color:#999;font-size:0.7rem;">140 BPM • Cm</div>
+                <div style="display:flex;justify-content:space-between;margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R450 LEASE</span>
+                  <span style="color:#2563EB;font-weight:600;font-size:0.8rem;">R2,500 EXCL</span>
+                </div>
+                <div style="display:flex;gap:4px;margin-top:6px;">
+                  <button style="flex:1;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="leaseBeat('UK Drill Pack')">LEASE</button>
+                  <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="exclusiveBeat('UK Drill Pack')">EXCLUSIVE</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="beat-card" data-genre="Lo-Fi" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-music"></i>
+                <span style="position:absolute;top:8px;left:8px;background:#8B5CF6;color:#fff;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:700;"><i class="fas fa-layer-group"></i> PACK</span>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Lo-Fi</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Chill Vibes Pack</h4>
+                <div style="color:#999;font-size:0.7rem;">75 BPM • Dm</div>
+                <div style="display:flex;justify-content:space-between;margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R450 LEASE</span>
+                  <span style="color:#2563EB;font-weight:600;font-size:0.8rem;">R2,500 EXCL</span>
+                </div>
+                <div style="display:flex;gap:4px;margin-top:6px;">
+                  <button style="flex:1;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="leaseBeat('Chill Vibes Pack')">LEASE</button>
+                  <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;" onclick="exclusiveBeat('Chill Vibes Pack')">EXCLUSIVE</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        'samplestore': `
+          <h2>Sample Store</h2>
+          <p>Browse, preview and purchase samples, loops and one-shots.</p>
+          
+          <div style="display:flex;align-items:center;background:#f8f8f8;border:2px solid #e8edf2;border-radius:12px;padding:0 16px;margin:16px 0;transition:all 0.3s;">
+            <i class="fas fa-search" style="color:#9ca3af;font-size:0.9rem;margin-right:12px;"></i>
+            <input type="text" id="portalSearch" placeholder="Search samples, loops, one-shots..." onkeyup="searchPortalContent(this.value)" style="flex:1;border:none;background:transparent;padding:14px 0;font-size:0.95rem;font-family:'Inter',sans-serif;outline:none;color:#1a1a1a;">
+          </div>
+          
+          <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;border-bottom:2px solid #eee;padding-bottom:12px;">
+            <a class="sample-filter-btn" onclick="filterSamples('All', this)" style="background:#2563EB;color:#fff;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">All</a>
+            <a class="sample-filter-btn" onclick="filterSamples('Kicks', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Kicks</a>
+            <a class="sample-filter-btn" onclick="filterSamples('Snares', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Snares</a>
+            <a class="sample-filter-btn" onclick="filterSamples('Hats', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Hats</a>
+            <a class="sample-filter-btn" onclick="filterSamples('808s', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">808s</a>
+            <a class="sample-filter-btn" onclick="filterSamples('Loops', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Loops</a>
+            <a class="sample-filter-btn" onclick="filterSamples('One-Shots', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">One-Shots</a>
+            <a class="sample-filter-btn" onclick="filterSamples('Packs', this)" style="background:#f5f5f5;color:#555;padding:6px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;">Packs</a>
+          </div>
+          
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;">
+            <div class="sample-card" data-category="Loops" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-wave-square"></i>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Loops</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Drum Loop 1</h4>
+                <div style="color:#999;font-size:0.7rem;">Hip Hop • 90 BPM</div>
+                <div style="margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R150</span>
+                </div>
+                <button style="width:100%;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;margin-top:6px;" onclick="buySample('Drum Loop 1', 150)">BUY NOW</button>
+              </div>
+            </div>
+            <div class="sample-card" data-category="808s" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-wave-square"></i>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">808s</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">808 Kick</h4>
+                <div style="color:#999;font-size:0.7rem;">Trap • One-Shot</div>
+                <div style="margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R50</span>
+                </div>
+                <button style="width:100%;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;margin-top:6px;" onclick="buySample('808 Kick', 50)">BUY NOW</button>
+              </div>
+            </div>
+            <div class="sample-card" data-category="Packs" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-wave-square"></i>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Packs</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Afrobeat Pack Vol.1</h4>
+                <div style="color:#999;font-size:0.7rem;">Afrobeat • 15 Samples</div>
+                <div style="margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R350</span>
+                </div>
+                <button style="width:100%;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;margin-top:6px;" onclick="buySample('Afrobeat Pack Vol.1', 350)">BUY NOW</button>
+              </div>
+            </div>
+            <div class="sample-card" data-category="One-Shots" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-wave-square"></i>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">One-Shots</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Snare Hit</h4>
+                <div style="color:#999;font-size:0.7rem;">Trap • One-Shot</div>
+                <div style="margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R40</span>
+                </div>
+                <button style="width:100%;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;margin-top:6px;" onclick="buySample('Snare Hit', 40)">BUY NOW</button>
+              </div>
+            </div>
+            <div class="sample-card" data-category="Kicks" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-wave-square"></i>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Kicks</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Kick 808</h4>
+                <div style="color:#999;font-size:0.7rem;">Trap • One-Shot</div>
+                <div style="margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R45</span>
+                </div>
+                <button style="width:100%;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;margin-top:6px;" onclick="buySample('Kick 808', 45)">BUY NOW</button>
+              </div>
+            </div>
+            <div class="sample-card" data-category="Snares" style="background:#fff;border:2px solid #eee;border-radius:10px;overflow:hidden;">
+              <div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ddd;position:relative;">
+                <i class="fas fa-wave-square"></i>
+                <span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.7);color:#FFC107;padding:2px 8px;border-radius:12px;font-size:0.6rem;font-weight:600;">Snares</span>
+              </div>
+              <div style="padding:12px;">
+                <h4 style="font-size:0.9rem;">Snare 808</h4>
+                <div style="color:#999;font-size:0.7rem;">Trap • One-Shot</div>
+                <div style="margin-top:6px;">
+                  <span style="color:#FFC107;font-weight:600;font-size:0.8rem;">R40</span>
+                </div>
+                <button style="width:100%;background:#FFC107;color:#1a1a1a;border:none;padding:4px;border-radius:4px;font-size:0.7rem;cursor:pointer;margin-top:6px;" onclick="buySample('Snare 808', 40)">BUY NOW</button>
+              </div>
+            </div>
+          </div>
+        `,
+        'purchases': `
+          <h2>Purchases</h2>
+          <p>View your purchase history, total spent and beats owned.</p>
+          <div style="margin-top:20px;overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+              <thead>
+                <tr>
+                  <th style="text-align:left;padding:12px 10px;border-bottom:2px solid #FFC107;background:#f8f8f8;">BEAT</th>
+                  <th style="text-align:left;padding:12px 10px;border-bottom:2px solid #FFC107;background:#f8f8f8;">LICENSE</th>
+                  <th style="text-align:left;padding:12px 10px;border-bottom:2px solid #FFC107;background:#f8f8f8;">DATE</th>
+                  <th style="text-align:left;padding:12px 10px;border-bottom:2px solid #FFC107;background:#f8f8f8;">AMOUNT</th>
+                  <th style="text-align:left;padding:12px 10px;border-bottom:2px solid #FFC107;background:#f8f8f8;">ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;"><strong>Summer Vibes</strong></td>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;"><span style="background:#FFC107;padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;">LEASE</span></td>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;">Mar 13, 2026</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;color:#FFC107;font-weight:700;">R450</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;"><button style="background:#2563EB;color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;" onclick="downloadPurchase('Summer Vibes')">Download</button></td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;"><strong>Night Ride</strong></td>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;"><span style="background:#2563EB;color:#fff;padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;">EXCLUSIVE</span></td>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;">Mar 6, 2026</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;color:#FFC107;font-weight:700;">R2,500</td>
+                  <td style="padding:12px 10px;border-bottom:1px solid #f0f0f0;"><button style="background:#2563EB;color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;" onclick="downloadPurchase('Night Ride')">Download</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        `,
+        'contracts': `
+          <h2>Contracts</h2>
+          <p>View and download your beat license agreements.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:20px;">
+            <div style="background:#fff;border:2px solid #eee;border-radius:12px;padding:20px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div style="background:#FFC107;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#1a1a1a;font-size:1.3rem;"><i class="fas fa-file-contract"></i></div>
+                <span style="background:#10B981;color:#fff;padding:4px 12px;border-radius:20px;font-size:0.7rem;font-weight:700;">ACTIVE</span>
+              </div>
+              <h3 style="margin:12px 0 8px;">Summer Vibes</h3>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+                <span style="background:#f8f8f8;padding:4px 12px;border-radius:20px;font-size:0.8rem;"><i class="fas fa-tag"></i> Lease License</span>
+                <span style="background:#f8f8f8;padding:4px 12px;border-radius:20px;font-size:0.8rem;"><i class="fas fa-calendar"></i> Mar 13, 2026</span>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:8px;border-radius:6px;cursor:pointer;" onclick="viewContract('Summer Vibes')">VIEW CONTRACT</button>
+                <button style="flex:1;background:#f5f5f5;color:#333;border:2px solid #eee;padding:8px;border-radius:6px;cursor:pointer;" onclick="downloadContract('Summer Vibes')">DOWNLOAD PDF</button>
+              </div>
+            </div>
+            <div style="background:#fff;border:2px solid #eee;border-radius:12px;padding:20px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div style="background:#2563EB;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;"><i class="fas fa-crown"></i></div>
+                <span style="background:#10B981;color:#fff;padding:4px 12px;border-radius:20px;font-size:0.7rem;font-weight:700;">ACTIVE</span>
+              </div>
+              <h3 style="margin:12px 0 8px;">Night Ride</h3>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+                <span style="background:#f8f8f8;padding:4px 12px;border-radius:20px;font-size:0.8rem;"><i class="fas fa-crown"></i> Exclusive License</span>
+                <span style="background:#f8f8f8;padding:4px 12px;border-radius:20px;font-size:0.8rem;"><i class="fas fa-calendar"></i> Mar 6, 2026</span>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button style="flex:1;background:#2563EB;color:#fff;border:none;padding:8px;border-radius:6px;cursor:pointer;" onclick="viewContract('Night Ride')">VIEW CONTRACT</button>
+                <button style="flex:1;background:#f5f5f5;color:#333;border:2px solid #eee;padding:8px;border-radius:6px;cursor:pointer;" onclick="downloadContract('Night Ride')">DOWNLOAD PDF</button>
+              </div>
+            </div>
+          </div>
+        `,
+        'settings': `
+          <h2>Settings</h2>
+          <p>Manage your profile, password and payment methods.</p>
+          <div style="margin-top:20px;">
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:1px solid #eee;margin-bottom:16px;">
+              <h3 style="color:#2563EB;font-size:1rem;"><i class="fas fa-user-circle"></i> Profile Information</h3>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+                <div>
+                  <label style="display:block;color:#777;font-size:0.8rem;margin-bottom:4px;">Full Name</label>
+                  <input type="text" value="John Doe" style="width:100%;padding:8px 12px;border:2px solid #eee;border-radius:8px;font-size:0.9rem;">
+                </div>
+                <div>
+                  <label style="display:block;color:#777;font-size:0.8rem;margin-bottom:4px;">Email Address</label>
+                  <input type="email" value="john.doe@email.com" style="width:100%;padding:8px 12px;border:2px solid #eee;border-radius:8px;font-size:0.9rem;">
+                </div>
+              </div>
+              <button style="background:#2563EB;color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;margin-top:12px;" onclick="saveProfile()"><i class="fas fa-save"></i> Save Changes</button>
+            </div>
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:1px solid #eee;margin-bottom:16px;">
+              <h3 style="color:#2563EB;font-size:1rem;"><i class="fas fa-credit-card"></i> Payment & Billing</h3>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+                <div>
+                  <label style="display:block;color:#777;font-size:0.8rem;margin-bottom:4px;">Bank Name</label>
+                  <input type="text" value="Standard Bank" style="width:100%;padding:8px 12px;border:2px solid #eee;border-radius:8px;font-size:0.9rem;">
+                </div>
+                <div>
+                  <label style="display:block;color:#777;font-size:0.8rem;margin-bottom:4px;">Account Number</label>
+                  <input type="text" value="1234567890" style="width:100%;padding:8px 12px;border:2px solid #eee;border-radius:8px;font-size:0.9rem;">
+                </div>
+              </div>
+              <button style="background:#2563EB;color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;margin-top:12px;" onclick="savePayment()"><i class="fas fa-save"></i> Update Payment Details</button>
+            </div>
+            <div style="background:#f8f8f8;padding:20px;border-radius:12px;border:1px solid #fecaca;">
+              <h3 style="color:#DC2626;font-size:1rem;"><i class="fas fa-exclamation-triangle"></i> Account Actions</h3>
+              <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+                <button style="padding:10px 20px;border-radius:8px;border:2px solid #e8edf2;background:#fff;cursor:pointer;" onclick="downloadData()"><i class="fas fa-download"></i> Download My Data</button>
+                <button style="padding:10px 20px;border-radius:8px;border:2px solid #fecaca;background:#fff;color:#DC2626;cursor:pointer;" onclick="deleteAccount()"><i class="fas fa-trash-alt"></i> Delete Account</button>
+              </div>
+            </div>
+          </div>
+        `
+      };
+      
+      if (pages[page]) {
+        contentArea.innerHTML = pages[page];
+      } else {
+        contentArea.innerHTML = `<h2>Page not found</h2><p>The requested page could not be found.</p>`;
+      }
+    }
+
+    // =====================================================
+    // BUTTON FUNCTIONS
+    // =====================================================
+
+    function bookNow() {
+      window.location.href = 'contact.html';
+    }
+
+    function viewVoucher() {
+      alert('Voucher code: MM-MAR-2026-7X9K');
+    }
+
+    function leaseBeat(beatName) {
+      alert('Leasing: ' + beatName + ' for R450');
+    }
+
+    function exclusiveBeat(beatName) {
+      alert('Exclusive purchase: ' + beatName + ' for R2,500');
+    }
+
+    function buySample(sampleName, price) {
+      alert('Purchasing: ' + sampleName + ' for R' + price);
+    }
+
+    function viewProject(projectName) {
+      alert('Viewing project: ' + projectName);
+    }
+
+    function downloadPurchase(beatName) {
+      alert('Downloading: ' + beatName);
+    }
+
+    function viewContract(beatName) {
+      alert('Viewing contract for: ' + beatName);
+    }
+
+    function downloadContract(beatName) {
+      alert('Downloading PDF contract for: ' + beatName);
+    }
+
+    function saveProfile() {
+      alert('Profile updated successfully!');
+    }
+
+    function savePayment() {
+      alert('Payment details updated successfully!');
+    }
+
+    function downloadData() {
+      if (confirm('Are you sure you want to download all your data?')) {
+        alert('Downloading your data...');
+      }
+    }
+
+    function deleteAccount() {
+      if (confirm('Are you sure you want to delete your account? This action cannot be undone!')) {
+        alert('Account deletion request submitted.');
+      }
+    }
+
+    function downloadTrack(title) {
+      alert('Downloading: ' + title);
+    }
+
+    function searchPortalContent(query) {
+      const items = document.querySelectorAll('.beat-card, .sample-card, .library-item, .contract-card, .monthly-offer-card, .drop-card');
+      const searchTerm = query.toLowerCase().trim();
+      
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (searchTerm === '' || text.includes(searchTerm)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // =====================================================
+    // INITIALIZATION
+    // =====================================================
+
+    document.addEventListener('DOMContentLoaded', function() {
+      checkLoginStatus();
+    });
+  </script>
+
+<script>
+// OVERRIDE loginUser to use API
+const originalLoginUser = window.loginUser;
+window.loginUser = async function() {
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    if (!email || !password) {
+        alert('Please enter your email and password.');
+        return;
+    }
+
+    try {
+        const response = await ApiService.login(email, password);
+        if (response.success && response.data) {
+            ApiService.setToken(response.data.token);
+            ApiService.setUser(response.data.user);
+            localStorage.setItem('portalLoggedIn', 'true');
+            localStorage.setItem('portalUser', JSON.stringify(response.data.user));
+            alert('Login successful! Welcome back!');
+            showDashboard();
+        } else {
+            alert('Login failed: ' + (response.message || 'Invalid credentials'));
+        }
+    } catch (error) {
+        alert('Login failed: ' + error.message);
+    }
+};
+
+// OVERRIDE registerUser to use API
+const originalRegisterUser = window.registerUser;
+window.registerUser = async function() {
+    const name = document.getElementById('reg-name').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
+    const confirm = document.getElementById('reg-confirm').value;
+
+    if (!name || !email || !password || !confirm) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    if (password !== confirm) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    if (password.length < 6) {
+        alert('Password must be at least 6 characters.');
+        return;
+    }
+
+    try {
+        const response = await ApiService.register(name, email, password);
+        if (response.success && response.data) {
+            ApiService.setToken(response.data.token);
+            ApiService.setUser(response.data.user);
+            localStorage.setItem('portalLoggedIn', 'true');
+            localStorage.setItem('portalUser', JSON.stringify(response.data.user));
+            alert('Account created successfully! Welcome ' + name + '!');
+            showDashboard();
+        } else {
+            alert('Registration failed: ' + (response.message || ''));
+        }
+    } catch (error) {
+        alert('Registration failed: ' + error.message);
+    }
+};
+
+// OVERRIDE logout to clear API token
+const originalLogout = window.logout;
+window.logout = function() {
+    if (confirm('Are you sure you want to sign out?')) {
+        ApiService.logout();
+        localStorage.removeItem('portalLoggedIn');
+        localStorage.removeItem('portalUser');
+        showLogin();
+        alert('You have been signed out.');
+    }
+};
+
+// OVERRIDE loginUser to use API with localStorage fallback
+const originalLoginUserFallback = window.loginUser;
+window.loginUser = async function() {
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    if (!email || !password) {
+        alert("Please enter your email and password.");
+        return;
+    }
+
+    try {
+        const response = await ApiService.login(email, password);
+        if (response.success && response.data) {
+            ApiService.setToken(response.data.token);
+            ApiService.setUser(response.data.user);
+            localStorage.setItem("portalLoggedIn", "true");
+            localStorage.setItem("portalUser", JSON.stringify(response.data.user));
+            alert("Login successful! Welcome back!");
+            showDashboard();
+            return;
+        }
+    } catch (apiError) {
+        console.warn("API login failed, using localStorage:", apiError.message);
+    }
+
+    // Fallback to localStorage
+    try {
+        const db = JSON.parse(localStorage.getItem("centoro_admin_db_v7") || "{}");
+        const user = (db.portalAccounts || []).find(a => a.email && a.email.toLowerCase() === email.toLowerCase());
+        if (user && user.password === password) {
+            localStorage.setItem("portalLoggedIn", "true");
+            localStorage.setItem("portalUser", JSON.stringify({
+                email: user.email,
+                name: user.name,
+                initials: user.name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2)
+            }));
+            alert("Login successful! Welcome back!");
+            showDashboard();
+            return;
+        }
+    } catch (err) {}
+
+    alert("Login failed. Please check your credentials.");
+};
+
+// OVERRIDE registerUser to use API with localStorage fallback
+const originalRegisterUserFallback = window.registerUser;
+window.registerUser = async function() {
+    const name = document.getElementById("reg-name").value;
+    const email = document.getElementById("reg-email").value;
+    const password = document.getElementById("reg-password").value;
+    const confirm = document.getElementById("reg-confirm").value;
+
+    if (!name || !email || !password || !confirm) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    if (password !== confirm) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
+    try {
+        const response = await ApiService.register(name, email, password);
+        if (response.success && response.data) {
+            ApiService.setToken(response.data.token);
+            ApiService.setUser(response.data.user);
+            localStorage.setItem("portalLoggedIn", "true");
+            localStorage.setItem("portalUser", JSON.stringify(response.data.user));
+            alert("Account created successfully! Welcome " + name + "!");
+            showDashboard();
+            return;
+        }
+    } catch (apiError) {
+        console.warn("API registration failed, using localStorage:", apiError.message);
+    }
+
+    // Fallback to localStorage
+    try {
+        const db = JSON.parse(localStorage.getItem("centoro_admin_db_v7") || "{}");
+        if (!db.portalAccounts) db.portalAccounts = [];
+        const initials = name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
+        const user = { id: "PAC-" + Date.now(), name, email, password, country: "South Africa", status: "active" };
+        db.portalAccounts.push(user);
+        localStorage.setItem("centoro_admin_db_v7", JSON.stringify(db));
+        localStorage.setItem("portalLoggedIn", "true");
+        localStorage.setItem("portalUser", JSON.stringify({ email, name, initials }));
+        alert("Account created successfully! Welcome " + name + "!");
+        showDashboard();
+        return;
+    } catch (err) {}
+
+    alert("Registration failed. Please try again.");
+};
+
+// OVERRIDE logout to clear API token
+const originalLogoutFallback = window.logout;
+window.logout = function() {
+    if (confirm("Are you sure you want to sign out?")) {
+        if (typeof ApiService !== "undefined" && ApiService.logout) ApiService.logout();
+        localStorage.removeItem("portalLoggedIn");
+        localStorage.removeItem("portalUser");
+        showLogin();
+        alert("You have been signed out.");
+    }
+};
+</script>
 </html>

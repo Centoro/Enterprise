@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-<base target="_blank">
-<base target="_blank">
 </head>
 <body>
   <div class="news-ribbon">
@@ -42,6 +40,7 @@
         <a href="about.html">ABOUT</a>
         <a href="work.html">WORK</a>
         <a class="active" href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
         <a href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
       </nav>
@@ -57,15 +56,16 @@
         <a href="about.html">ABOUT</a>
         <a href="work.html">WORK</a>
         <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
         <a href="contact.html">CONTACT</a>
-        <a href="portal.html">PORTAL</a> 
+        <a href="portal.html">PORTAL</a>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="series-page">
-      <h1 class="page-title">SERIES</h1>
+      <!-- PAGE TITLE "SERIES" REMOVED -->
 
       <!-- GLOBAL SEARCH BAR -->
       <div class="series-global-search">
@@ -82,7 +82,7 @@
         <div class="music-player" id="friday-player">
           <div class="player-track-info">
             <div class="player-cover">
-              <img id="player-cover-img" src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Friday-Madness-2.jpg" alt="Friday Madness Cover">
+              <img id="player-cover-img" src="images/friday-madness-cover.jpg" alt="Friday Madness Cover">
             </div>
             <div class="player-track-details">
               <h3 id="now-playing-title">Select a track</h3>
@@ -110,11 +110,11 @@
 
         <h3 style="color: #FFC107; margin: 16px 0 12px;">TODAY'S FREE DROPS</h3>
         <div class="drops-grid" id="today-drops">
-          <div class="drop-card" data-type="audio" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="audio" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Friday-Madness-2.jpg" alt="Summer Vibes">
+              <img src="images/friday-madness-cover.jpg" alt="Summer Vibes">
               <div class="drop-overlay">
-                <button class="drop-play" data-action="play" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+                <button class="drop-play" data-action="play" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
               </div>
             </div>
             <div class="drop-info">
@@ -124,11 +124,11 @@
             </div>
           </div>
 
-          <div class="drop-card" data-type="audio" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="audio" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Friday-Madness-2.jpg" alt="Night Vibes">
+              <img src="images/friday-madness-cover.jpg" alt="Night Vibes">
               <div class="drop-overlay">
-                <button class="drop-play" data-action="play" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+                <button class="drop-play" data-action="play" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
               </div>
             </div>
             <div class="drop-info">
@@ -138,11 +138,11 @@
             </div>
           </div>
 
-          <div class="drop-card" data-type="audio" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="audio" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Friday-Madness-2.jpg" alt="Morning Light">
+              <img src="images/friday-madness-cover.jpg" alt="Morning Light">
               <div class="drop-overlay">
-                <button class="drop-play" data-action="play" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+                <button class="drop-play" data-action="play" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
               </div>
             </div>
             <div class="drop-info">
@@ -152,11 +152,11 @@
             </div>
           </div>
 
-          <div class="drop-card" data-type="audio" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="audio" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Friday-Madness-2.jpg" alt="Urban Flow">
+              <img src="images/friday-madness-cover.jpg" alt="Urban Flow">
               <div class="drop-overlay">
-                <button class="drop-play" data-action="play" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+                <button class="drop-play" data-action="play" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
               </div>
             </div>
             <div class="drop-info">
@@ -172,11 +172,11 @@
           <a class="account-prompt" href="portal.html">LOGIN TO DOWNLOAD →</a>
         </div>
         <div class="drops-grid" id="past-drops">
-          <div class="drop-card" data-type="audio" data-title="Ocean Waves" data-artist="Centoro" data-bpm="85" data-key="Cm" data-duration="3:30" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="audio" data-title="Ocean Waves" data-artist="Centoro" data-bpm="85" data-key="Cm" data-duration="3:30" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Friday-Madness-2.jpg" alt="Ocean Waves">
+              <img src="images/friday-madness-cover.jpg" alt="Ocean Waves">
               <div class="drop-overlay">
-                <button class="drop-play" data-action="play" data-title="Ocean Waves" data-artist="Centoro" data-bpm="85" data-key="Cm" data-duration="3:30" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+                <button class="drop-play" data-action="play" data-title="Ocean Waves" data-artist="Centoro" data-bpm="85" data-key="Cm" data-duration="3:30" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
               </div>
             </div>
             <div class="drop-info">
@@ -186,11 +186,11 @@
             </div>
           </div>
 
-          <div class="drop-card" data-type="audio" data-title="Night Ride" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:08" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="audio" data-title="Night Ride" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:08" data-cover="images/friday-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Friday-Madness-2.jpg" alt="Night Ride">
+              <img src="images/friday-madness-cover.jpg" alt="Night Ride">
               <div class="drop-overlay">
-                <button class="drop-play" data-action="play" data-title="Night Ride" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:08" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
+                <button class="drop-play" data-action="play" data-title="Night Ride" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:08" data-cover="images/friday-madness-cover.jpg" onclick="event.stopPropagation();"><i class="fas fa-play"></i></button>
               </div>
             </div>
             <div class="drop-info">
@@ -208,21 +208,21 @@
           <span class="monthly-badge">MARCH FEATURE</span>
         </div>
 
-        <div class="monthly-card" data-type="service" data-title="Wedding Photography" data-desc="March Premium Feature" data-discount="50% OFF" data-slots="5 remaining" data-cover="C:/Users/cypri/.hfs/Services/Monthley-Madness.jpg" onclick="openSeriesPopup(this)">
+        <div class="monthly-card" data-type="service" data-title="Wedding Photography" data-desc="March Premium Feature" data-discount="50% OFF" data-slots="5 remaining" data-cover="images/monthly-madness-cover.jpg" onclick="openSeriesPopup(this)">
           <h3>PHOTOGRAPHY</h3>
           <p class="monthly-feature">Wedding Photography Packages</p>
           <p class="monthly-discount">50% OFF</p>
           <p class="monthly-slot">Limited Slots: 5 remaining</p>
-          <button class="claim-btn" onclick="event.stopPropagation(); location.href='portal.html'">CLAIM OFFER →</button>
+          <button class="claim-btn" onclick="event.stopPropagation(); location.href='contact.html'">CLAIM OFFER →</button>
         </div>
 
         <div class="past-drops-header">
           <h3>PAST MONTHLY FEATURES</h3>
         </div>
         <div class="drops-grid" id="monthly-past-drops">
-          <div class="drop-card" data-type="image" data-title="February" data-desc="Web Development" data-cover="C:/Users/cypri/.hfs/Services/Monthley-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="image" data-title="February" data-desc="Web Development" data-cover="images/monthly-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="C:/Users/cypri/.hfs/Services/Monthley-Madness.jpg" alt="February">
+              <img src="images/monthly-madness-cover.jpg" alt="February">
             </div>
             <div class="drop-info">
               <h4>February</h4>
@@ -231,9 +231,9 @@
             </div>
           </div>
 
-          <div class="drop-card" data-type="image" data-title="January" data-desc="Beat Making" data-cover="C:/Users/cypri/.hfs/Services/Monthley-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="image" data-title="January" data-desc="Beat Making" data-cover="images/monthly-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Monthley-Madness-2.jpg" alt="January">
+              <img src="images/monthly-madness-cover.jpg" alt="January">
             </div>
             <div class="drop-info">
               <h4>January</h4>
@@ -242,9 +242,9 @@
             </div>
           </div>
 
-          <div class="drop-card" data-type="image" data-title="December" data-desc="Video Editing" data-cover="C:/Users/cypri/.hfs/Services/Monthley-Madness.jpg" onclick="openSeriesPopup(this)">
+          <div class="drop-card" data-type="image" data-title="December" data-desc="Video Editing" data-cover="images/monthly-madness-cover.jpg" onclick="openSeriesPopup(this)">
             <div class="drop-cover">
-              <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Monthley-Madness-2.jpg" alt="December">
+              <img src="images/monthly-madness-cover.jpg" alt="December">
             </div>
             <div class="drop-info">
               <h4>December</h4>
@@ -314,6 +314,7 @@
           <a href="about.html">About</a><span>|</span>
           <a href="work.html">Work</a><span>|</span>
           <a href="series.html">Series</a><span>|</span>
+          <a href="news.html">News</a><span>|</span>
           <a href="contact.html">Contact</a><span>|</span>
           <a href="portal.html">Portal</a><span>|</span>
           <a href="privacy.html">Privacy Policy</a>
@@ -388,7 +389,6 @@
 
         audioDeck.style.display = 'block';
 
-        // Setup popup audio player
         currentPopupTrack = { title, artist, bpm, key, duration, cover };
         document.getElementById('popupDeckDuration').textContent = duration;
         document.getElementById('popupDeckCurrent').textContent = '0:00';
@@ -418,7 +418,7 @@
         audioDeck.style.display = 'none';
 
         actions.innerHTML = `
-          <button class="popup-btn popup-btn-blue" onclick="location.href='portal.html'"><i class="fas fa-gift"></i> CLAIM OFFER</button>
+          <button class="popup-btn popup-btn-blue" onclick="location.href='contact.html'"><i class="fas fa-gift"></i> CLAIM OFFER</button>
           <button class="popup-btn popup-btn-secondary" onclick="closeSeriesPopup()">CLOSE</button>
         `;
       } else if (type === 'image') {
@@ -449,7 +449,6 @@
       document.getElementById('seriesPopupOverlay').classList.remove('active');
       document.body.style.overflow = '';
 
-      // Stop popup audio if playing
       if (popupAudio) {
         popupAudio.pause();
         popupAudio = null;
@@ -473,14 +472,12 @@
         btn.classList.add('playing');
         btn.innerHTML = '<i class="fas fa-pause"></i>';
 
-        // Simulate audio progress
         let progress = 0;
         popupAudioInterval = setInterval(function() {
           progress += 1;
           if (progress > 100) progress = 0;
           document.getElementById('popupDeckProgressFill').style.width = progress + '%';
 
-          // Update time display
           const totalSec = parseTimeToSeconds(currentPopupTrack ? currentPopupTrack.duration : '3:00');
           const currentSec = Math.floor((progress / 100) * totalSec);
           document.getElementById('popupDeckCurrent').textContent = formatTime(currentSec);
@@ -510,29 +507,31 @@
       alert('Downloading: ' + title);
     }
 
-    // Close popup on overlay click
     document.getElementById('seriesPopupOverlay').addEventListener('click', function(e) {
       if (e.target === this) closeSeriesPopup();
     });
 
-    // Close popup on Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeSeriesPopup();
     });
   </script>
 
-  <!-- NAVIGATION FIX: Forces all internal links to open in same tab -->
   <script>
-    document.addEventListener('click', function(e) {
-      var link = e.target.closest('a[href]');
-      if (link && !link.getAttribute('target') && !link.getAttribute('onclick')) {
-        var href = link.getAttribute('href');
-        if (href && !href.match(/^https?:\/\//i) && !href.match(/^mailto:/i) && !href.match(/^tel:/i)) {
-          e.preventDefault();
-          window.location.href = href;
+    async function loadSeriesFromAPI() {
+      try {
+        const series = await ApiService.getSeries();
+        if (series.success && series.data) {
+          const fridayDrops = series.data.fridayDrops || [];
+          const monthlyOffers = series.data.monthlyOffers || [];
+          console.log('Series loaded from API:', fridayDrops.length, 'Friday,', monthlyOffers.length, 'Monthly');
+          return true;
         }
+      } catch (e) {
+        console.warn('Series API failed, using localStorage:', e);
       }
-    });
+      return false;
+    }
+
+    setTimeout(loadSeriesFromAPI, 500);
   </script>
-</body>
 </html>

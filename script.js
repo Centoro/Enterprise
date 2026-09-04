@@ -1,4 +1,4 @@
-// =====================================================
+﻿// =====================================================
 // CENTORO ENTERPRISE - COMPLETE SCRIPT
 // =====================================================
 
@@ -17,35 +17,32 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             e.stopPropagation();
             
-            console.log('Hamburger menu clicked!'); // DEBUG: Check this in F12 console
+            console.log('Hamburger menu clicked!');
             
             mobileNav.classList.toggle('active');
             
-            // --- FIX: Ensure visibility override ---
             if (mobileNav.classList.contains('active')) {
-                mobileNav.style.display = 'block'; // Force it to appear if hidden by CSS
+                mobileNav.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             } else {
-                mobileNav.style.display = ''; // Reset to CSS default
+                mobileNav.style.display = '';
                 document.body.style.overflow = '';
             }
-            // ---------------------------------------
             
             console.log('Menu toggled:', mobileNav.classList.contains('active') ? 'open' : 'closed');
         });
         
-        // Close menu with close button
         if (menuClose) {
             menuClose.addEventListener('click', function(e) {
                 e.preventDefault();
                 mobileNav.classList.remove('active');
-                mobileNav.style.display = ''; // Reset display
+                mobileNav.style.display = '';
                 document.body.style.overflow = '';
                 console.log('Menu closed by close button');
             });
         }
     } else {
-        console.error('❌ Mobile menu elements not found! Check your HTML class names (.mobile-menu-toggle, .mobile-nav)');
+        console.error('❌ Mobile menu elements not found!');
     }
     
     // ─── FEATURED WORK LIGHTBOX ──────────────────────────────────
@@ -54,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let lightboxImg = document.getElementById('lightbox-img');
         
         if (!lightbox) {
-            // Create lightbox if it doesn't exist
             lightbox = document.createElement('div');
             lightbox.id = 'lightbox';
             lightbox.className = 'lightbox';
@@ -109,11 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const cards = document.querySelectorAll('.beat-card');
         const filters = document.querySelectorAll('.filter-btn');
         
-        // Update active filter button
         filters.forEach(btn => btn.classList.remove('active'));
         if (element) element.classList.add('active');
         
-        // Filter cards
         cards.forEach(card => {
             const cardGenre = card.getAttribute('data-genre') || '';
             if (genre === 'All' || cardGenre === genre) {
@@ -138,14 +132,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = document.getElementById(gallery + '-subheader');
         const tags = document.querySelectorAll(`[data-gallery="${gallery}"]`);
         
-        // Update active tag
         tags.forEach(tag => tag.classList.remove('active'));
         if (element) element.classList.add('active');
-        
-        // Update header
         if (header) header.textContent = sub;
         
-        // Here you would load images for the subcategory
         if (container) {
             console.log(`Loading ${sub} images for ${gallery}`);
         }
@@ -163,6 +153,32 @@ document.addEventListener('DOMContentLoaded', function() {
             const desc = (card.getAttribute('data-desc') || '').toLowerCase();
             const text = title + ' ' + artist + ' ' + desc;
             card.style.display = text.indexOf(filter) > -1 ? '' : 'none';
+        });
+    };
+    
+    // ─── PORTAL SEARCH ──────────────────────────────────────────
+    window.searchPortalContent = function(query) {
+        const cards = document.querySelectorAll('.beat-card, .drop-card, .monthly-offer-card, .library-item, .contract-card');
+        const searchTerm = query.toLowerCase().trim();
+        
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (searchTerm === '' || text.includes(searchTerm)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Also search in tables
+        const tableRows = document.querySelectorAll('.purchases-table tbody tr');
+        tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (searchTerm === '' || text.includes(searchTerm)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
         });
     };
     
@@ -622,7 +638,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ─── CLICKABLE SERIES BOXES ────────────────────────────────
     document.querySelectorAll('.clickable-series-box').forEach(element => {
         element.addEventListener('click', function(e) {
-            // Don't trigger if clicking on a button or link inside
             if (e.target.closest('button') || e.target.closest('a')) {
                 return;
             }
@@ -632,7 +647,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (type === 'audio' || type === 'service' || type === 'image') {
                 openSeriesPopup(this);
             } else if (type === 'project') {
-                // Find the view details button inside and trigger it
                 const viewBtn = this.querySelector('.project-btn:first-child');
                 if (viewBtn) {
                     openProjectPopup(viewBtn);
@@ -716,20 +730,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ─── GLOBAL CLOSE ON CLICK OUTSIDE (Menu + All Popups) ────
+    // ─── GLOBAL CLOSE ON CLICK OUTSIDE ─────────────────────────
     document.addEventListener('click', function(e) {
-        // Close Mobile Menu
         if (mobileNav && mobileNav.classList.contains('active')) {
-            // If click is NOT inside the menu AND NOT on the toggle button
             if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
                 mobileNav.classList.remove('active');
-                mobileNav.style.display = ''; // Reset display
+                mobileNav.style.display = '';
                 document.body.style.overflow = '';
                 console.log('Menu closed by clicking outside');
             }
         }
 
-        // Close Popups (Lightbox, Series, Contract, Lease, etc.)
         const overlays = [
             document.getElementById('seriesPopupOverlay'),
             document.getElementById('contractPopupOverlay'),
@@ -742,7 +753,6 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
 
         overlays.forEach(overlay => {
-            // If the popup is active and user clicked directly on the dark overlay background
             if (overlay && overlay.classList.contains('active') && e.target === overlay) {
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
@@ -750,16 +760,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Close on Escape key (Global)
+    // ─── CLOSE ON ESCAPE KEY ────────────────────────────────────
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            // Close Menu
             if (mobileNav && mobileNav.classList.contains('active')) {
                 mobileNav.classList.remove('active');
                 mobileNav.style.display = '';
                 document.body.style.overflow = '';
             }
-            // Close All Popups
             window.closeLightbox();
             window.closeSeriesPopup();
             window.closeContractPopup();
@@ -774,8 +782,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ─── CLOSE FUNCTIONS (Global scope for inline onclick) ──────────
-// These are kept separate so HTML onclick="closeLightbox()" can still find them.
-
 window.closeLightbox = function() {
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
@@ -823,3 +829,291 @@ window.closeSeriesPopup = function() {
 window.downloadContractPDF = function() {
     alert('PDF download starting...');
 };
+
+// =====================================================
+// PORTAL SIDEBAR FUNCTIONS
+// =====================================================
+
+// Check if user is logged in
+function checkLoginStatus() {
+    const isLoggedIn = localStorage.getItem('portalLoggedIn');
+    if (isLoggedIn === 'true') {
+        showDashboard();
+    } else {
+        showLogin();
+    }
+}
+
+// Show Dashboard (Logged In View)
+function showDashboard() {
+    const authContainer = document.getElementById('authContainer');
+    const portalDashboard = document.getElementById('portalDashboard');
+    if (authContainer) authContainer.style.display = 'none';
+    if (portalDashboard) portalDashboard.style.display = 'block';
+    updateProfileInfo();
+}
+
+// Show Login (Logged Out View)
+function showLogin() {
+    const authContainer = document.getElementById('authContainer');
+    const portalDashboard = document.getElementById('portalDashboard');
+    if (authContainer) authContainer.style.display = 'block';
+    if (portalDashboard) portalDashboard.style.display = 'none';
+}
+
+// Login Function
+function loginUser() {
+    const email = document.getElementById('login-email');
+    const password = document.getElementById('login-password');
+    
+    if (email && password && email.value && password.value) {
+        localStorage.setItem('portalLoggedIn', 'true');
+        localStorage.setItem('portalUser', JSON.stringify({ 
+            email: email.value, 
+            name: 'John Doe',
+            initials: 'JD'
+        }));
+        alert('Login successful! Welcome back!');
+        showDashboard();
+        const defaultLink = document.querySelector('.sidebar-link.active');
+        if (defaultLink) {
+            navigateTo('dashboard');
+        }
+    } else {
+        alert('Please enter your email and password.');
+    }
+}
+
+// Register Function
+function registerUser() {
+    const name = document.getElementById('reg-name');
+    const email = document.getElementById('reg-email');
+    const password = document.getElementById('reg-password');
+    const confirm = document.getElementById('reg-confirm');
+    
+    if (!name || !email || !password || !confirm || !name.value || !email.value || !password.value || !confirm.value) {
+        alert('Please fill in all fields.');
+        return;
+    }
+    
+    if (password.value !== confirm.value) {
+        alert('Passwords do not match!');
+        return;
+    }
+    
+    if (password.value.length < 6) {
+        alert('Password must be at least 6 characters.');
+        return;
+    }
+    
+    const initials = name.value.split(' ').map(n => n[0]).join('').toUpperCase();
+    
+    localStorage.setItem('portalLoggedIn', 'true');
+    localStorage.setItem('portalUser', JSON.stringify({ 
+        name: name.value, 
+        email: email.value,
+        initials: initials
+    }));
+    alert('Account created successfully! Welcome ' + name.value + '!');
+    showDashboard();
+    const defaultLink = document.querySelector('.sidebar-link.active');
+    if (defaultLink) {
+        navigateTo('dashboard');
+    }
+}
+
+// Logout Function
+function logout() {
+    if (confirm('Are you sure you want to sign out?')) {
+        localStorage.removeItem('portalLoggedIn');
+        localStorage.removeItem('portalUser');
+        showLogin();
+        alert('You have been signed out.');
+    }
+}
+
+// Update Profile Info in Sidebar
+function updateProfileInfo() {
+    const userData = localStorage.getItem('portalUser');
+    if (userData) {
+        const user = JSON.parse(userData);
+        
+        const initialsEl = document.getElementById('profileInitials');
+        const nameEl = document.getElementById('profileName');
+        const emailEl = document.getElementById('profileEmail');
+        const welcomeName = document.getElementById('welcomeName');
+        
+        if (initialsEl) {
+            initialsEl.textContent = user.initials || 'JD';
+        }
+        if (nameEl) {
+            nameEl.textContent = user.name || 'John Doe';
+        }
+        if (emailEl) {
+            emailEl.textContent = user.email || 'john.doe@email.com';
+        }
+        if (welcomeName) {
+            welcomeName.textContent = user.name || 'John Doe';
+        }
+    }
+}
+
+// Toggle sidebar on mobile
+function toggleSidebar() {
+    const sidebar = document.getElementById('portalSidebar');
+    if (sidebar) {
+        sidebar.classList.toggle('active');
+    }
+}
+
+// Navigate to pages
+function navigateTo(page) {
+    const pages = {
+        'dashboard': 'dashboard.html',
+        'projects': 'client-portal.html',
+        'friday': 'library.html',
+        'monthly': 'monthly-library.html',
+        'beatstore': 'beatstore.html',
+        'samplestore': 'samplestore.html',
+        'purchases': 'purchases.html',
+        'contracts': 'contracts.html',
+        'settings': 'settings.html'
+    };
+    
+    if (pages[page]) {
+        window.location.href = pages[page];
+    }
+}
+
+// Load page content (for sidebar navigation)
+function loadPage(page, element) {
+    // Remove active class from all links
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Add active class to clicked link
+    if (element) {
+        element.classList.add('active');
+    }
+    
+    // Close sidebar on mobile
+    if (window.innerWidth <= 768) {
+        const sidebar = document.getElementById('portalSidebar');
+        if (sidebar) sidebar.classList.remove('active');
+    }
+    
+    // Navigate to the actual page
+    navigateTo(page);
+}
+
+// =====================================================
+// BUTTON FUNCTIONS FOR MONTHLY LIBRARY
+// =====================================================
+
+function bookNow() {
+    window.location.href = 'contact.html';
+}
+
+function viewVoucher() {
+    alert('Voucher code: MM-MAR-2026-7X9K');
+}
+
+// =====================================================
+// BUTTON FUNCTIONS FOR BEAT STORE
+// =====================================================
+
+function leaseBeat(beatName) {
+    alert('Leasing: ' + beatName + ' for R450');
+    window.location.href = 'beatstore.html';
+}
+
+function exclusiveBeat(beatName) {
+    alert('Exclusive purchase: ' + beatName + ' for R2,500');
+    window.location.href = 'beatstore.html';
+}
+
+function buySample(sampleName, price) {
+    alert('Purchasing: ' + sampleName + ' for R' + price);
+    window.location.href = 'samplestore.html';
+}
+
+// =====================================================
+// BUTTON FUNCTIONS FOR PROJECTS
+// =====================================================
+
+function viewProject(projectName) {
+    alert('Viewing project: ' + projectName);
+    window.location.href = 'client-portal.html';
+}
+
+// =====================================================
+// BUTTON FUNCTIONS FOR PURCHASES
+// =====================================================
+
+function downloadPurchase(beatName) {
+    alert('Downloading: ' + beatName);
+}
+
+// =====================================================
+// BUTTON FUNCTIONS FOR CONTRACTS
+// =====================================================
+
+function viewContract(beatName) {
+    alert('Viewing contract for: ' + beatName);
+    window.location.href = 'contracts.html';
+}
+
+function downloadContract(beatName) {
+    alert('Downloading PDF contract for: ' + beatName);
+}
+
+// =====================================================
+// BUTTON FUNCTIONS FOR SETTINGS
+// =====================================================
+
+function saveProfile() {
+    alert('Profile updated successfully!');
+}
+
+function savePayment() {
+    alert('Payment details updated successfully!');
+}
+
+function downloadData() {
+    if (confirm('Are you sure you want to download all your data?')) {
+        alert('Downloading your data...');
+    }
+}
+
+function deleteAccount() {
+    if (confirm('Are you sure you want to delete your account? This action cannot be undone!')) {
+        alert('Account deletion request submitted.');
+    }
+}
+
+// ─── PORTAL SEARCH FUNCTION ──────────────────────────────────
+function searchPortalContent(query) {
+    const cards = document.querySelectorAll('.beat-card, .drop-card, .monthly-offer-card, .library-item, .contract-card');
+    const searchTerm = query.toLowerCase().trim();
+    
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (searchTerm === '' || text.includes(searchTerm)) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Also search in tables
+    const tableRows = document.querySelectorAll('.purchases-table tbody tr');
+    tableRows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (searchTerm === '' || text.includes(searchTerm)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}

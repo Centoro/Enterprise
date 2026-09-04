@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -219,7 +219,23 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-</body>
+  <script src="script.js">
+<script>
+async function loadClientProjects() {
+    try {
+        const projects = await ApiService.getProjects();
+        if (projects.success && projects.data && projects.data.length) {
+            console.log("Client projects loaded from API:", projects.data.length);
+            return true;
+        }
+    } catch (e) {
+        console.warn("Projects API failed, using localStorage:", e);
+    }
+    return false;
+}
+setTimeout(loadClientProjects, 500);
+</script>
+</script>
 </html>
+
 

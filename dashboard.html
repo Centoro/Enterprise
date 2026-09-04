@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -65,8 +65,10 @@
         <a href="library.html">FREE LIBRARY</a>
         <a href="monthly-library.html">MONTHLY LIBRARY</a>
         <a href="beatstore.html">BEAT STORE</a>
+        <a href="samplestore.html">SAMPLE STORE</a>
         <a href="purchases.html">PURCHASES</a>
         <a href="contracts.html">CONTRACTS</a>
+        <a href="settings.html">SETTINGS</a>
         <a href="portal.html">SIGN OUT</a>
       </nav>
     </div>
@@ -75,11 +77,20 @@
   <main>
     <div class="portal-page">
       <div class="portal-header"><h1>DASHBOARD</h1><div class="user-welcome"><span>Welcome back, <strong>John Doe</strong></span><a class="sign-out-btn" href="portal.html">SIGN OUT</a></div></div>
+      
+      <!-- MODERN SEARCH BAR - INSIDE PORTAL FOR BEATS/SAMPLES -->
+      <div class="portal-global-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="portalSearch" placeholder="Search instrumentals, beats, samples, packs..." onkeyup="searchPortalContent(this.value)">
+        <button class="portal-search-btn"><i class="fas fa-microphone"></i></button>
+      </div>
+
       <div class="portal-tabs">
         <a class="portal-tab active" href="dashboard.html">DASHBOARD</a>
         <a class="portal-tab" href="library.html">FRIDAY LIBRARY</a>
         <a class="portal-tab" href="monthly-library.html">MONTHLY LIBRARY</a>
         <a class="portal-tab" href="beatstore.html">BEAT STORE</a>
+        <a class="portal-tab" href="samplestore.html">SAMPLE STORE</a>
         <a class="portal-tab" href="purchases.html">PURCHASES</a>
         <a class="portal-tab" href="contracts.html">CONTRACTS</a>
       </div>
@@ -122,11 +133,11 @@
         </div>
 
         <div class="dashboard-friday-grid">
-          <div class="dashboard-drop-card clickable-series-box" data-type="audio" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg">
+          <div class="dashboard-drop-card clickable-series-box" data-type="audio" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="images/friday-madness-cover.jpg">
             <div class="dashboard-drop-cover">
-              <img src="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" alt="Summer Vibes">
+              <img src="images/friday-madness-cover.jpg" alt="Summer Vibes">
               <div class="dashboard-drop-overlay">
-                <button class="dashboard-drop-play" data-action="play" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg"><i class="fas fa-play"></i></button>
+                <button class="dashboard-drop-play" data-action="play" data-title="Summer Vibes" data-artist="Centoro" data-bpm="140" data-key="Am" data-duration="3:24" data-cover="images/friday-madness-cover.jpg"><i class="fas fa-play"></i></button>
               </div>
               <span class="dashboard-drop-badge">NEW</span>
             </div>
@@ -137,11 +148,11 @@
             </div>
           </div>
 
-          <div class="dashboard-drop-card clickable-series-box" data-type="audio" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg">
+          <div class="dashboard-drop-card clickable-series-box" data-type="audio" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="images/friday-madness-cover.jpg">
             <div class="dashboard-drop-cover">
-              <img src="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" alt="Night Vibes">
+              <img src="images/friday-madness-cover.jpg" alt="Night Vibes">
               <div class="dashboard-drop-overlay">
-                <button class="dashboard-drop-play" data-action="play" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg"><i class="fas fa-play"></i></button>
+                <button class="dashboard-drop-play" data-action="play" data-title="Night Vibes" data-artist="Centoro" data-bpm="128" data-key="Fm" data-duration="3:12" data-cover="images/friday-madness-cover.jpg"><i class="fas fa-play"></i></button>
               </div>
               <span class="dashboard-drop-badge">NEW</span>
             </div>
@@ -152,11 +163,11 @@
             </div>
           </div>
 
-          <div class="dashboard-drop-card clickable-series-box" data-type="audio" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg">
+          <div class="dashboard-drop-card clickable-series-box" data-type="audio" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="images/friday-madness-cover.jpg">
             <div class="dashboard-drop-cover">
-              <img src="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" alt="Morning Light">
+              <img src="images/friday-madness-cover.jpg" alt="Morning Light">
               <div class="dashboard-drop-overlay">
-                <button class="dashboard-drop-play" data-action="play" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg"><i class="fas fa-play"></i></button>
+                <button class="dashboard-drop-play" data-action="play" data-title="Morning Light" data-artist="Centoro" data-bpm="95" data-key="Dm" data-duration="3:45" data-cover="images/friday-madness-cover.jpg"><i class="fas fa-play"></i></button>
               </div>
             </div>
             <div class="dashboard-drop-info">
@@ -166,11 +177,11 @@
             </div>
           </div>
 
-          <div class="dashboard-drop-card clickable-series-box" data-type="audio" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg">
+          <div class="dashboard-drop-card clickable-series-box" data-type="audio" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="images/friday-madness-cover.jpg">
             <div class="dashboard-drop-cover">
-              <img src="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" alt="Urban Flow">
+              <img src="images/friday-madness-cover.jpg" alt="Urban Flow">
               <div class="dashboard-drop-overlay">
-                <button class="dashboard-drop-play" data-action="play" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg"><i class="fas fa-play"></i></button>
+                <button class="dashboard-drop-play" data-action="play" data-title="Urban Flow" data-artist="Centoro" data-bpm="142" data-key="Gm" data-duration="3:18" data-cover="images/friday-madness-cover.jpg"><i class="fas fa-play"></i></button>
               </div>
             </div>
             <div class="dashboard-drop-info">
@@ -185,7 +196,7 @@
         <div class="dashboard-mini-player" id="dashboard-mini-player">
           <div class="mini-player-track">
             <div class="mini-player-cover">
-              <img id="mini-cover" src="C:/Users/cypri/.hfs/Services/Friday-Madness.jpg" alt="Cover">
+              <img id="mini-cover" src="images/friday-madness-cover.jpg" alt="Cover">
             </div>
             <div class="mini-player-details">
               <h4 id="mini-title">Select a track</h4>
@@ -220,9 +231,9 @@
           </div>
           <a href="monthly-library.html" class="dashboard-section-link">VIEW LIBRARY <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div class="monthly-teaser-card clickable-series-box" data-type="service" data-title="Wedding Photography" data-desc="March Premium Feature" data-discount="50% OFF" data-slots="5 remaining" data-cover="C:/Users/cypri/.hfs/Services/Monthley-Madness.jpg">
+        <div class="monthly-teaser-card clickable-series-box" data-type="service" data-title="Wedding Photography" data-desc="March Premium Feature" data-discount="50% OFF" data-slots="5 remaining" data-cover="images/monthly-madness-cover.jpg">
           <div class="monthly-teaser-cover">
-            <img src="C:/Users/cypri/.hfs/Services/Monthley-Madness.jpg" alt="Wedding Photography">
+            <img src="images/monthly-madness-cover.jpg" alt="Wedding Photography">
           </div>
           <div class="monthly-teaser-info">
             <h3>Wedding Photography Packages</h3>
@@ -235,19 +246,42 @@
 
       <!-- RECENT ACTIVITY -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px;">
-        <div><h3 style="color:#2563EB;font-size:1.1rem;margin-bottom:12px;">RECENT DOWNLOADS</h3><div style="background:#f8f8f8;border-radius:10px;padding:16px;border:1px solid #eee;"><div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #eee;"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Crect width='50' height='50' fill='%23f0f0f0'/%3E%3Ctext x='25' y='30' font-family='Inter' fill='%23999' text-anchor='middle' font-size='8'%3ECover%3C/text%3E%3C/svg%3E" style="width:40px;height:40px;border-radius:5px;border:1px solid #FFC107;"><div style="flex:1;"><h4 style="color:#1a1a1a;margin-bottom:2px;font-size:0.95rem;">Summer Vibes</h4><p style="color:#999;font-size:0.75rem;">Mar 13, 2026</p></div><a class="beat-btn" style="padding:6px 12px;">DOWNLOAD</a></div></div></div>
-        <div><h3 style="color:#2563EB;font-size:1.1rem;margin-bottom:12px;">RECENT PURCHASES</h3><div style="background:#f8f8f8;border-radius:10px;padding:16px;border:1px solid #eee;"><div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #eee;"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Crect width='50' height='50' fill='%23f0f0f0'/%3E%3Ctext x='25' y='30' font-family='Inter' fill='%23999' text-anchor='middle' font-size='8'%3ECover%3C/text%3E%3C/svg%3E" style="width:40px;height:40px;border-radius:5px;border:1px solid #FFC107;"><div style="flex:1;"><h4 style="color:#1a1a1a;margin-bottom:2px;font-size:0.95rem;">Night Ride</h4><p style="color:#999;font-size:0.75rem;">Lease • R450</p></div><a class="beat-btn" style="padding:6px 12px;">DOWNLOAD</a></div></div></div>
+        <div><h3 style="color:#2563EB;font-size:1.1rem;margin-bottom:12px;">RECENT DOWNLOADS</h3><div style="background:#f8f8f8;border-radius:10px;padding:16px;border:1px solid #eee;"><div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #eee;"><img src="images/friday-madness-cover.jpg" style="width:40px;height:40px;border-radius:5px;border:1px solid #FFC107;object-fit:cover;"><div style="flex:1;"><h4 style="color:#1a1a1a;margin-bottom:2px;font-size:0.95rem;">Summer Vibes</h4><p style="color:#999;font-size:0.75rem;">Mar 13, 2026</p></div><a class="beat-btn" style="padding:6px 12px;">DOWNLOAD</a></div></div></div>
+        <div><h3 style="color:#2563EB;font-size:1.1rem;margin-bottom:12px;">RECENT PURCHASES</h3><div style="background:#f8f8f8;border-radius:10px;padding:16px;border:1px solid #eee;"><div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #eee;"><img src="images/placeholder-1.jpg" style="width:40px;height:40px;border-radius:5px;border:1px solid #FFC107;object-fit:cover;"><div style="flex:1;"><h4 style="color:#1a1a1a;margin-bottom:2px;font-size:0.95rem;">Night Ride</h4><p style="color:#999;font-size:0.75rem;">Lease • R450</p></div><a class="beat-btn" style="padding:6px 12px;">DOWNLOAD</a></div></div></div>
       </div>
 
-      <div class="payment-options" style="margin-top:30px;">
-        <h4>Payment Methods Accepted</h4>
-        <div class="card-grid">
-          <div class="card-option"><i class="fab fa-cc-visa"></i> Visa</div>
-          <div class="card-option"><i class="fab fa-cc-mastercard"></i> Mastercard</div>
-          <div class="card-option"><i class="fab fa-cc-amex"></i> Amex</div>
-          <div class="card-option"><i class="fab fa-cc-paypal"></i> PayPal</div>
-          <div class="card-option"><i class="fas fa-credit-card"></i> Yoco</div>
-          <div class="card-option"><i class="fas fa-credit-card"></i> PayFast</div>
+      <!-- MODERN PAYMENT METHODS - INSIDE PORTAL -->
+      <div class="payment-methods-section">
+        <h4><i class="fas fa-credit-card"></i> Payment Methods Accepted</h4>
+        <div class="payment-methods-grid">
+          <div class="payment-method featured">
+            <div class="payment-method-icon"><i class="fas fa-bolt"></i></div>
+            <span class="payment-method-name">Yoco</span>
+            <span class="payment-method-badge">Preferred</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-visa"></i></div>
+            <span class="payment-method-name">Visa</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-mastercard"></i></div>
+            <span class="payment-method-name">Mastercard</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-amex"></i></div>
+            <span class="payment-method-name">Amex</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-paypal"></i></div>
+            <span class="payment-method-name">PayPal</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fas fa-credit-card"></i></div>
+            <span class="payment-method-name">PayFast</span>
+          </div>
+        </div>
+        <div class="payment-secure-badge">
+          <i class="fas fa-lock"></i> Secure payments powered by Yoco
         </div>
       </div>
     </div>
@@ -285,6 +319,36 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-</body>
+  <script src="script.js">
+<script>
+// Load dashboard stats from API with localStorage fallback
+async function loadDashboardStats() {
+    try {
+        const stats = await ApiService.getDashboardStats();
+        if (stats.success && stats.data) {
+            const d = stats.data;
+            const statValues = document.querySelectorAll(".quick-stat-value");
+            if (statValues.length >= 4) {
+                // Update stats dynamically if they exist
+                const purchasesEl = statValues[0];
+                const spentEl = statValues[1];
+                const downloadsEl = statValues[2];
+                const contractsEl = statValues[3];
+                if (purchasesEl && !purchasesEl.textContent.includes("R")) {
+                    // Only update if not manually set
+                }
+            }
+            return true;
+        }
+    } catch (e) {
+        console.warn("Dashboard API failed, using localStorage:", e);
+    }
+    return false;
+}
+
+// Call on load
+setTimeout(loadDashboardStats, 500);
+</script>
+</script>
 </html>
+

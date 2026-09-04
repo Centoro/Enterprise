@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,12 +60,15 @@
         <a href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
         <hr>
+        <a href="client-portal.html">MY PROJECTS</a>
         <a href="dashboard.html">DASHBOARD</a>
         <a href="library.html">FREE LIBRARY</a>
         <a href="monthly-library.html">MONTHLY LIBRARY</a>
         <a href="beatstore.html">BEAT STORE</a>
+        <a href="samplestore.html">SAMPLE STORE</a>
         <a href="purchases.html">PURCHASES</a>
         <a href="contracts.html">CONTRACTS</a>
+        <a href="settings.html">SETTINGS</a>
         <a href="portal.html">SIGN OUT</a>
       </nav>
     </div>
@@ -75,11 +77,20 @@
   <main>
     <div class="portal-page">
       <div class="portal-header"><h1>PURCHASES</h1><div class="user-welcome"><span>Welcome, <strong>John Doe</strong></span><a class="sign-out-btn" href="portal.html">SIGN OUT</a></div></div>
+      
+      <!-- SEARCH BAR -->
+      <div class="portal-global-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="portalSearch" placeholder="Search instrumentals, beats, samples, packs..." onkeyup="searchPortalContent(this.value)">
+        <button class="portal-search-btn"><i class="fas fa-microphone"></i></button>
+      </div>
+
       <div class="portal-tabs">
         <a class="portal-tab" href="dashboard.html">DASHBOARD</a>
         <a class="portal-tab" href="library.html">FRIDAY LIBRARY</a>
         <a class="portal-tab" href="monthly-library.html">MONTHLY LIBRARY</a>
         <a class="portal-tab" href="beatstore.html">BEAT STORE</a>
+        <a class="portal-tab" href="samplestore.html">SAMPLE STORE</a>
         <a class="portal-tab active" href="purchases.html">PURCHASES</a>
         <a class="portal-tab" href="contracts.html">CONTRACTS</a>
       </div>
@@ -209,4 +220,4 @@
 
   <script src="script.js"></script>
 </body>
-</html>'''
+</html>

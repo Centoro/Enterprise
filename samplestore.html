@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Centoro Enterprise - Sample Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- NEWS RIBBON -->
+  <div class="news-ribbon">
+    <div class="news-track">
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
+      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
+      <div class="news-item">📌 SUN: CLOSED</div>
+      <div class="news-item">📞 081 567 9592</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
+      <div class="news-item">📍 Elsies River, Cape Town</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="https://raw.githubusercontent.com/Centoro/Enterprise/refs/heads/main/images/Centoro-Logo-2025.png" alt="Centoro Logo" class="logo">
+        </a>
+      </div>
+      <nav class="desktop-nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="contact.html">CONTACT</a>
+        <a class="active" href="portal.html">PORTAL</a>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+    <div class="mobile-nav">
+      <div class="mobile-nav-header">
+        <span>MENU</span>
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+      </div>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="work.html">WORK</a>
+        <a href="series.html">SERIES</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="portal.html">PORTAL</a>
+        <hr>
+        <a href="client-portal.html">MY PROJECTS</a>
+        <a href="dashboard.html">DASHBOARD</a>
+        <a href="library.html">FREE LIBRARY</a>
+        <a href="monthly-library.html">MONTHLY LIBRARY</a>
+        <a href="beatstore.html">BEAT STORE</a>
+        <a href="samplestore.html">SAMPLE STORE</a>
+        <a href="purchases.html">PURCHASES</a>
+        <a href="contracts.html">CONTRACTS</a>
+        <a href="settings.html">SETTINGS</a>
+        <a href="portal.html">SIGN OUT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="portal-page">
+      <div class="portal-header">
+        <h1>SAMPLE STORE</h1>
+        <div class="user-welcome">
+          <span>Welcome, <strong>John Doe</strong></span>
+          <a class="sign-out-btn" href="portal.html">SIGN OUT</a>
+        </div>
+      </div>
+
+      <!-- SEARCH BAR -->
+      <div class="portal-global-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="portalSearch" placeholder="Search instrumentals, beats, samples, packs..." onkeyup="searchPortalContent(this.value)">
+        <button class="portal-search-btn"><i class="fas fa-microphone"></i></button>
+      </div>
+
+      <div class="portal-tabs">
+        <a class="portal-tab" href="dashboard.html">DASHBOARD</a>
+        <a class="portal-tab" href="library.html">FRIDAY LIBRARY</a>
+        <a class="portal-tab" href="monthly-library.html">MONTHLY LIBRARY</a>
+        <a class="portal-tab" href="beatstore.html">BEAT STORE</a>
+        <a class="portal-tab active" href="samplestore.html">SAMPLE STORE</a>
+        <a class="portal-tab" href="purchases.html">PURCHASES</a>
+        <a class="portal-tab" href="contracts.html">CONTRACTS</a>
+      </div>
+
+      <p style="color:#777;margin-bottom:16px;">Browse and purchase high-quality samples, loops, and one-shots for your music production.</p>
+
+      <!-- SAMPLE CATEGORIES -->
+      <div class="beat-store-header">
+        <h2 style="color:#1a1a1a;">SAMPLES & LOOPS</h2>
+        <div class="beat-filters">
+          <a class="filter-btn active" onclick="filterSamples('All', this)">All</a>
+          <a class="filter-btn" onclick="filterSamples('Loops', this)">Loops</a>
+          <a class="filter-btn" onclick="filterSamples('One-Shots', this)">One-Shots</a>
+          <a class="filter-btn" onclick="filterSamples('Packs', this)">Packs</a>
+          <a class="filter-btn" onclick="filterSamples('Hip Hop', this)">Hip Hop</a>
+          <a class="filter-btn" onclick="filterSamples('Trap', this)">Trap</a>
+          <a class="filter-btn" onclick="filterSamples('Afrobeat', this)">Afrobeat</a>
+        </div>
+      </div>
+
+      <div class="beats-grid" id="samples-grid">
+        <!-- Sample 1 - Loop -->
+        <div class="beat-card" data-type="sample" data-genre="Hip Hop" data-category="Loops" data-title="Drum Loop 1" data-price="R150">
+          <div class="beat-cover">
+            <img src="images/sample-placeholder-1.jpg" alt="Drum Loop 1">
+            <div class="beat-overlay">
+              <button class="beat-preview"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Loops</span>
+          </div>
+          <div class="beat-info">
+            <h4>Drum Loop 1</h4>
+            <div class="beat-meta">Hip Hop • 90 BPM</div>
+            <div class="beat-price"><span class="price-lease">R150</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="openSamplePurchase('Drum Loop 1', 150)">BUY NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample 2 - One-Shot -->
+        <div class="beat-card" data-type="sample" data-genre="Trap" data-category="One-Shots" data-title="808 Kick" data-price="R50">
+          <div class="beat-cover">
+            <img src="images/sample-placeholder-2.jpg" alt="808 Kick">
+            <div class="beat-overlay">
+              <button class="beat-preview"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">One-Shots</span>
+          </div>
+          <div class="beat-info">
+            <h4>808 Kick</h4>
+            <div class="beat-meta">Trap • One-Shot</div>
+            <div class="beat-price"><span class="price-lease">R50</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="openSamplePurchase('808 Kick', 50)">BUY NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample 3 - Pack -->
+        <div class="beat-card" data-type="sample" data-genre="Afrobeat" data-category="Packs" data-title="Afrobeat Pack Vol.1" data-price="R350">
+          <div class="beat-cover">
+            <img src="images/sample-placeholder-3.jpg" alt="Afrobeat Pack Vol.1">
+            <div class="beat-overlay">
+              <button class="beat-preview"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Packs</span>
+          </div>
+          <div class="beat-info">
+            <h4>Afrobeat Pack Vol.1</h4>
+            <div class="beat-meta">Afrobeat • 15 Samples</div>
+            <div class="beat-price"><span class="price-lease">R350</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="openSamplePurchase('Afrobeat Pack Vol.1', 350)">BUY NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample 4 - Loop -->
+        <div class="beat-card" data-type="sample" data-genre="Hip Hop" data-category="Loops" data-title="Melody Loop 1" data-price="R120">
+          <div class="beat-cover">
+            <img src="images/sample-placeholder-4.jpg" alt="Melody Loop 1">
+            <div class="beat-overlay">
+              <button class="beat-preview"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Loops</span>
+          </div>
+          <div class="beat-info">
+            <h4>Melody Loop 1</h4>
+            <div class="beat-meta">Hip Hop • 85 BPM</div>
+            <div class="beat-price"><span class="price-lease">R120</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="openSamplePurchase('Melody Loop 1', 120)">BUY NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample 5 - One-Shot -->
+        <div class="beat-card" data-type="sample" data-genre="Trap" data-category="One-Shots" data-title="Snare Hit" data-price="R40">
+          <div class="beat-cover">
+            <img src="images/sample-placeholder-5.jpg" alt="Snare Hit">
+            <div class="beat-overlay">
+              <button class="beat-preview"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">One-Shots</span>
+          </div>
+          <div class="beat-info">
+            <h4>Snare Hit</h4>
+            <div class="beat-meta">Trap • One-Shot</div>
+            <div class="beat-price"><span class="price-lease">R40</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="openSamplePurchase('Snare Hit', 40)">BUY NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample 6 - Pack -->
+        <div class="beat-card" data-type="sample" data-genre="Trap" data-category="Packs" data-title="Trap Drums Pack" data-price="R280">
+          <div class="beat-cover">
+            <img src="images/sample-placeholder-6.jpg" alt="Trap Drums Pack">
+            <div class="beat-overlay">
+              <button class="beat-preview"><i class="fas fa-play"></i></button>
+            </div>
+            <span class="beat-genre-tag">Packs</span>
+          </div>
+          <div class="beat-info">
+            <h4>Trap Drums Pack</h4>
+            <div class="beat-meta">Trap • 20 Samples</div>
+            <div class="beat-price"><span class="price-lease">R280</span></div>
+            <div class="beat-actions">
+              <button class="beat-btn" onclick="openSamplePurchase('Trap Drums Pack', 280)">BUY NOW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODERN PAYMENT METHODS - INSIDE PORTAL -->
+      <div class="payment-methods-section" style="margin-top:30px;">
+        <h4><i class="fas fa-credit-card"></i> Payment Methods Accepted</h4>
+        <div class="payment-methods-grid">
+          <div class="payment-method featured">
+            <div class="payment-method-icon"><i class="fas fa-bolt"></i></div>
+            <span class="payment-method-name">Yoco</span>
+            <span class="payment-method-badge">Preferred</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-visa"></i></div>
+            <span class="payment-method-name">Visa</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-mastercard"></i></div>
+            <span class="payment-method-name">Mastercard</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-amex"></i></div>
+            <span class="payment-method-name">Amex</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-paypal"></i></div>
+            <span class="payment-method-name">PayPal</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fas fa-credit-card"></i></div>
+            <span class="payment-method-name">PayFast</span>
+          </div>
+        </div>
+        <div class="payment-secure-badge">
+          <i class="fas fa-lock"></i> Secure payments powered by Yoco
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-contact">
+        <div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:0815679592">081 567 9592</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:centroenterprise@gmail.com">centroenterprise@gmail.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Elsies River, Cape Town</span></div>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="index.html">Home</a><span>|</span>
+          <a href="about.html">About</a><span>|</span>
+          <a href="work.html">Work</a><span>|</span>
+          <a href="series.html">Series</a><span>|</span>
+          <a href="contact.html">Contact</a><span>|</span>
+          <a href="portal.html">Portal</a><span>|</span>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">&copy; 2026 Centoro Enterprise. All rights reserved.</div>
+        <div class="tagline">Empowering Excellence. Defining Success.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterSamples(genre, element) {
+      const cards = document.querySelectorAll('.beat-card');
+      const filters = document.querySelectorAll('.filter-btn');
+      
+      filters.forEach(btn => btn.classList.remove('active'));
+      if (element) element.classList.add('active');
+      
+      cards.forEach(card => {
+        const cardGenre = card.getAttribute('data-genre') || '';
+        const cardCategory = card.getAttribute('data-category') || '';
+        if (genre === 'All' || cardGenre === genre || cardCategory === genre) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function searchSamples(query) {
+      const cards = document.querySelectorAll('.beat-card');
+      const searchTerm = query.toLowerCase().trim();
+      
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (searchTerm === '' || text.includes(searchTerm)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function openSamplePurchase(name, price) {
+      alert(`Processing purchase of "${name}" for R${price}. This will connect to Yoco payment gateway.`);
+    }
+  </script>
+
+  <script src="script.js">
+<script>
+async function loadSamplesFromAPI() {
+    try {
+        const samples = await ApiService.getSamples();
+        if (samples.success && samples.data && samples.data.length) {
+            console.log("Samples loaded from API:", samples.data.length);
+            return true;
+        }
+    } catch (e) {
+        console.warn("Sample API failed, using localStorage:", e);
+    }
+    return false;
+}
+setTimeout(loadSamplesFromAPI, 500);
+</script>
+</script>
+</html>

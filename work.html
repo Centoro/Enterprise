@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-<base target="_blank">
 </head>
 <body>
   <!-- NEWS RIBBON -->
@@ -43,6 +42,7 @@
         <a href="about.html">ABOUT</a>
         <a class="active" href="work.html">WORK</a>
         <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
         <a href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
       </nav>
@@ -58,6 +58,7 @@
         <a href="about.html">ABOUT</a>
         <a href="work.html">WORK</a>
         <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
         <a href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
       </nav>
@@ -66,10 +67,12 @@
 
   <main>
     <div class="work-page">
-      <h1 class="page-title">OUR WORK</h1>
+      <!-- PAGE TITLE "OUR WORK" REMOVED -->
+
       <!-- Photography -->
       <section class="gallery-section" id="gallery-photography">
-        <div class="gallery-header"><h2>PHOTOGRAPHY</h2>
+        <div class="gallery-header">
+          <h2>PHOTOGRAPHY</h2>
           <div class="gallery-categories">
             <span class="category-tag active" data-gallery="photography" data-sub="Weddings" onclick="switchSubcategory('photography', 'Weddings', this)">Weddings</span>
             <span class="category-tag" data-gallery="photography" data-sub="Photoshoots" onclick="switchSubcategory('photography', 'Photoshoots', this)">Photoshoots</span>
@@ -81,11 +84,16 @@
         </div>
         <div class="gallery-subheader"><h3 id="photography-subheader">Weddings</h3></div>
         <div class="gallery-grid" id="photography-grid"></div>
-        <div class="gallery-nav"><button onclick="scrollGallery('photography-grid', -280)"><i class="fas fa-chevron-left"></i></button><button onclick="scrollGallery('photography-grid', 280)"><i class="fas fa-chevron-right"></i></button></div>
+        <div class="gallery-nav">
+          <button onclick="scrollGallery('photography-grid', -280)"><i class="fas fa-chevron-left"></i></button>
+          <button onclick="scrollGallery('photography-grid', 280)"><i class="fas fa-chevron-right"></i></button>
+        </div>
       </section>
+
       <!-- Videography -->
       <section class="gallery-section" id="gallery-videography">
-        <div class="gallery-header"><h2>VIDEOGRAPHY</h2>
+        <div class="gallery-header">
+          <h2>VIDEOGRAPHY</h2>
           <div class="gallery-categories">
             <span class="category-tag active" data-gallery="videography" data-sub="Music Videos" onclick="switchSubcategory('videography', 'Music Videos', this)">Music Videos</span>
             <span class="category-tag" data-gallery="videography" data-sub="Event Videos" onclick="switchSubcategory('videography', 'Event Videos', this)">Event Videos</span>
@@ -96,11 +104,16 @@
         </div>
         <div class="gallery-subheader"><h3 id="videography-subheader">Music Videos</h3></div>
         <div class="gallery-grid" id="videography-grid"></div>
-        <div class="gallery-nav"><button onclick="scrollGallery('videography-grid', -280)"><i class="fas fa-chevron-left"></i></button><button onclick="scrollGallery('videography-grid', 280)"><i class="fas fa-chevron-right"></i></button></div>
+        <div class="gallery-nav">
+          <button onclick="scrollGallery('videography-grid', -280)"><i class="fas fa-chevron-left"></i></button>
+          <button onclick="scrollGallery('videography-grid', 280)"><i class="fas fa-chevron-right"></i></button>
+        </div>
       </section>
+
       <!-- Graphic Design -->
       <section class="gallery-section" id="gallery-graphic">
-        <div class="gallery-header"><h2>GRAPHIC DESIGN</h2>
+        <div class="gallery-header">
+          <h2>GRAPHIC DESIGN</h2>
           <div class="gallery-categories">
             <span class="category-tag active" data-gallery="graphic" data-sub="Album Covers" onclick="switchSubcategory('graphic', 'Album Covers', this)">Album Covers</span>
             <span class="category-tag" data-gallery="graphic" data-sub="Flyers" onclick="switchSubcategory('graphic', 'Flyers', this)">Flyers</span>
@@ -111,9 +124,33 @@
         </div>
         <div class="gallery-subheader"><h3 id="graphic-subheader">Album Covers</h3></div>
         <div class="gallery-grid" id="graphic-grid"></div>
-        <div class="gallery-nav"><button onclick="scrollGallery('graphic-grid', -280)"><i class="fas fa-chevron-left"></i></button><button onclick="scrollGallery('graphic-grid', 280)"><i class="fas fa-chevron-right"></i></button></div>
+        <div class="gallery-nav">
+          <button onclick="scrollGallery('graphic-grid', -280)"><i class="fas fa-chevron-left"></i></button>
+          <button onclick="scrollGallery('graphic-grid', 280)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- Web & App Development -->
+      <section class="gallery-section" id="gallery-webapp">
+        <div class="gallery-header">
+          <h2>WEB &amp; APP</h2>
+          <div class="gallery-categories">
+            <span class="category-tag active" data-gallery="webapp" data-sub="Websites" onclick="switchSubcategory('webapp', 'Websites', this)">Websites</span>
+            <span class="category-tag" data-gallery="webapp" data-sub="Web Apps" onclick="switchSubcategory('webapp', 'Web Apps', this)">Web Apps</span>
+            <span class="category-tag" data-gallery="webapp" data-sub="Mobile Apps" onclick="switchSubcategory('webapp', 'Mobile Apps', this)">Mobile Apps</span>
+            <span class="category-tag" data-gallery="webapp" data-sub="E-Commerce" onclick="switchSubcategory('webapp', 'E-Commerce', this)">E-Commerce</span>
+            <span class="category-tag" data-gallery="webapp" data-sub="UI/UX Design" onclick="switchSubcategory('webapp', 'UI/UX Design', this)">UI/UX Design</span>
+          </div>
+        </div>
+        <div class="gallery-subheader"><h3 id="webapp-subheader">Websites</h3></div>
+        <div class="gallery-grid" id="webapp-grid"></div>
+        <div class="gallery-nav">
+          <button onclick="scrollGallery('webapp-grid', -280)"><i class="fas fa-chevron-left"></i></button>
+          <button onclick="scrollGallery('webapp-grid', 280)"><i class="fas fa-chevron-right"></i></button>
+        </div>
       </section>
     </div>
+
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="if(event.target===this) closeLightbox()">
       <div class="lightbox-content">
@@ -148,6 +185,7 @@
           <a href="about.html">About</a><span>|</span>
           <a href="work.html">Work</a><span>|</span>
           <a href="series.html">Series</a><span>|</span>
+          <a href="news.html">News</a><span>|</span>
           <a href="contact.html">Contact</a><span>|</span>
           <a href="portal.html">Portal</a><span>|</span>
           <a href="privacy.html">Privacy Policy</a>
@@ -159,6 +197,5 @@
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>

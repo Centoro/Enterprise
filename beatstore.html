@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -60,12 +60,15 @@
         <a href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
         <hr>
+        <a href="client-portal.html">MY PROJECTS</a>
         <a href="dashboard.html">DASHBOARD</a>
         <a href="library.html">FREE LIBRARY</a>
         <a href="monthly-library.html">MONTHLY LIBRARY</a>
         <a href="beatstore.html">BEAT STORE</a>
+        <a href="samplestore.html">SAMPLE STORE</a>
         <a href="purchases.html">PURCHASES</a>
         <a href="contracts.html">CONTRACTS</a>
+        <a href="settings.html">SETTINGS</a>
         <a href="portal.html">SIGN OUT</a>
       </nav>
     </div>
@@ -74,11 +77,20 @@
   <main>
     <div class="portal-page">
       <div class="portal-header"><h1>BEAT STORE</h1><div class="user-welcome"><span>Welcome, <strong>John Doe</strong></span><a class="sign-out-btn" href="portal.html">SIGN OUT</a></div></div>
+      
+      <!-- SEARCH BAR -->
+      <div class="portal-global-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="portalSearch" placeholder="Search instrumentals, beats, samples, packs..." onkeyup="searchPortalContent(this.value)">
+        <button class="portal-search-btn"><i class="fas fa-microphone"></i></button>
+      </div>
+
       <div class="portal-tabs">
         <a class="portal-tab" href="dashboard.html">DASHBOARD</a>
         <a class="portal-tab" href="library.html">FRIDAY LIBRARY</a>
         <a class="portal-tab" href="monthly-library.html">MONTHLY LIBRARY</a>
         <a class="portal-tab active" href="beatstore.html">BEAT STORE</a>
+        <a class="portal-tab" href="samplestore.html">SAMPLE STORE</a>
         <a class="portal-tab" href="purchases.html">PURCHASES</a>
         <a class="portal-tab" href="contracts.html">CONTRACTS</a>
       </div>
@@ -339,15 +351,38 @@
         </div>
       </div>
 
-      <div class="payment-options" style="margin-top:30px;">
-        <h4>Payment Methods Accepted</h4>
-        <div class="card-grid">
-          <div class="card-option"><i class="fab fa-cc-visa"></i> Visa</div>
-          <div class="card-option"><i class="fab fa-cc-mastercard"></i> Mastercard</div>
-          <div class="card-option"><i class="fab fa-cc-amex"></i> Amex</div>
-          <div class="card-option"><i class="fab fa-cc-paypal"></i> PayPal</div>
-          <div class="card-option"><i class="fas fa-credit-card"></i> Yoco</div>
-          <div class="card-option"><i class="fas fa-credit-card"></i> PayFast</div>
+      <!-- MODERN PAYMENT METHODS - INSIDE PORTAL -->
+      <div class="payment-methods-section" style="margin-top:30px;">
+        <h4><i class="fas fa-credit-card"></i> Payment Methods Accepted</h4>
+        <div class="payment-methods-grid">
+          <div class="payment-method featured">
+            <div class="payment-method-icon"><i class="fas fa-bolt"></i></div>
+            <span class="payment-method-name">Yoco</span>
+            <span class="payment-method-badge">Preferred</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-visa"></i></div>
+            <span class="payment-method-name">Visa</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-mastercard"></i></div>
+            <span class="payment-method-name">Mastercard</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-amex"></i></div>
+            <span class="payment-method-name">Amex</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fab fa-cc-paypal"></i></div>
+            <span class="payment-method-name">PayPal</span>
+          </div>
+          <div class="payment-method">
+            <div class="payment-method-icon"><i class="fas fa-credit-card"></i></div>
+            <span class="payment-method-name">PayFast</span>
+          </div>
+        </div>
+        <div class="payment-secure-badge">
+          <i class="fas fa-lock"></i> Secure payments powered by Yoco
         </div>
       </div>
     </div>
@@ -454,6 +489,39 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-</body>
+  <script src="script.js">
+<script>
+// Load beats from API with localStorage fallback
+async function loadBeatsFromAPI() {
+    try {
+        const tracks = await ApiService.getTracks();
+        if (tracks.success && tracks.data && tracks.data.length) {
+            // Beats loaded from API
+            console.log("Beats loaded from API:", tracks.data.length);
+            return true;
+        }
+    } catch (e) {
+        console.warn("Beat API failed, using localStorage:", e);
+    }
+    return false;
+}
+
+// Load packs from API
+async function loadPacksFromAPI() {
+    try {
+        const packs = await ApiService.getPacks();
+        if (packs.success && packs.data && packs.data.length) {
+            console.log("Packs loaded from API:", packs.data.length);
+            return true;
+        }
+    } catch (e) {
+        console.warn("Pack API failed, using localStorage:", e);
+    }
+    return false;
+}
+
+// Call on load
+setTimeout(() => { loadBeatsFromAPI(); loadPacksFromAPI(); }, 500);
+</script>
+</script>
 </html>

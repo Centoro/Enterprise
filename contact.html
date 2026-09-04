@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-<base target="_blank">
 </head>
 <body>
   <!-- NEWS RIBBON -->
@@ -43,6 +42,7 @@
         <a href="about.html">ABOUT</a>
         <a href="work.html">WORK</a>
         <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
         <a class="active" href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
       </nav>
@@ -58,6 +58,7 @@
         <a href="about.html">ABOUT</a>
         <a href="work.html">WORK</a>
         <a href="series.html">SERIES</a>
+        <a href="news.html">NEWS</a>
         <a href="contact.html">CONTACT</a>
         <a href="portal.html">PORTAL</a>
       </nav>
@@ -66,7 +67,6 @@
 
   <main>
     <div class="contact-page">
-      <h1 class="page-title">CONTACT US</h1>
       <section class="contact-intro">
         <h2>GET IN TOUCH</h2>
         <p>We'd love to hear from you. Reach out to us via any of the methods below.</p>
@@ -104,12 +104,37 @@
           </div>
         </div>
         <div class="contact-form-container">
-          <h3>SEND A MESSAGE</h3>
-          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! We will get back to you soon.');">
-            <div class="form-group"><label for="contact-name">Your Name</label><input type="text" id="contact-name" required placeholder="John Doe"></div>
-            <div class="form-group"><label for="contact-email">Email</label><input type="email" id="contact-email" required placeholder="you@example.com"></div>
-            <div class="form-group"><label for="contact-message">Message</label><textarea id="contact-message" rows="5" required placeholder="How can we help you?"></textarea></div>
-            <button type="submit" class="auth-submit">SEND MESSAGE</button>
+          <h3>Centoro Support</h3>
+          <form class="contact-form" id="centoroSupportForm" onsubmit="event.preventDefault(); sendSupportMessage();">
+            <div class="form-group">
+              <label for="support-name">Your Name</label>
+              <input type="text" id="support-name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="support-email">Email / Phone</label>
+              <input type="text" id="support-email" required placeholder="you@email.com">
+            </div>
+            <div class="form-group">
+              <label for="support-dept">Department</label>
+              <select id="support-dept" onchange="updateSupportServices()" required>
+                <option value="">Select...</option>
+                <option value="Creative">Creative</option>
+                <option value="Technology">Technology</option>
+                <option value="Series">Series</option>
+                <option value="General">General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="support-service">Service</label>
+              <select id="support-service" required>
+                <option value="">Select department first</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="support-message">Your Message</label>
+              <textarea id="support-message" rows="5" required placeholder="How can we help you?"></textarea>
+            </div>
+            <button type="submit" class="auth-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
           </form>
         </div>
       </div>
@@ -138,6 +163,7 @@
           <a href="about.html">About</a><span>|</span>
           <a href="work.html">Work</a><span>|</span>
           <a href="series.html">Series</a><span>|</span>
+          <a href="news.html">News</a><span>|</span>
           <a href="contact.html">Contact</a><span>|</span>
           <a href="portal.html">Portal</a><span>|</span>
           <a href="privacy.html">Privacy Policy</a>
@@ -149,6 +175,163 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    const SUPPORT_SERVICES = {
+      'Creative': [
+        'Graphic Design',
+        'Photography',
+        'Videography',
+        'Music Production',
+        'Beat Making',
+        'Mixing & Mastering',
+        'Other Creative'
+      ],
+      'Technology': [
+        'Web Development',
+        'App Development',
+        'Technical Support',
+        'Google Business Setup',
+        'VoIP Services',
+        'Other Tech'
+      ],
+      'Series': [
+        'Friday Madness (Free Beats)',
+        'Monthly Madness (Discounts)',
+        'Beat Store Inquiry',
+        'Sample Store Inquiry'
+      ],
+      'General': [
+        'Quote Request',
+        'Pricing Question',
+        'Booking Inquiry',
+        'Partnership',
+        'Other'
+      ]
+    };
 
+    function updateSupportServices() {
+      const dept = document.getElementById('support-dept').value;
+      const serviceSel = document.getElementById('support-service');
+      serviceSel.innerHTML = '<option value="">Select a service...</option>';
+      if (dept && SUPPORT_SERVICES[dept]) {
+        SUPPORT_SERVICES[dept].forEach(s => {
+          serviceSel.innerHTML += '<option value="' + s + '">' + s + '</option>';
+        });
+      }
+    }
+
+    function sendSupportMessage() {
+      const name = document.getElementById('support-name').value.trim();
+      const email = document.getElementById('support-email').value.trim();
+      const dept = document.getElementById('support-dept').value;
+      const service = document.getElementById('support-service').value;
+      const message = document.getElementById('support-message').value.trim();
+
+      if (!name || !email || !dept || !service || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      const DB_KEY = 'centoro_admin_db_v7';
+      const CHAT_SESSION_KEY = 'centoro_chat_session_id';
+
+      function getSessionId() {
+        let sid = localStorage.getItem(CHAT_SESSION_KEY);
+        if (!sid) {
+          sid = 'WEB-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+          localStorage.setItem(CHAT_SESSION_KEY, sid);
+        }
+        return sid;
+      }
+
+      function fmtDateTime(d) {
+        return new Date(d).toLocaleString('en-ZA');
+      }
+
+      let db = JSON.parse(localStorage.getItem(DB_KEY) || '{}');
+      if (!db.websiteChats) db.websiteChats = [];
+      if (!db.websiteChatSessions) db.websiteChatSessions = [];
+
+      const sessionId = getSessionId();
+      const now = new Date().toISOString();
+
+      let session = db.websiteChatSessions.find(s => s.id === sessionId);
+      if (!session) {
+        session = {
+          id: sessionId,
+          name: name,
+          contact: email,
+          department: dept,
+          service: service,
+          source: 'contact.html',
+          createdAt: now,
+          lastMessageAt: now,
+          status: 'open',
+          unread: 1
+        };
+        db.websiteChatSessions.push(session);
+      } else {
+        session.lastMessageAt = now;
+        session.unread = (session.unread || 0) + 1;
+        session.name = name;
+        session.contact = email;
+      }
+
+      db.websiteChats.push({
+        id: 'WCM-' + Date.now(),
+        sessionId: sessionId,
+        from: 'visitor',
+        text: message,
+        department: dept,
+        service: service,
+        time: now
+      });
+
+      if (!db.activity) db.activity = [];
+      db.activity.unshift({
+        id: 'ACT-' + Date.now(),
+        user: name + ' (Website)',
+        action: 'sent message via contact form: "' + message.substring(0, 60) + (message.length > 60 ? '...' : '') + '"',
+        icon: 'message-circle',
+        color: 'info',
+        time: fmtDateTime(now)
+      });
+      if (db.activity.length > 100) db.activity = db.activity.slice(0, 100);
+
+      localStorage.setItem(DB_KEY, JSON.stringify(db));
+
+      alert('Message sent successfully! Our ' + dept + ' team will respond soon.');
+      document.getElementById('centoroSupportForm').reset();
+      document.getElementById('support-service').innerHTML = '<option value="">Select department first</option>';
+    }
+
+    try {
+      const portalUser = localStorage.getItem('portalUser');
+      if (portalUser) {
+        const user = JSON.parse(portalUser);
+        const nameInput = document.getElementById('support-name');
+        const emailInput = document.getElementById('support-email');
+        if (nameInput && !nameInput.value && user.name) nameInput.value = user.name;
+        if (emailInput && !emailInput.value && user.email) emailInput.value = user.email;
+      }
+    } catch (e) {}
+
+    console.log('✅ Centoro Support form loaded on contact page');
+  </script>
+
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+  </style>
 </body>
 </html>
