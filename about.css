@@ -1,0 +1,19 @@
+/* =====================================================
+   ABOUT PAGE SPECIFIC STYLES
+   ===================================================== */
+
+.about-subtitle {
+  color: #FFC107;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-left: 12px;
+}
+
+.rate-title-dark {
+  color: #1a1a1a;
+}
+
+.cta-container {
+  margin-top: 20px;
+  text-align: center;
+}
