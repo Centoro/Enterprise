@@ -1,11 +1,83 @@
-/* 
- * index.css - Home Page Specific Styles
- * 
- * This file is for any styles that are UNIQUE to the homepage.
- * Your main styles.css handles all the shared styles (header, footer, etc.)
- * 
- * Currently, all homepage styles are inline in index.html.
- * As we refactor, page-specific overrides will go here.
- */
+/* =====================================================
+   INDEX PAGE SPECIFIC STYLES
+   ===================================================== */
 
-/* Future homepage-specific styles will be added here */
+/* Full Screen Series Teasers */
+.series-teaser-full {
+  width: 100%;
+  min-height: 60vh; /* Expansive, fills most of the screen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.series-teaser-full:hover {
+  transform: scale(1.01); /* Subtle premium hover effect */
+}
+
+.series-teaser-content {
+  max-width: 800px;
+}
+
+.series-teaser-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.series-teaser-time {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.series-teaser-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
+}
+
+.series-teaser-link {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 12px 32px;
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.series-teaser-link:hover {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Friday Madness: Red Background */
+.friday-madness-bg {
+  background: #DC2626;
+}
+
+/* Monthly Madness: Royal Blue Background */
+.monthly-madness-bg {
+  background: #2563EB;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .series-teaser-title {
+    font-size: 2.2rem;
+  }
+  .series-teaser-full {
+    min-height: 45vh;
+  }
+}
