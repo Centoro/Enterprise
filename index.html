@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <!-- NEWS RIBBON - SMALLER -->
+  <!-- NEWS RIBBON -->
   <div class="news-ribbon">
     <div class="news-track">
       <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
@@ -67,9 +67,9 @@
   </header>
 
   <main>
-    <!-- HOME -->
     <div class="page active">
-      <!-- SLIDER WITH DEVICE-SPECIFIC IMAGES -->
+      
+      <!-- SLIDER -->
       <div class="banner-slider">
         <div class="banner-track">
           <div class="slide">
@@ -100,7 +100,7 @@
         </div>
       </div>
 
-      <!-- STATS - GOLD LINES REMOVED -->
+      <!-- STATS -->
       <div class="stats-fullwidth" style="border-top: none; border-bottom: none; background: #f5f5f5;">
         <div class="stats-container">
           <div class="stat-box" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.06);"><i class="fas fa-download stat-icon"></i><div><span class="stat-value" id="download-count">1.3k</span><span class="stat-label">Downloads</span></div></div>
@@ -109,7 +109,7 @@
         </div>
       </div>
 
-      <!-- HERO SECTION - BLACK BACKGROUND, WHITE TEXT, REORDERED TAGS -->
+      <!-- HERO SECTION -->
       <section class="hero-section" style="background: #000000; color: #ffffff; min-height: 30vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 20px;">
         <div class="hero-content">
           <h1 class="hero-title" style="color: #ffffff;">UNLEASH YOUR BRAND POWER</h1>
@@ -118,26 +118,26 @@
         </div>
       </section>
 
-      <!-- CURRENT SERIES - BLACK TEXT (EXCEPT FRIDAY MADNESS & MONTHLY MADNESS TITLES) -->
-      <section class="series-teaser-section">
-        <h2 class="section-title" style="color: #1a1a1a;">CURRENT SERIES</h2>
-        <div class="series-teaser-grid">
-          <div class="series-teaser-card friday-teaser" onclick="location.href='series.html#friday'">
-            <h3 style="color: #DC2626;">FRIDAY MADNESS</h3>
-            <p class="teaser-time" style="color: #555;">Every Friday • 9AM</p>
-            <p class="teaser-description" style="color: #777;">Free instrumentals drops every week</p>
-            <a class="teaser-link" href="series.html#friday" style="color: #1a1a1a; font-weight: 600;">LEARN MORE →</a>
-          </div>
-          <div class="series-teaser-card monthly-teaser" onclick="location.href='series.html#monthly'">
-            <h3 style="color: #2563EB;">MONTHLY MADNESS</h3>
-            <p class="teaser-time" style="color: #555;">This Month: PHOTOGRAPHY</p>
-            <p class="teaser-description" style="color: #777;">50% OFF Wedding Packages</p>
-            <a class="teaser-link" href="series.html#monthly" style="color: #1a1a1a; font-weight: 600;">LEARN MORE →</a>
-          </div>
+      <!-- CURRENT SERIES - FULL SCREEN STACKED -->
+      <section class="series-teaser-full friday-madness-bg" onclick="location.href='series.html#friday'" role="button" tabindex="0">
+        <div class="series-teaser-content">
+          <h2 class="series-teaser-title">FRIDAY MADNESS</h2>
+          <p class="series-teaser-time">Every Friday • 9AM</p>
+          <p class="series-teaser-description">Free instrumentals drops every week</p>
+          <a class="series-teaser-link" href="series.html#friday">LEARN MORE →</a>
         </div>
       </section>
 
-      <!-- FEATURED WORK - BLACK BACKGROUND, WHITE TEXT -->
+      <section class="series-teaser-full monthly-madness-bg" onclick="location.href='series.html#monthly'" role="button" tabindex="0">
+        <div class="series-teaser-content">
+          <h2 class="series-teaser-title">MONTHLY MADNESS</h2>
+          <p class="series-teaser-time">This Month: PHOTOGRAPHY</p>
+          <p class="series-teaser-description">50% OFF Wedding Packages</p>
+          <a class="series-teaser-link" href="series.html#monthly">LEARN MORE →</a>
+        </div>
+      </section>
+
+      <!-- FEATURED WORK -->
       <section class="featured-work-section" style="background: #000000; padding: 50px 20px;">
         <h2 class="section-title" style="color: #ffffff;">FEATURED WORK</h2>
         <div class="featured-grid" style="max-width: 1200px; margin: 0 auto 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
