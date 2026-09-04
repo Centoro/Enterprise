@@ -6,26 +6,30 @@
   <title>Centoro Enterprise - Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <!-- Global styles first, then page-specific styles -->
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <!-- NEWS RIBBON - SMALLER -->
+
+  <!-- NEWS RIBBON -->
   <div class="news-ribbon">
     <div class="news-track">
-      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
-      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
-      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
-      <div class="news-item">📌 SUN: CLOSED</div>
-      <div class="news-item">📞 081 567 9592</div>
-      <div class="news-item">✉️ centroenterprise@gmail.com</div>
-      <div class="news-item">📍 Elsies River, Cape Town</div>
-      <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
-      <div class="news-item">📌 FRI: 09:00 - 14:00</div>
-      <div class="news-item">📌 SAT: 09:00 - 13:00</div>
-      <div class="news-item">📌 SUN: CLOSED</div>
-      <div class="news-item">📞 081 567 9592</div>
-      <div class="news-item">✉️ centroenterprise@gmail.com</div>
-      <div class="news-item">📍 Elsies River, Cape Town</div>
+      <div class="news-item">MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">FRI: 09:00 - 14:00</div>
+      <div class="news-item">SAT: 09:00 - 13:00</div>
+      <div class="news-item">SUN: CLOSED</div>
+      <div class="news-item">081 567 9592</div>
+      <div class="news-item">info@centoroenterprise.co.za</div>
+      <div class="news-item">Elsies River, Cape Town</div>
+      <!-- Duplicated for seamless infinite scroll -->
+      <div class="news-item">MON - THU: 09:00 - 17:00</div>
+      <div class="news-item">FRI: 09:00 - 14:00</div>
+      <div class="news-item">SAT: 09:00 - 13:00</div>
+      <div class="news-item">SUN: CLOSED</div>
+      <div class="news-item">081 567 9592</div>
+      <div class="news-item">info@centoroenterprise.co.za</div>
+      <div class="news-item">Elsies River, Cape Town</div>
     </div>
   </div>
 
@@ -66,9 +70,9 @@
   </header>
 
   <main>
-    <!-- HOME -->
     <div class="page active">
-      <!-- SLIDER WITH DEVICE-SPECIFIC IMAGES -->
+      
+      <!-- SLIDER -->
       <div class="banner-slider">
         <div class="banner-track">
           <div class="slide">
@@ -99,70 +103,102 @@
         </div>
       </div>
 
-      <!-- STATS - GOLD LINES REMOVED -->
-      <div class="stats-fullwidth" style="border-top: none; border-bottom: none; background: #f5f5f5;">
+      <!-- STATS -->
+      <div class="stats-fullwidth stats-no-borders">
         <div class="stats-container">
-          <div class="stat-box" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.06);"><i class="fas fa-download stat-icon"></i><div><span class="stat-value" id="download-count">1.3k</span><span class="stat-label">Downloads</span></div></div>
-          <div class="stat-box" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.06);"><i class="fas fa-file stat-icon"></i><div><span class="stat-value" id="file-count">117</span><span class="stat-label">Files</span></div></div>
-          <div class="stat-box" style="border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.06);"><i class="fas fa-users stat-icon"></i><div><span class="stat-value" id="visitor-count">3.3k</span><span class="stat-label">Visitors</span></div></div>
+          <div class="stat-box stat-box-minimal">
+            <i class="fas fa-download stat-icon"></i>
+            <div>
+              <span class="stat-value" id="download-count">Loading...</span>
+              <span class="stat-label">Downloads</span>
+            </div>
+          </div>
+          <div class="stat-box stat-box-minimal">
+            <i class="fas fa-file stat-icon"></i>
+            <div>
+              <span class="stat-value" id="file-count">Loading...</span>
+              <span class="stat-label">Files</span>
+            </div>
+          </div>
+          <div class="stat-box stat-box-minimal">
+            <i class="fas fa-users stat-icon"></i>
+            <div>
+              <span class="stat-value" id="visitor-count">Loading...</span>
+              <span class="stat-label">Visitors</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- HERO SECTION - BLACK BACKGROUND, WHITE TEXT, REORDERED TAGS -->
-      <section class="hero-section" style="background: #000000; color: #ffffff; min-height: 30vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 20px;">
+      <!-- HERO SECTION -->
+      <section class="hero-section hero-dark">
         <div class="hero-content">
-          <h1 class="hero-title" style="color: #ffffff;">UNLEASH YOUR BRAND POWER</h1>
-          <p class="hero-subtitle" style="color: #cccccc;">From concept to creation - we bring your vision to life.</p>
-          <div class="hero-tags"><span style="color: #ffffff;">TECH</span><span class="dot" style="color: #FFC107;">•</span><span style="color: #ffffff;">MULTIMEDIA</span><span class="dot" style="color: #FFC107;">•</span><span style="color: #ffffff;">GROWTH</span></div>
-        </div>
-      </section>
-
-      <!-- CURRENT SERIES - BLACK TEXT (EXCEPT FRIDAY MADNESS & MONTHLY MADNESS TITLES) -->
-      <section class="series-teaser-section">
-        <h2 class="section-title" style="color: #1a1a1a;">CURRENT SERIES</h2>
-        <div class="series-teaser-grid">
-          <div class="series-teaser-card friday-teaser" onclick="location.href='series.html#friday'">
-            <h3 style="color: #DC2626;">FRIDAY MADNESS</h3>
-            <p class="teaser-time" style="color: #555;">Every Friday • 9AM</p>
-            <p class="teaser-description" style="color: #777;">Free instrumentals drops every week</p>
-            <a class="teaser-link" href="series.html#friday" style="color: #1a1a1a; font-weight: 600;">LEARN MORE →</a>
-          </div>
-          <div class="series-teaser-card monthly-teaser" onclick="location.href='series.html#monthly'">
-            <h3 style="color: #2563EB;">MONTHLY MADNESS</h3>
-            <p class="teaser-time" style="color: #555;">This Month: PHOTOGRAPHY</p>
-            <p class="teaser-description" style="color: #777;">50% OFF Wedding Packages</p>
-            <a class="teaser-link" href="series.html#monthly" style="color: #1a1a1a; font-weight: 600;">LEARN MORE →</a>
+          <h1 class="hero-title hero-title-white">UNLEASH YOUR BRAND POWER</h1>
+          <p class="hero-subtitle hero-subtitle-light">From concept to creation - we bring your vision to life.</p>
+          <div class="hero-tags">
+            <span class="tag-white">TECH</span>
+            <span class="dot">•</span>
+            <span class="tag-white">MULTIMEDIA</span>
+            <span class="dot">•</span>
+            <span class="tag-white">GROWTH</span>
           </div>
         </div>
       </section>
 
-      <!-- FEATURED WORK - BLACK BACKGROUND, WHITE TEXT -->
-      <section class="featured-work-section" style="background: #000000; padding: 50px 20px;">
-        <h2 class="section-title" style="color: #ffffff;">FEATURED WORK</h2>
-        <div class="featured-grid" style="max-width: 1200px; margin: 0 auto 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-          <div class="featured-item" onclick="location.href='work.html'" style="text-align: center; cursor: pointer;">
-            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: 2px solid #FFC107; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="images/placeholder-1.jpg" alt="Brand Power" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
-            <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">Brand Power</h4>
-            <p style="color: #aaaaaa; font-size: 0.85rem;">Branding & Identity</p>
+      <!-- CURRENT SERIES (Full Screen Stacked) -->
+      <section class="series-teaser-full friday-madness-bg" onclick="location.href='series.html#friday'" role="button" tabindex="0">
+        <div class="series-teaser-content">
+          <h2 class="series-teaser-title">FRIDAY MADNESS</h2>
+          <p class="series-teaser-time">Every Friday • 9AM</p>
+          <p class="series-teaser-description">Free instrumentals drops every week</p>
+          <a class="series-teaser-link" href="series.html#friday">LEARN MORE →</a>
+        </div>
+      </section>
+
+      <section class="series-teaser-full monthly-madness-bg" onclick="location.href='series.html#monthly'" role="button" tabindex="0">
+        <div class="series-teaser-content">
+          <h2 class="series-teaser-title">MONTHLY MADNESS</h2>
+          <p class="series-teaser-time">This Month: PHOTOGRAPHY</p>
+          <p class="series-teaser-description">50% OFF Wedding Packages</p>
+          <a class="series-teaser-link" href="series.html#monthly">LEARN MORE →</a>
+        </div>
+      </section>
+
+      <!-- FEATURED WORK -->
+      <section class="featured-work-section featured-dark">
+        <h2 class="section-title section-title-white">FEATURED WORK</h2>
+        <div class="featured-grid">
+          <div class="featured-item" onclick="location.href='work.html'">
+            <div class="featured-image featured-image-dark">
+              <img src="images/placeholder-1.jpg" alt="Brand Power">
+            </div>
+            <h4>Brand Power</h4>
+            <p>Branding & Identity</p>
           </div>
-          <div class="featured-item" onclick="location.href='work.html'" style="text-align: center; cursor: pointer;">
-            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: 2px solid #FFC107; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="images/placeholder-2.jpg" alt="Web & App" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
-            <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">Web & App Development</h4>
-            <p style="color: #aaaaaa; font-size: 0.85rem;">Digital Solutions</p>
+          <div class="featured-item" onclick="location.href='work.html'">
+            <div class="featured-image featured-image-dark">
+              <img src="images/placeholder-2.jpg" alt="Web & App">
+            </div>
+            <h4>Web & App Development</h4>
+            <p>Digital Solutions</p>
           </div>
-          <div class="featured-item" onclick="location.href='work.html'" style="text-align: center; cursor: pointer;">
-            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: 2px solid #FFC107; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="images/placeholder-3.jpg" alt="Photography" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
-            <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">Photography & Videography</h4>
-            <p style="color: #aaaaaa; font-size: 0.85rem;">Visual Storytelling</p>
+          <div class="featured-item" onclick="location.href='work.html'">
+            <div class="featured-image featured-image-dark">
+              <img src="images/placeholder-3.jpg" alt="Photography">
+            </div>
+            <h4>Photography & Videography</h4>
+            <p>Visual Storytelling</p>
           </div>
-          <div class="featured-item" onclick="location.href='work.html'" style="text-align: center; cursor: pointer;">
-            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: 2px solid #FFC107; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="images/placeholder-4.jpg" alt="Beat Making" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
-            <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">Beat Making & Music</h4>
-            <p style="color: #aaaaaa; font-size: 0.85rem;">Music Production</p>
+          <div class="featured-item" onclick="location.href='work.html'">
+            <div class="featured-image featured-image-dark">
+              <img src="images/placeholder-4.jpg" alt="Beat Making">
+            </div>
+            <h4>Beat Making & Music</h4>
+            <p>Music Production</p>
           </div>
         </div>
-        <div class="view-all-container" style="text-align: center;">
-          <a class="view-all-link" href="work.html" style="display: inline-block; color: #ffffff; font-size: 1.1rem; font-weight: 600; padding: 10px 28px; border: 2px solid #ffffff; border-radius: 30px; transition: all 0.3s; cursor: pointer; background: transparent;">VIEW ALL WORK →</a>
+        <div class="view-all-container">
+          <a class="view-all-link view-all-white" href="work.html">VIEW ALL WORK →</a>
         </div>
       </section>
 
@@ -173,17 +209,23 @@
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-contact">
-        <div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:0815679592">081 567 9592</a></div>
-        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:centroenterprise@gmail.com">centroenterprise@gmail.com</a></div>
-        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Elsies River, Cape Town</span></div>
+        <div class="contact-item">
+          <a href="tel:0815679592">081 567 9592</a>
+        </div>
+        <div class="contact-item">
+          <a href="mailto:info@centoroenterprise.co.za">info@centoroenterprise.co.za</a>
+        </div>
+        <div class="contact-item">
+          <span>Elsies River, Cape Town</span>
+        </div>
       </div>
       <div class="footer-social">
-        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+        <a href="https://www.facebook.com/centoroenterprise" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/centoroenterprise" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@centoroenterprise" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@centoroenterprise" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/27815679592" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://discord.gg/centoroenterprise" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
       </div>
       <div class="footer-bottom">
         <div class="footer-links">
@@ -203,6 +245,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Page-specific JavaScript -->
+  <script src="index.js"></script>
 </body>
 </html>
