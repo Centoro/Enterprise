@@ -1,6 +1,7 @@
-/* =====================================================
-   WORK PAGE SPECIFIC STYLES
-   ===================================================== */
-
-/* All gallery styling is handled by styles.css. 
-   Add any work-page-specific overrides here. */
+/* Paste the entire content of the provided styles.css here */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ... [Rest of the global CSS from your provided styles.css] ... */
