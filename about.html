@@ -6,7 +6,6 @@
   <title>Centoro Enterprise - About</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="about.css">
 </head>
 <body>
@@ -18,14 +17,14 @@
       <div class="news-item">📌 SAT: 09:00 - 13:00</div>
       <div class="news-item">📌 SUN: CLOSED</div>
       <div class="news-item">📞 081 567 9592</div>
-      <div class="news-item">✉️ info@centoroenterprise.co.za</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
       <div class="news-item">📍 Elsies River, Cape Town</div>
       <div class="news-item">📌 MON - THU: 09:00 - 17:00</div>
       <div class="news-item">📌 FRI: 09:00 - 14:00</div>
       <div class="news-item">📌 SAT: 09:00 - 13:00</div>
       <div class="news-item">📌 SUN: CLOSED</div>
       <div class="news-item">📞 081 567 9592</div>
-      <div class="news-item">✉️ info@centoroenterprise.co.za</div>
+      <div class="news-item">✉️ centroenterprise@gmail.com</div>
       <div class="news-item">📍 Elsies River, Cape Town</div>
     </div>
   </div>
@@ -68,24 +67,26 @@
 
   <main>
     <div class="about-page">
+      <!-- PAGE TITLE REMOVED - "ABOUT CENTORO" NOW NEXT TO "OUR STORY" -->
 
-      <!-- OUR STORY -->
+      <!-- OUR STORY - Image on left, text on right -->
       <section class="about-section story-section">
         <div class="story-layout">
           <div class="story-image">
             <img src="images/about-story-image.jpg" alt="Centoro Team" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%231a1a1a%22/%3E%3Ctext x=%22200%22 y=%22150%22 font-family=%22Inter%22 fill=%22%23FFC107%22 text-anchor=%22middle%22 font-size=%2220%22%3ECentoro Team%3C/text%3E%3C/svg%3E'">
           </div>
           <div class="story-text">
-            <h2>OUR STORY <span class="about-subtitle">| ABOUT CENTORO</span></h2>
+            <h2>OUR STORY <span style="color: #FFC107; font-size: 0.9rem; font-weight: 400; margin-left: 12px;">| ABOUT CENTORO</span></h2>
             <p class="about-story">Empowering Excellence. Defining Success.</p>
             <p>Centoro is a South African multi-disciplinary technology and creative solutions company based in Elsies River, Cape Town. We bridge the gap between creativity and technology, delivering premium digital services to individuals, businesses, and brands.</p>
           </div>
         </div>
       </section>
 
-      <!-- WHAT WE DO -->
+      <!-- WHAT WE DO - Banner image on top -->
       <section class="about-section what-we-do-section">
         <h2>WHAT WE DO</h2>
+        <!-- Banner image below the gold line -->
         <div class="what-we-do-banner">
           <img src="images/what-we-do-banner.jpg" alt="What We Do - Centoro Services" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22200%22%3E%3Crect width=%221200%22 height=%22200%22 fill=%22%231a1a1a%22/%3E%3Ctext x=%22600%22 y=%22100%22 font-family=%22Inter%22 fill=%22%23FFC107%22 text-anchor=%22middle%22 font-size=%2230%22%3ECreative %26amp; Technology Solutions%3C/text%3E%3C/svg%3E'">
         </div>
@@ -118,7 +119,7 @@
             </ul>
           </div>
         </div>
-        <div class="cta-container">
+        <div style="margin-top:20px; text-align:center;">
           <button class="cta-quote" onclick="location.href='contact.html'">FIND OUT NOW & GET A QUOTE →</button>
         </div>
       </section>
@@ -135,7 +136,7 @@
         </div>
       </section>
 
-      <!-- CLIENTS & PARTNERS -->
+      <!-- CLIENTS & PARTNERS - With logos -->
       <section class="about-section">
         <h2>CLIENTS &amp; PARTNERS</h2>
         <div class="clients-grid">
@@ -208,56 +209,19 @@
       <!-- RATE CARD -->
       <section class="about-section">
         <h2>RATE CARD</h2>
+        <!-- Banner image below the gold line (same style as WHAT WE DO) -->
         <div class="what-we-do-banner">
           <img src="images/rate-card-banner.jpg" alt="Centoro Rate Card - Pricing & Packages" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22200%22%3E%3Crect width=%221200%22 height=%22200%22 fill=%22%231a1a1a%22/%3E%3Ctext x=%22600%22 y=%22100%22 font-family=%22Inter%22 fill=%22%23FFC107%22 text-anchor=%22middle%22 font-size=%2230%22%3ERate Card %26amp; Pricing%3C/text%3E%3C/svg%3E'">
         </div>
         <div class="rate-card-section">
-          <div class="rate-category">
-            <h3 class="rate-title-dark">HOURLY SERVICES</h3>
-            <div class="rate-grid">
-              <div class="rate-item"><span class="rate-service">Graphic Design</span><span class="rate-price">R450/hr</span></div>
-              <div class="rate-item"><span class="rate-service">Video Editing</span><span class="rate-price">R550/hr</span></div>
-              <div class="rate-item"><span class="rate-service">Studio Recording</span><span class="rate-price">R350/hr</span></div>
-              <div class="rate-item"><span class="rate-service">Web Development</span><span class="rate-price">R650/hr</span></div>
-              <div class="rate-item"><span class="rate-service">Technical Support</span><span class="rate-price">R500/hr</span></div>
-              <div class="rate-item"><span class="rate-service">Consultation (45min)</span><span class="rate-price">R350</span></div>
-              <div class="rate-item"><span class="rate-service">Call-Out (Local)</span><span class="rate-price">From R450</span></div>
-            </div>
-          </div>
-          <div class="rate-category">
-            <h3 class="rate-title-dark">PROJECT PRICING</h3>
-            <div class="rate-grid">
-              <div class="rate-item"><span class="rate-service">Logo Design</span><span class="rate-price">R2,500</span></div>
-              <div class="rate-item"><span class="rate-service">Flyer / Poster</span><span class="rate-price">R800</span></div>
-              <div class="rate-item"><span class="rate-service">Business Card</span><span class="rate-price">R600</span></div>
-              <div class="rate-item"><span class="rate-service">Social Media Post</span><span class="rate-price">R350</span></div>
-              <div class="rate-item"><span class="rate-service">Video Edit (1-3min)</span><span class="rate-price">R1,800</span></div>
-              <div class="rate-item"><span class="rate-service">Promo / Advert</span><span class="rate-price">R3,500</span></div>
-              <div class="rate-item"><span class="rate-service">Beat Lease</span><span class="rate-price">R450</span></div>
-              <div class="rate-item"><span class="rate-service">Beat Exclusive</span><span class="rate-price">From R2,500</span></div>
-              <div class="rate-item"><span class="rate-service">Mixing &amp; Mastering</span><span class="rate-price">R800/track</span></div>
-              <div class="rate-item"><span class="rate-service">Website (1-3 pages)</span><span class="rate-price">R3,500</span></div>
-              <div class="rate-item"><span class="rate-service">Business Website (5)</span><span class="rate-price">R6,500</span></div>
-              <div class="rate-item"><span class="rate-service">E-Commerce</span><span class="rate-price">From R9,500</span></div>
-            </div>
-          </div>
-          <div class="rate-category">
-            <h3 class="rate-title-dark">PHOTOGRAPHY PACKAGES</h3>
-            <div class="rate-grid">
-              <div class="rate-item"><span class="rate-service">Basic Photoshoot (1hr)</span><span class="rate-price">R1,500</span></div>
-              <div class="rate-item"><span class="rate-service">Matric Ball</span><span class="rate-price">From R2,500</span></div>
-              <div class="rate-item"><span class="rate-service">Wedding - Standard (Half)</span><span class="rate-price">From R6,500</span></div>
-              <div class="rate-item"><span class="rate-service">Wedding - Premium (Half)</span><span class="rate-price">From R9,500</span></div>
-              <div class="rate-item"><span class="rate-service">Wedding - Premium (Full)</span><span class="rate-price">From R14,500</span></div>
-              <div class="rate-item"><span class="rate-service">Corporate Events</span><span class="rate-price">R2,000 + R800/hr</span></div>
-            </div>
-          </div>
-          <div class="rate-category">
-            <h3 class="rate-title-dark">ALL-INCLUSIVE PACKAGES</h3>
-            <div class="package-card"><div class="package-name">STARTER</div><div class="package-price">R3,200</div><div class="package-includes">Logo Design + 2 Social Media Posts</div></div>
-            <div class="package-card"><div class="package-name">BUSINESS</div><div class="package-price">R8,500</div><div class="package-includes">Logo + 5-Page Website + 5 Social Posts</div></div>
-            <div class="package-card"><div class="package-name">PREMIUM</div><div class="package-price">R15,000</div><div class="package-includes">Full Branding + Website + Promo Video + Social Starter</div></div>
-          </div>
+          <!-- HOURLY SERVICES - Title BLACK -->
+          <div class="rate-category"><h3 style="color: #1a1a1a;">HOURLY SERVICES</h3><div class="rate-grid"><div class="rate-item"><span class="rate-service">Graphic Design</span><span class="rate-price">R450/hr</span></div><div class="rate-item"><span class="rate-service">Video Editing</span><span class="rate-price">R550/hr</span></div><div class="rate-item"><span class="rate-service">Studio Recording</span><span class="rate-price">R350/hr</span></div><div class="rate-item"><span class="rate-service">Web Development</span><span class="rate-price">R650/hr</span></div><div class="rate-item"><span class="rate-service">Technical Support</span><span class="rate-price">R500/hr</span></div><div class="rate-item"><span class="rate-service">Consultation (45min)</span><span class="rate-price">R350</span></div><div class="rate-item"><span class="rate-service">Call-Out (Local)</span><span class="rate-price">From R450</span></div></div></div>
+          <!-- PROJECT PRICING - Title BLACK -->
+          <div class="rate-category"><h3 style="color: #1a1a1a;">PROJECT PRICING</h3><div class="rate-grid"><div class="rate-item"><span class="rate-service">Logo Design</span><span class="rate-price">R2,500</span></div><div class="rate-item"><span class="rate-service">Flyer / Poster</span><span class="rate-price">R800</span></div><div class="rate-item"><span class="rate-service">Business Card</span><span class="rate-price">R600</span></div><div class="rate-item"><span class="rate-service">Social Media Post</span><span class="rate-price">R350</span></div><div class="rate-item"><span class="rate-service">Video Edit (1-3min)</span><span class="rate-price">R1,800</span></div><div class="rate-item"><span class="rate-service">Promo / Advert</span><span class="rate-price">R3,500</span></div><div class="rate-item"><span class="rate-service">Beat Lease</span><span class="rate-price">R450</span></div><div class="rate-item"><span class="rate-service">Beat Exclusive</span><span class="rate-price">From R2,500</span></div><div class="rate-item"><span class="rate-service">Mixing &amp; Mastering</span><span class="rate-price">R800/track</span></div><div class="rate-item"><span class="rate-service">Website (1-3 pages)</span><span class="rate-price">R3,500</span></div><div class="rate-item"><span class="rate-service">Business Website (5)</span><span class="rate-price">R6,500</span></div><div class="rate-item"><span class="rate-service">E-Commerce</span><span class="rate-price">From R9,500</span></div></div></div>
+          <!-- PHOTOGRAPHY PACKAGES - Title BLACK -->
+          <div class="rate-category"><h3 style="color: #1a1a1a;">PHOTOGRAPHY PACKAGES</h3><div class="rate-grid"><div class="rate-item"><span class="rate-service">Basic Photoshoot (1hr)</span><span class="rate-price">R1,500</span></div><div class="rate-item"><span class="rate-service">Matric Ball</span><span class="rate-price">From R2,500</span></div><div class="rate-item"><span class="rate-service">Wedding - Standard (Half)</span><span class="rate-price">From R6,500</span></div><div class="rate-item"><span class="rate-service">Wedding - Premium (Half)</span><span class="rate-price">From R9,500</span></div><div class="rate-item"><span class="rate-service">Wedding - Premium (Full)</span><span class="rate-price">From R14,500</span></div><div class="rate-item"><span class="rate-service">Corporate Events</span><span class="rate-price">R2,000 + R800/hr</span></div></div></div>
+          <!-- ALL-INCLUSIVE PACKAGES - Title BLACK -->
+          <div class="rate-category"><h3 style="color: #1a1a1a;">ALL-INCLUSIVE PACKAGES</h3><div class="package-card"><div class="package-name">STARTER</div><div class="package-price">R3,200</div><div class="package-includes">Logo Design + 2 Social Media Posts</div></div><div class="package-card"><div class="package-name">BUSINESS</div><div class="package-price">R8,500</div><div class="package-includes">Logo + 5-Page Website + 5 Social Posts</div></div><div class="package-card"><div class="package-name">PREMIUM</div><div class="package-price">R15,000</div><div class="package-includes">Full Branding + Website + Promo Video + Social Starter</div></div></div>
         </div>
       </section>
 
@@ -292,16 +256,16 @@
     <div class="footer-container">
       <div class="footer-contact">
         <div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:0815679592">081 567 9592</a></div>
-        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@centoroenterprise.co.za">info@centoroenterprise.co.za</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:centroenterprise@gmail.com">centroenterprise@gmail.com</a></div>
         <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Elsies River, Cape Town</span></div>
       </div>
       <div class="footer-social">
-        <a href="https://www.facebook.com/centoroenterprise" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/centoroenterprise" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@centoroenterprise" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.youtube.com/@centoroenterprise" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-        <a href="https://wa.me/27815679592" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://discord.gg/centoroenterprise" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
       </div>
       <div class="footer-bottom">
         <div class="footer-links">

@@ -331,6 +331,19 @@ const ApiService = {
         return this.request('/markets/data');
     },
 
+    getSeries() {
+        return Promise.all([
+            this.request('/series/friday'),
+            this.request('/monthly-offers')
+        ]).then(([friday, monthly]) => ({
+            success: true,
+            data: {
+                fridayDrops: friday.data || [],
+                monthlyOffers: monthly.data || []
+            }
+        }));
+    },
+
     // =============================================
     // COMPANY SETTINGS (NEW)
     // =============================================

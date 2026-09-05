@@ -6831,3 +6831,16 @@ IMPRESSUM SECTION - NEW ADDITION
         font-size: 1.4rem !important;
     }
 }
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
