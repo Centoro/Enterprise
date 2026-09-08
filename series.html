@@ -504,8 +504,35 @@
       return m + ':' + (s < 10 ? '0' : '') + s;
     }
 
-    function downloadTrack(title) {
-      alert('Downloading: ' + title);
+    async function downloadTrack(title, id, kind) {
+      try {
+        if (id && kind === 'friday') {
+          const response = await ApiService.downloadDrop(id);
+          if (response.status === 'payment_required') {
+            alert(`${title} requires payment of R${response.price}. Yoco checkout will be enabled when connected.`);
+            return;
+          }
+          if (response.status === 'free' && response.url) {
+            window.location.href = response.url;
+            return;
+          }
+        }
+        if (id && kind === 'monthly') {
+          const response = await ApiService.downloadOffer(id);
+          if (response.status === 'payment_required') {
+            alert(`${title} requires payment of R${response.price}. Yoco checkout will be enabled when connected.`);
+            return;
+          }
+          if (response.status === 'free' && response.url) {
+            window.location.href = response.url;
+            return;
+          }
+        }
+        if (ApiService.track) ApiService.track('download', title).catch(() => {});
+        alert('This item is available from the current published website content.');
+      } catch (error) {
+        alert(error.message || 'This download is no longer available.');
+      }
     }
 
     document.getElementById('seriesPopupOverlay').addEventListener('click', function(e) {

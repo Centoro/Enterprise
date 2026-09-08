@@ -174,6 +174,8 @@
     </div>
   </footer>
 
+  <script src="api-config.js"></script>
+  <script src="website-live.js"></script>
   <script src="contact.js"></script>
   <script>
     const SUPPORT_SERVICES = {
@@ -220,7 +222,7 @@
       }
     }
 
-    function sendSupportMessage() {
+    async function sendSupportMessage() {
       const name = document.getElementById('support-name').value.trim();
       const email = document.getElementById('support-email').value.trim();
       const dept = document.getElementById('support-dept').value;
@@ -232,7 +234,6 @@
         return;
       }
 
-      const DB_KEY = 'centoro_admin_db_v7';
       const CHAT_SESSION_KEY = 'centoro_chat_session_id';
 
       function getSessionId() {
@@ -244,63 +245,34 @@
         return sid;
       }
 
-      function fmtDateTime(d) {
-        return new Date(d).toLocaleString('en-ZA');
-      }
-
-      let db = JSON.parse(localStorage.getItem(DB_KEY) || '{}');
-      if (!db.websiteChats) db.websiteChats = [];
-      if (!db.websiteChatSessions) db.websiteChatSessions = [];
-
       const sessionId = getSessionId();
       const now = new Date().toISOString();
-
-      let session = db.websiteChatSessions.find(s => s.id === sessionId);
-      if (!session) {
-        session = {
-          id: sessionId,
-          name: name,
+      try {
+        const sessionResponse = await ApiService.request('/website/chat/sessions', 'POST', {
+          sessionId,
+          name,
           contact: email,
           department: dept,
-          service: service,
+          service,
           source: 'contact.html',
-          createdAt: now,
-          lastMessageAt: now,
           status: 'open',
-          unread: 1
-        };
-        db.websiteChatSessions.push(session);
-      } else {
-        session.lastMessageAt = now;
-        session.unread = (session.unread || 0) + 1;
-        session.name = name;
-        session.contact = email;
+          unread: 1,
+          createdAt: now,
+          lastMessageAt: now
+        });
+        const savedSession = sessionResponse.data || sessionResponse;
+        await ApiService.request('/website/chat/messages', 'POST', {
+          sessionId: savedSession.sessionId || sessionId,
+          from: 'visitor',
+          text: message,
+          department: dept,
+          service
+        });
+        alert('Message sent successfully! Our ' + dept + ' team will respond soon.');
+      } catch (error) {
+        alert('Unable to send your message: ' + error.message);
+        return;
       }
-
-      db.websiteChats.push({
-        id: 'WCM-' + Date.now(),
-        sessionId: sessionId,
-        from: 'visitor',
-        text: message,
-        department: dept,
-        service: service,
-        time: now
-      });
-
-      if (!db.activity) db.activity = [];
-      db.activity.unshift({
-        id: 'ACT-' + Date.now(),
-        user: name + ' (Website)',
-        action: 'sent message via contact form: "' + message.substring(0, 60) + (message.length > 60 ? '...' : '') + '"',
-        icon: 'message-circle',
-        color: 'info',
-        time: fmtDateTime(now)
-      });
-      if (db.activity.length > 100) db.activity = db.activity.slice(0, 100);
-
-      localStorage.setItem(DB_KEY, JSON.stringify(db));
-
-      alert('Message sent successfully! Our ' + dept + ' team will respond soon.');
       document.getElementById('centoroSupportForm').reset();
       document.getElementById('support-service').innerHTML = '<option value="">Select department first</option>';
     }

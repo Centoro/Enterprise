@@ -324,7 +324,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // ─── LEASE POPUP ──────────────────────────────────────────────
+    let selectedStoreOrder = null;
+
     window.openLeasePopup = function(beat, type, price) {
+        selectedStoreOrder = { item: beat, license: type, amount: Number(price) || 0 };
         const overlay = document.getElementById('leasePopupOverlay');
         if (!overlay) return;
         
@@ -396,9 +399,24 @@ document.addEventListener('DOMContentLoaded', function() {
         if (target) target.classList.add('selected');
     };
     
-    window.processPayment = function() {
-        alert('Payment processing... This would connect to Yoco/PayFast.');
-        closeLeasePopup();
+    window.processPayment = async function() {
+        if (!selectedStoreOrder) return;
+        const user = (() => { try { return JSON.parse(localStorage.getItem('portalUser') || '{}'); } catch (e) { return {}; } })();
+        const name = user.name || prompt('Your name:');
+        const email = user.email || prompt('Your email:');
+        if (!name || !email) return;
+        const button = document.getElementById('leasePayBtn');
+        if (button) { button.disabled = true; button.textContent = 'Creating order...'; }
+        try {
+            const response = await ApiService.createStoreOrder({ ...selectedStoreOrder, name, email, phone: user.phone || '' });
+            const data = response.data || {};
+            alert(`Order ${data.invoiceNumber || ''} was sent to Centoro and is now visible in the admin invoices. Complete the configured payment provider checkout to issue the license.`);
+            closeLeasePopup();
+        } catch (error) {
+            alert(error.message || 'Unable to create the order.');
+        } finally {
+            if (button) button.disabled = false;
+        }
     };
     
     // ─── PURCHASE DETAIL POPUP ──────────────────────────────────
@@ -606,7 +624,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ─── UTILITY FUNCTIONS ──────────────────────────────────────
     window.downloadTrack = function(title) {
-        alert('Downloading: ' + title);
+        if (window.ApiService && typeof ApiService.track === 'function') ApiService.track('download', title).catch(() => {});
+        alert('Download access for "' + title + '" is available after purchase confirmation.');
     };
     
     window.togglePopupPlay = function() {

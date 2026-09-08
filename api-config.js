@@ -3,7 +3,11 @@
 // =====================================================
 
 const API_CONFIG = {
-    BASE_URL: 'http://localhost:8080/api',
+    BASE_URL: window.location.protocol === 'https:'
+        ? `${window.location.origin}/api`
+        : (window.location.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(window.location.hostname)
+            ? `${window.location.origin}/api`
+            : 'http://localhost:8080/api'),
     AUTH_TOKEN_KEY: 'centoro_portal_token',
     USER_KEY: 'centoro_portal_user'
 };
@@ -55,12 +59,13 @@ const ApiService = {
 
         try {
             const response = await fetch(url, options);
-            const data = await response.json();
+            const contentType = response.headers.get('content-type') || '';
+            const data = contentType.includes('application/json') ? await response.json() : null;
             if (!response.ok) {
                 if (response.status === 401) {
                     this.logout();
                 }
-                throw new Error(data.message || 'Request failed');
+                throw new Error((data && data.message) || `Request failed (${response.status})`);
             }
             return data;
         } catch (error) {
@@ -252,31 +257,47 @@ const ApiService = {
         return this.request('/dashboard/stats');
     },
 
+    track(type, label) {
+        return this.request('/analytics/increment', 'POST', { type, label });
+    },
+
+    createStoreOrder(order) {
+        return this.request('/store/orders', 'POST', order);
+    },
+
+    confirmStoreOrder(invoiceId, data) {
+        return this.request('/store/orders/' + invoiceId + '/confirm', 'POST', data);
+    },
+
     // =============================================
     // WEBSITE PAGES (NEW - For Website Builder)
     // =============================================
     getWebsitePages() {
-        return this.request('/website/pages');
+        return this.request('/website/builder/pages');
+    },
+
+    getMainWebsitePage() {
+        return this.request('/website/builder/pages/main');
     },
 
     getWebsitePage(id) {
-        return this.request('/website/pages/' + id);
+        return this.request('/website/builder/pages/' + id);
     },
 
     createWebsitePage(page) {
-        return this.request('/website/pages', 'POST', page);
+        return this.request('/website/builder/pages', 'POST', page);
     },
 
     updateWebsitePage(id, page) {
-        return this.request('/website/pages/' + id, 'PUT', page);
+        return this.request('/website/builder/pages/' + id, 'PUT', page);
     },
 
     publishWebsitePage(id) {
-        return this.request('/website/pages/' + id + '/publish', 'POST');
+        return this.request('/website/builder/pages/' + id + '/publish', 'POST');
     },
 
     deleteWebsitePage(id) {
-        return this.request('/website/pages/' + id, 'DELETE');
+        return this.request('/website/builder/pages/' + id, 'DELETE');
     },
 
     // =============================================
@@ -333,7 +354,7 @@ const ApiService = {
 
     getSeries() {
         return Promise.all([
-            this.request('/series/friday'),
+            this.request('/friday-drops'),
             this.request('/monthly-offers')
         ]).then(([friday, monthly]) => ({
             success: true,
@@ -342,6 +363,14 @@ const ApiService = {
                 monthlyOffers: monthly.data || []
             }
         }));
+    },
+
+    downloadDrop(id) {
+        return this.request('/friday-drops/' + id + '/download', 'POST');
+    },
+
+    downloadOffer(id) {
+        return this.request('/monthly-offers/' + id + '/download', 'POST');
     },
 
     // =============================================
