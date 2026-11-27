@@ -256,12 +256,12 @@ a {
 }
 .banner-track {
   display: flex;
-  width: 300%;
+  width: 400%;
   height: 100%;
-  animation: scroll 25s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 .slide {
-  width: 33.3333%;
+  width: 25%;
   height: 100%;
   flex-shrink: 0;
   position: relative;
@@ -280,11 +280,13 @@ a {
 }
 @keyframes scroll {
   0%   { transform: translateX(0); }
-  28%  { transform: translateX(0); }
-  33%  { transform: translateX(-33.3333%); }
-  61%  { transform: translateX(-33.3333%); }
-  66%  { transform: translateX(-66.6666%); }
-  94%  { transform: translateX(-66.6666%); }
+  22%  { transform: translateX(0); }
+  25%  { transform: translateX(-25%); }
+  47%  { transform: translateX(-25%); }
+  50%  { transform: translateX(-50%); }
+  72%  { transform: translateX(-50%); }
+  75%  { transform: translateX(-75%); }
+  97%  { transform: translateX(-75%); }
   100% { transform: translateX(-100%); }
 }
 @media (max-width: 768px) {
