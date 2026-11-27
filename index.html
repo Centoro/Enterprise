@@ -10,35 +10,36 @@
 
   <!-- SLIDER FIX: placed after index.css so it wins over the old slider rules -->
   <style>
+    /* Slider: fixed 16:9 box on desktop, slides cross-fade on top of each other */
     .banner-slider {
       position: relative !important;
+      display: block !important;
       width: 100% !important;
       max-width: 100% !important;
       left: 0 !important;
       right: 0 !important;
       margin: 0 !important;
-      padding: 0 !important;
-      height: auto !important;
-      aspect-ratio: 16 / 9;
+      padding: 0 0 56.25% 0 !important;
+      height: 0 !important;
       overflow: hidden !important;
-      background: #000 !important;
-    }
-    .banner-track {
-      display: flex !important;
-      width: 400% !important;
-      height: 100% !important;
-      animation: centoroSlide 24s ease-in-out infinite !important;
+      background: #ffffff !important;
     }
     .slide {
-      position: relative !important;
-      flex: 0 0 25% !important;
-      width: 25% !important;
-      max-width: 25% !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
       height: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
-      background: #000;
+      opacity: 0;
+      background: #ffffff;
+      animation: centoroFade 24s linear infinite;
     }
+    .slide:nth-child(1) { animation-delay: 0s; }
+    .slide:nth-child(2) { animation-delay: 8s; }
+    .slide:nth-child(3) { animation-delay: 16s; }
     .slide-img {
       position: absolute !important;
       top: 0 !important;
@@ -49,12 +50,12 @@
       object-fit: cover !important;
       object-position: center !important;
     }
-    /* 3 real slides + 1 duplicate of slide 1 so the loop restarts seamlessly */
-    @keyframes centoroSlide {
-      0%, 30%      { transform: translateX(0); }
-      33.33%, 63.33% { transform: translateX(-25%); }
-      66.67%, 96.67% { transform: translateX(-50%); }
-      100%         { transform: translateX(-75%); }
+    @keyframes centoroFade {
+      0%   { opacity: 1; }
+      30%  { opacity: 1; }
+      36%  { opacity: 0; }
+      94%  { opacity: 0; }
+      100% { opacity: 1; }
     }
 
     /* Desktop / tablet / phone image switching */
@@ -63,13 +64,13 @@
     .mobile-slide  { display: none !important; }
 
     @media (max-width: 1024px) {
-      .banner-slider { aspect-ratio: 4 / 3; }
+      .banner-slider { padding-bottom: 75% !important; }
       .desktop-slide { display: none !important; }
       .tablet-slide  { display: block !important; }
       .mobile-slide  { display: none !important; }
     }
     @media (max-width: 768px) {
-      .banner-slider { aspect-ratio: 3 / 4; }
+      .banner-slider { padding-bottom: 133% !important; }
       .desktop-slide { display: none !important; }
       .tablet-slide  { display: none !important; }
       .mobile-slide  { display: block !important; }
@@ -137,9 +138,9 @@
     <!-- HOME -->
     <div class="page active">
 
-      <!-- SLIDER: 3 UNIQUE SLIDES (Logo, Bull, Info) + 1 DUPLICATE OF SLIDE 1 FOR SEAMLESS LOOP -->
+      <!-- SLIDER: 3 SLIDES (Logo, Bull, Info) that fade into each other -->
       <div class="banner-slider">
-        <div class="banner-track">
+        
 
           <!-- Slide 1: Centoro Logo -->
           <div class="slide">
@@ -162,14 +163,6 @@
             <img src="images/slider-placeholder-mobile-3.jpg" alt="Centoro Enterprise Info" class="slide-img mobile-slide">
           </div>
 
-          <!-- Slide 4: Duplicate of Slide 1 (needed for the seamless loop, do not remove) -->
-          <div class="slide">
-            <img src="https://storage.cloud.google.com/centoroenterprise/slidesce/Desktop-Centoro--Logo1920-x-1080-Pix.png" alt="Centoro Enterprise Logo" class="slide-img desktop-slide">
-            <img src="images/slider-placeholder-tablet-1.jpg" alt="Centoro Enterprise Logo" class="slide-img tablet-slide">
-            <img src="images/slider-placeholder-mobile-1.jpg" alt="Centoro Enterprise Logo" class="slide-img mobile-slide">
-          </div>
-
-        </div>
       </div>
 
       <!-- STATS - GOLD LINES REMOVED -->
