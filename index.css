@@ -4,9 +4,7 @@
   box-sizing: border-box;
 }
 
-/* =====================================================
-   FULL-SCREEN SERIES TEASERS
-===================================================== */
+/* Full-screen series teasers */
 .series-teaser-full {
   width: 100%;
   min-height: 60vh;
@@ -94,9 +92,7 @@ a {
   padding-top: 0;
 }
 
-/* =====================================================
-   NEWS RIBBON
-===================================================== */
+/* news ribbon */
 .news-ribbon {
   width: 100vw;
   background: #1a1a1a;
@@ -127,13 +123,11 @@ a {
   border-right: 2px solid #FFC107;
 }
 @keyframes newsScroll {
-  0%   { transform: translateX(0); }
+  0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* =====================================================
-   HEADER
-===================================================== */
+/* header */
 .site-header {
   background: #ffffff;
   position: sticky;
@@ -246,30 +240,28 @@ a {
   margin: 10px 0;
 }
 
-/* =====================================================
-   BANNER SLIDER  ← FIXED SECTION
-===================================================== */
+/* banner slider */
 .banner-slider {
   width: 100vw;
-  height: 100vh;                /* full viewport height */
+  height: 100vh;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
   overflow: hidden;
-  background: #000000;          /* avoids white flash */
+  background: #000000;
   margin-top: 0;
   padding-top: 0;
 }
 .banner-track {
   display: flex;
-  width: 300%;                  /* 3 slides × 100% */
+  width: 300%;
   height: 100%;
   animation: scroll 25s linear infinite;
 }
 .slide {
-  width: 33.3333%;              /* 1/3 of the track = 100vw */
+  width: 33.3333%;
   height: 100%;
   flex-shrink: 0;
   position: relative;
@@ -279,19 +271,13 @@ a {
   justify-content: center;
   align-items: center;
 }
-.slide picture {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;            /* FILLS the slide */
+  object-fit: contain;
   object-position: center;
   display: block;
 }
-/* Seamless loop keyframes matched to 3 slides */
 @keyframes scroll {
   0%   { transform: translateX(0); }
   28%  { transform: translateX(0); }
@@ -301,17 +287,13 @@ a {
   94%  { transform: translateX(-66.6666%); }
   100% { transform: translateX(-100%); }
 }
-
-/* Mobile slider height tweak */
 @media (max-width: 768px) {
   .banner-slider {
     height: 60vh;
   }
 }
 
-/* =====================================================
-   STATS
-===================================================== */
+/* stats */
 .stats-fullwidth {
   width: 100vw;
   background: linear-gradient(135deg, #ffffff, #f0f0f0);
@@ -370,9 +352,7 @@ a {
   letter-spacing: 1px;
 }
 
-/* =====================================================
-   HERO
-===================================================== */
+/* hero */
 .hero-section {
   min-height: 30vh;
   display: flex;
@@ -427,9 +407,7 @@ a {
   letter-spacing: 1px;
 }
 
-/* =====================================================
-   SERIES TEASER (grid variant - not used on home, kept for other pages)
-===================================================== */
+/* series teaser */
 .series-teaser-section {
   padding: 50px 20px;
   background: #f8f8f8;
@@ -493,9 +471,7 @@ a {
   color: #1a1a1a;
 }
 
-/* =====================================================
-   FEATURED WORK
-===================================================== */
+/* featured work */
 .featured-work-section {
   padding: 50px 20px;
   background: #ffffff;
@@ -562,9 +538,7 @@ a {
   color: #1a1a1a;
 }
 
-/* =====================================================
-   WORK GALLERY
-===================================================== */
+/* work gallery */
 .work-page {
   padding: 30px 20px;
   max-width: 1400px;
@@ -675,9 +649,7 @@ a {
   transform: scale(1.05);
 }
 
-/* =====================================================
-   LIGHTBOX
-===================================================== */
+/* lightbox */
 .lightbox {
   display: none;
   position: fixed;
@@ -731,8 +703,12 @@ a {
   cursor: pointer;
   transition: all 0.3s;
 }
-.lightbox-prev { left: -60px; }
-.lightbox-next { right: -60px; }
+.lightbox-prev {
+  left: -60px;
+}
+.lightbox-next {
+  right: -60px;
+}
 .lightbox-prev:hover,
 .lightbox-next:hover {
   background: #1a1a1a;
@@ -747,9 +723,7 @@ a {
   font-size: 0.9rem;
 }
 
-/* =====================================================
-   ABOUT
-===================================================== */
+/* about */
 .about-page {
   padding: 30px 20px;
   max-width: 1200px;
@@ -947,9 +921,7 @@ a {
   font-weight: 600;
 }
 
-/* =====================================================
-   SERIES PAGE
-===================================================== */
+/* series */
 .series-page {
   padding: 30px 20px;
   max-width: 1200px;
@@ -1279,9 +1251,7 @@ a {
   display: inline-block;
 }
 
-/* =====================================================
-   PORTAL
-===================================================== */
+/* portal */
 .portal-page {
   padding: 30px 20px;
   max-width: 1200px;
@@ -1363,9 +1333,7 @@ a {
   background: #2563EB;
 }
 
-/* =====================================================
-   AUTH
-===================================================== */
+/* auth */
 .auth-container {
   max-width: 420px;
   margin: 0 auto;
@@ -1461,8 +1429,12 @@ a {
   height: 1px;
   background: #ddd;
 }
-.auth-divider::before { left: 0; }
-.auth-divider::after  { right: 0; }
+.auth-divider::before {
+  left: 0;
+}
+.auth-divider::after {
+  right: 0;
+}
 .auth-benefits {
   background: #f8f8f8;
   border: 1px solid #eee;
@@ -1490,9 +1462,7 @@ a {
   color: #2563EB;
 }
 
-/* =====================================================
-   DASHBOARD
-===================================================== */
+/* dashboard */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1530,9 +1500,18 @@ a {
   font-size: 0.7rem;
   font-weight: 600;
 }
-.status-completed { background: #10B981; color: #fff; }
-.status-progress  { background: #F59E0B; color: #fff; }
-.status-pending   { background: #94a3b8; color: #fff; }
+.status-completed {
+  background: #10B981;
+  color: #fff;
+}
+.status-progress {
+  background: #F59E0B;
+  color: #fff;
+}
+.status-pending {
+  background: #94a3b8;
+  color: #fff;
+}
 .project-type {
   color: #FFC107;
   font-size: 0.85rem;
@@ -1586,9 +1565,7 @@ a {
   color: #fff;
 }
 
-/* =====================================================
-   BEAT STORE
-===================================================== */
+/* beat store */
 .beat-store-header {
   display: flex;
   justify-content: space-between;
@@ -1736,9 +1713,7 @@ a {
   color: #fff;
 }
 
-/* =====================================================
-   PURCHASES
-===================================================== */
+/* purchases */
 .purchases-table {
   width: 100%;
   border-collapse: collapse;
@@ -1805,9 +1780,7 @@ a {
   color: #fff;
 }
 
-/* =====================================================
-   LIBRARY
-===================================================== */
+/* library */
 .library-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -1866,9 +1839,7 @@ a {
   color: #fff;
 }
 
-/* =====================================================
-   CONTACT
-===================================================== */
+/* contact */
 .contact-page {
   padding: 40px 20px;
   max-width: 1200px;
@@ -1958,9 +1929,7 @@ a {
   resize: vertical;
 }
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* footer */
 .site-footer {
   background: #1a1a1a;
   border-top: 4px solid #FFC107;
@@ -2059,9 +2028,7 @@ a {
   font-style: italic;
 }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* responsive */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 2.6rem;
@@ -2118,8 +2085,12 @@ a {
   .auth-container {
     padding: 20px;
   }
-  .lightbox-prev { left: 10px; }
-  .lightbox-next { right: 10px; }
+  .lightbox-prev {
+    left: 10px;
+  }
+  .lightbox-next {
+    right: 10px;
+  }
   .gallery-header {
     flex-direction: column;
     align-items: stretch;
@@ -2156,9 +2127,7 @@ a {
   }
 }
 
-/* =====================================================
-   CUSTOM ADDITIONS
-===================================================== */
+/* custom additions */
 .cta-quote {
   background: #2563EB;
   color: #fff;
@@ -2260,7 +2229,7 @@ a {
 }
 
 /* =====================================================
-   SERIES PAGE UPGRADES — Popup Modal & Player
+SERIES PAGE UPGRADES — Popup Modal & Player
 ===================================================== */
 .volume-mute-btn {
   background: none;
@@ -2303,7 +2272,7 @@ a {
 }
 @keyframes popupFadeIn {
   from { opacity: 0; }
-  to   { opacity: 1; }
+  to { opacity: 1; }
 }
 .series-popup-window {
   background: #ffffff;
@@ -2319,7 +2288,7 @@ a {
 }
 @keyframes popupSlideUp {
   from { transform: translateY(40px) scale(0.96); opacity: 0; }
-  to   { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
 }
 .series-popup-close {
   position: absolute;
@@ -2565,7 +2534,7 @@ a {
 }
 
 /* =====================================================
-   DASHBOARD FRIDAY MADNESS SECTION
+DASHBOARD FRIDAY MADNESS SECTION
 ===================================================== */
 .dashboard-friday-section {
   background: #ffffff;
@@ -2834,7 +2803,7 @@ a {
 }
 
 /* =====================================================
-   STORE PLAYER (Beat Store)
+STORE PLAYER (Beat Store)
 ===================================================== */
 .store-player {
   background: #1a1a1a;
@@ -2974,7 +2943,7 @@ a {
 }
 
 /* =====================================================
-   PURCHASES UPGRADE
+PURCHASES UPGRADE
 ===================================================== */
 .purchases-summary {
   display: grid;
@@ -3117,7 +3086,7 @@ a {
 }
 
 /* =====================================================
-   RESPONSIVE UPGRADES
+RESPONSIVE UPGRADES
 ===================================================== */
 @media (max-width: 768px) {
   .series-popup-grid {
@@ -3198,7 +3167,7 @@ a {
 }
 
 /* =====================================================
-   CONTRACTS PAGE STYLES
+CONTRACTS PAGE STYLES
 ===================================================== */
 .contracts-intro {
   text-align: center;
@@ -3494,7 +3463,7 @@ a {
 }
 
 /* =====================================================
-   MONTHLY LIBRARY STYLES
+MONTHLY LIBRARY STYLES
 ===================================================== */
 .monthly-library-intro {
   text-align: center;
@@ -3642,7 +3611,7 @@ a {
 }
 
 /* =====================================================
-   CLIENT PORTAL / PRIVATE PROJECTS STYLES
+CLIENT PORTAL / PRIVATE PROJECTS STYLES
 ===================================================== */
 .client-tabs {
   display: flex;
