@@ -257,12 +257,13 @@ a {
 }
 .banner-track {
   display: flex;
-  width: 400%;
+  width: 300%;
+  flex-shrink: 0;
   height: 100%;
   animation: scroll 30s linear infinite;
 }
 .slide {
-  width: 25%;
+  width: 33.3333%;
   height: 100%;
   flex-shrink: 0;
   position: relative;
@@ -282,12 +283,10 @@ a {
 @keyframes scroll {
   0%   { transform: translateX(0); }
   22%  { transform: translateX(0); }
-  25%  { transform: translateX(-25%); }
-  47%  { transform: translateX(-25%); }
-  50%  { transform: translateX(-50%); }
-  72%  { transform: translateX(-50%); }
-  75%  { transform: translateX(-75%); }
-  97%  { transform: translateX(-75%); }
+  33%  { transform: translateX(-33.3333%); }
+  55%  { transform: translateX(-33.3333%); }
+  66%  { transform: translateX(-66.6666%); }
+  88%  { transform: translateX(-66.6666%); }
   100% { transform: translateX(-100%); }
 }
 
@@ -3282,7 +3281,6 @@ CONTRACTS PAGE STYLES
 }
 .contract-rights-preview li i {
   color: #10B981;
-  font-size: 0.8rem;
 }
 .contract-actions {
   display: flex;
