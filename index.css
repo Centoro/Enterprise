@@ -243,7 +243,7 @@ a {
 /* banner slider */
 .banner-slider {
   width: 100vw;
-  height: 80vh;
+  aspect-ratio: 16 / 9;
   position: relative;
   left: 50%;
   right: 50%;
@@ -253,6 +253,7 @@ a {
   background: #000000;
   margin-top: 0;
   padding-top: 0;
+  max-height: 100vh;
 }
 .banner-track {
   display: flex;
@@ -274,7 +275,7 @@ a {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   display: block;
 }
@@ -288,11 +289,6 @@ a {
   75%  { transform: translateX(-75%); }
   97%  { transform: translateX(-75%); }
   100% { transform: translateX(-100%); }
-}
-@media (max-width: 768px) {
-  .banner-slider {
-    height: 60vh;
-  }
 }
 
 /* stats */
