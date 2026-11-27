@@ -7,6 +7,74 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
+
+  <!-- SLIDER FIX: placed after index.css so it wins over the old slider rules -->
+  <style>
+    .banner-slider {
+      position: relative !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      left: 0 !important;
+      right: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      overflow: hidden !important;
+      background: #000 !important;
+    }
+    .banner-track {
+      display: flex !important;
+      width: 400% !important;
+      height: 100% !important;
+      animation: centoroSlide 24s ease-in-out infinite !important;
+    }
+    .slide {
+      position: relative !important;
+      flex: 0 0 25% !important;
+      width: 25% !important;
+      max-width: 25% !important;
+      height: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #000;
+    }
+    .slide-img {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-height: none !important;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+    /* 3 real slides + 1 duplicate of slide 1 so the loop restarts seamlessly */
+    @keyframes centoroSlide {
+      0%, 30%      { transform: translateX(0); }
+      33.33%, 63.33% { transform: translateX(-25%); }
+      66.67%, 96.67% { transform: translateX(-50%); }
+      100%         { transform: translateX(-75%); }
+    }
+
+    /* Desktop / tablet / phone image switching */
+    .desktop-slide { display: block !important; }
+    .tablet-slide  { display: none !important; }
+    .mobile-slide  { display: none !important; }
+
+    @media (max-width: 1024px) {
+      .banner-slider { aspect-ratio: 4 / 3; }
+      .desktop-slide { display: none !important; }
+      .tablet-slide  { display: block !important; }
+      .mobile-slide  { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .banner-slider { aspect-ratio: 3 / 4; }
+      .desktop-slide { display: none !important; }
+      .tablet-slide  { display: none !important; }
+      .mobile-slide  { display: block !important; }
+    }
+  </style>
 </head>
 <body>
   <!-- NEWS RIBBON - SMALLER -->
@@ -68,11 +136,11 @@
   <main data-website-builder-root>
     <!-- HOME -->
     <div class="page active">
-      
-      <!-- SLIDER: 2 UNIQUE SLIDES + 1 DUPLICATE FOR SEAMLESS LOOP -->
+
+      <!-- SLIDER: 3 UNIQUE SLIDES (Logo, Bull, Info) + 1 DUPLICATE OF SLIDE 1 FOR SEAMLESS LOOP -->
       <div class="banner-slider">
         <div class="banner-track">
-          
+
           <!-- Slide 1: Centoro Logo -->
           <div class="slide">
             <img src="https://storage.cloud.google.com/centoroenterprise/slidesce/Desktop-Centoro--Logo1920-x-1080-Pix.png" alt="Centoro Enterprise Logo" class="slide-img desktop-slide">
@@ -83,11 +151,18 @@
           <!-- Slide 2: Centoro Bull -->
           <div class="slide">
             <img src="https://storage.cloud.google.com/centoroenterprise/slidesce/Desktop-Centoro-Bull1920-x-1080-Pix.png" alt="Centoro Enterprise Bull" class="slide-img desktop-slide">
-            <img src="images/slider-placeholder-tablet-1.jpg" alt="Centoro Enterprise Bull" class="slide-img tablet-slide">
-            <img src="images/slider-placeholder-mobile-1.jpg" alt="Centoro Enterprise Bull" class="slide-img mobile-slide">
+            <img src="images/slider-placeholder-tablet-2.jpg" alt="Centoro Enterprise Bull" class="slide-img tablet-slide">
+            <img src="images/slider-placeholder-mobile-2.jpg" alt="Centoro Enterprise Bull" class="slide-img mobile-slide">
           </div>
 
-          <!-- Slide 3: Centoro Logo (Exact duplicate of Slide 1 for seamless infinite scroll reset) -->
+          <!-- Slide 3: Centoro Info -->
+          <div class="slide">
+            <img src="https://storage.cloud.google.com/centoroenterprise/slidesce/Desktop-Centoro--Info1920-x-1080-Pix.png" alt="Centoro Enterprise Info" class="slide-img desktop-slide">
+            <img src="images/slider-placeholder-tablet-3.jpg" alt="Centoro Enterprise Info" class="slide-img tablet-slide">
+            <img src="images/slider-placeholder-mobile-3.jpg" alt="Centoro Enterprise Info" class="slide-img mobile-slide">
+          </div>
+
+          <!-- Slide 4: Duplicate of Slide 1 (needed for the seamless loop, do not remove) -->
           <div class="slide">
             <img src="https://storage.cloud.google.com/centoroenterprise/slidesce/Desktop-Centoro--Logo1920-x-1080-Pix.png" alt="Centoro Enterprise Logo" class="slide-img desktop-slide">
             <img src="images/slider-placeholder-tablet-1.jpg" alt="Centoro Enterprise Logo" class="slide-img tablet-slide">
@@ -134,27 +209,27 @@
         </div>
       </section>
 
-      <!-- FEATURED WORK -->
+      <!-- FEATURED WORK (golden borders removed) -->
       <section class="featured-work-section" style="background: #000000; padding: 50px 20px;">
         <h2 class="section-title" style="color: #ffffff;">FEATURED WORK</h2>
         <div class="featured-grid" style="max-width: 1200px; margin: 0 auto 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
           <div class="featured-item" onclick="location.href='work.html'" style="text-align: center; cursor: pointer;">
-            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: 2px solid #FFC107; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="images/placeholder-1.jpg" alt="Brand Power" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
+            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: none; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="https://storage.cloud.google.com/centoroenterprise/coversce/Centoro-Covers-Brand-Power.jpg" alt="Brand Power" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
             <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">Brand Power</h4>
             <p style="color: #aaaaaa; font-size: 0.85rem;">Branding & Identity</p>
           </div>
           <div class="featured-item" onclick="location.href='work.html'" style="text-align: center; cursor: pointer;">
-            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: 2px solid #FFC107; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="images/placeholder-2.jpg" alt="Web & App" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
+            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: none; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="https://storage.cloud.google.com/centoroenterprise/coversce/Centoro-Covers-Web-%26-App-Development.jpg" alt="Web & App" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
             <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">Web & App Development</h4>
             <p style="color: #aaaaaa; font-size: 0.85rem;">Digital Solutions</p>
           </div>
           <div class="featured-item" onclick="location.href='work.html'" style="text-align: center; cursor: pointer;">
-            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: 2px solid #FFC107; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="images/placeholder-3.jpg" alt="Photography" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
+            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: none; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="https://storage.cloud.google.com/centoroenterprise/coversce/Centoro-Covers-Photography-%26-Videography.jpg" alt="Photography" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
             <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">Photography & Videography</h4>
             <p style="color: #aaaaaa; font-size: 0.85rem;">Visual Storytelling</p>
           </div>
           <div class="featured-item" onclick="location.href='work.html'" style="text-align: center; cursor: pointer;">
-            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: 2px solid #FFC107; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="images/placeholder-4.jpg" alt="Beat Making" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
+            <div class="featured-image" style="width: 100%; aspect-ratio: 1/1; border: none; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #1a1a1a; transition: transform 0.3s;"><img src="https://storage.cloud.google.com/centoroenterprise/coversce/Centoro-Covers-Beat-Making-%26-Music.jpg" alt="Beat Making" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;"></div>
             <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">Beat Making & Music</h4>
             <p style="color: #aaaaaa; font-size: 0.85rem;">Music Production</p>
           </div>
